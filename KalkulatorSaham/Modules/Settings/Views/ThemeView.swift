@@ -27,7 +27,7 @@ struct ThemeView: View {
         }
         .modify {
             #if os(iOS)
-            $0.navigationBarTitle("Theme", displayMode: .inline)
+            $0.navigationBarTitle("theme".tr(), displayMode: .inline)
             #endif
         }
     }

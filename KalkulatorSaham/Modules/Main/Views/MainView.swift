@@ -16,123 +16,126 @@ struct MainView: View {
 
         #if canImport(UIKit)
             UINavigationBar.appearance().largeTitleTextAttributes = [
-                    .foregroundColor: UIColor(Color.accentColor)
+                .foregroundColor: UIColor(Color.accentColor)
             ]
         #endif
     }
 
 
     var body: some View {
-            NavView(store: store) {
+        NavView(store: store) {
+                
                 ScreenView {
                     List {
-                        Group {
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                        
+                        WithViewStore(store, observe: \.settings) { viewStore in
+                            Group {
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "AA", label: "Kalkulator ARA & ARB")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "AA", label: "ara_arb_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "PL", label: "Kalkulator Profit / Loss")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "PL", label: "profit_loss_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "PT", label: "Kalkulator Profit per Tick")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "PT", label: "profit_per_tick_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "AP", label: "Kalkulator Average Price")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "AP", label: "average_price_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "RR", label: "Kalkulator Risk Reward Ratio")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "RR", label: "risk_reward_ratio_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "PB", label: "Kalkulator Price Book Value")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "PB", label: "price_book_value_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "DY", label: "Kalkulator Dividen Yield")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "DY", label: "dividen_yield_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "SS", label: "Kalkulator Stock Split")
-                            }
-                            
-                            NavigationLink(
-                                destination: ProfitLossCalculatorView(
-                                    store: self.store.scope(
-                                        state: \.profitLossCalculator,
-                                        action: Main.Action.profitLossCalculator
+                                ) {
+                                    MenuRow(id: "SS", label: "stock_split_calculator".tr())
+                                }
+                                
+                                NavigationLink(
+                                    destination: ProfitLossCalculatorView(
+                                        store: self.store.scope(
+                                            state: \.profitLossCalculator,
+                                            action: Main.Action.profitLossCalculator
+                                        )
                                     )
-                                )
-                            ) {
-                                MenuRow(id: "RI", label: "Kalkulator Right Issue")
+                                ) {
+                                    MenuRow(id: "RI", label: "right_issue_calculator".tr())
+                                }
+                                
                             }
+                            .listRowBackground(Color.clear)
                             
                         }
-                        .listRowBackground(Color.clear)
-                        
                         
                     }
-                    
-                    
                     
                 }
                 .listStyle(.plain)

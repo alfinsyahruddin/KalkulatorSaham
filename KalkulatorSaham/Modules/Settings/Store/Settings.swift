@@ -7,15 +7,13 @@
 
 import Foundation
 import ComposableArchitecture
+
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
-enum Theme: String, CaseIterable {
-    case dark, light, system
-}
-
-enum Language: String, CaseIterable {
-    case english, indonesia, system
-}
 
 struct Settings: ReducerProtocol {
     struct State: Equatable {
@@ -36,17 +34,7 @@ struct Settings: ReducerProtocol {
                 return .fireAndForget {
                     UserDefaults.standard.set(theme.rawValue, forKey: UserDefaultsKey.theme)
                     
-                    var userInterfaceStyle: UIUserInterfaceStyle
-                    switch theme {
-                    case .system:
-                        userInterfaceStyle = .unspecified
-                    case .light:
-                        userInterfaceStyle = .light
-                    case .dark:
-                        userInterfaceStyle = .dark
-                    }
-                    
-                    UIApplication.shared.windows.first?.overrideUserInterfaceStyle = userInterfaceStyle
+                    self.updateTheme(theme)
                 }
             case let .setLanguage(language):
                 state.language = language
@@ -56,4 +44,34 @@ struct Settings: ReducerProtocol {
             }
         }
     }
+    
+    
+    private func updateTheme(_ theme: Theme) {
+        #if os(iOS)
+        var userInterfaceStyle: UIUserInterfaceStyle
+        switch theme {
+        case .system:
+            userInterfaceStyle = .unspecified
+        case .light:
+            userInterfaceStyle = .light
+        case .dark:
+            userInterfaceStyle = .dark
+        }
+
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = userInterfaceStyle
+        
+        #elseif os(macOS)
+        switch theme {
+        case .system:
+            NSApp.appearance = nil
+        case .light:
+            NSApp.appearance = NSAppearance(named: .vibrantLight)
+        case .dark:
+            NSApp.appearance = NSAppearance(named: .vibrantDark)
+        }
+        
+        #endif
+    }
+
 }
+

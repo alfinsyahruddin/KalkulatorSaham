@@ -13,12 +13,13 @@ struct ProfitLossCalculatorView: View {
     
     var body: some View {
         ScreenView {
-            Text("Profit & Loss Calculator")
+            Text("profit_loss_calculator".tr())
         }
         .modify {
             #if os(iOS)
-                $0.navigationBarTitle("Profit & Loss Calculator", displayMode: .inline)
+            $0.navigationBarTitle("profit_loss_calculator".tr(), displayMode: .inline)
             #endif
         }
     }
 }
+

@@ -27,7 +27,7 @@ struct LanguageView: View {
         }
         .modify {
             #if os(iOS)
-            $0.navigationBarTitle("Language", displayMode: .inline)
+            $0.navigationBarTitle("language".tr(), displayMode: .inline)
             #endif
         }
     }

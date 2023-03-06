@@ -20,7 +20,7 @@ struct SettingsView: View {
                             store: store
                         )
                     ) {
-                        MenuRow(icon: "icon.moon", label: "Theme")
+                        MenuRow(icon: "icon.moon", label: "theme".tr())
                     }
                     
                     NavigationLink(
@@ -28,7 +28,15 @@ struct SettingsView: View {
                             store: store
                         )
                     ) {
-                        MenuRow(icon: "icon.globe", label: "Language")
+                        MenuRow(icon: "icon.globe", label: "language".tr())
+                    }
+                    
+                    NavigationLink(
+                        destination: LanguageView(
+                            store: store
+                        )
+                    ) {
+                        MenuRow(icon: "icon.percent", label: "broker_fee".tr())
                     }
                 }
                 .listRowBackground(Color.clear)
@@ -42,7 +50,7 @@ struct SettingsView: View {
         }
         .modify {
             #if os(iOS)
-            $0.navigationBarTitle("Settings", displayMode: .inline)
+            $0.navigationBarTitle("settings".tr(), displayMode: .inline)
             #endif
         }
     }

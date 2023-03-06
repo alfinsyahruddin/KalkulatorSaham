@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct HomeView: View {
+    let store: StoreOf<Settings>
+
     var body: some View {
         ScreenView {
-            Text("Welcome to Kalkulator Saham.")
+            WithViewStore(store, observe: \.language) { viewStore in
+                Text("welcome".tr())
+            }
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

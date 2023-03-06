@@ -20,7 +20,7 @@ struct NavView<Content: View>: View {
     var body: some View {
         #if os(macOS)
         NavigationSplitView(sidebar: content, detail: {
-            HomeView()
+            HomeView(store: store.scope(state: \.settings, action: Main.Action.settings))
                 .toolbar {
                     Toolbar(store: store)
                 }

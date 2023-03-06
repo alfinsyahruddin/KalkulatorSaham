@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  KalkulatorSaham
+
+  Created by Alfin on 06/03/23.
+  
+*/
+
+"welcome" = "Welcome";
+"language" = "Language";
+"theme" = "Theme";
+"settings" = "Settings";
+"broker_fee" = "Broker Fee";
+"ara_arb_calculator" = "ARA & ARB Calculator";
+"profit_loss_calculator" = "Profit / Loss Calculator";
+"profit_per_tick_calculator" = "Profit per Tick Calculator";
+"average_price_calculator" = "Average Price Calculator";
+"risk_reward_ratio_calculator" = "Risk Reward Ratio Calculator";
+"price_book_value_calculator" = "Price Book Value Calculator";
+"dividen_yield_calculator" = "Dividen Yield Calculator";
+"stock_split_calculator" = "Stock Split Calculator";
+"right_issue_calculator" = "Right Issue Calculator";
