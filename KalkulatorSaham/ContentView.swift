@@ -15,7 +15,7 @@ struct ContentView: View {
                 initialState: Main.State(),
                 reducer: Main()
             )
-        )
+        )        
     }
 }
 

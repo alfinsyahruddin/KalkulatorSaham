@@ -10,21 +10,20 @@ import ComposableArchitecture
 
 struct MainView: View {
     let store: StoreOf<Main>
-    
+
     init(store: StoreOf<Main>) {
         self.store = store
-        
-#if canImport(UIKit)
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Color.accentColor)
-        ]
-#endif
+
+        #if canImport(UIKit)
+            UINavigationBar.appearance().largeTitleTextAttributes = [
+                    .foregroundColor: UIColor(Color.accentColor)
+            ]
+        #endif
     }
-    
-    
+
+
     var body: some View {
-        NavigationView {
-            WithViewStore(self.store, observe: { $0 }) { viewStore in
+            NavView(store: store) {
                 ScreenView {
                     List {
                         Group {
@@ -147,28 +146,12 @@ struct MainView: View {
                     $0.navigationBarTitle("Kalkulator Saham", displayMode: .large)
                     #endif
                 }
-                .toolbar {
-                    HStack {
-                        Button(action: {
-                            viewStore.send(.didTapShareButton)
-                        }) {
-                            Image("icon.share").renderingMode(.template)
-                        }
-                        
-                        Button(action: {
-                            viewStore.send(.didTapSettingsButton)
-                        }) {
-                            Image("icon.settings").renderingMode(.template)
-                        }
-                    }
-                }
-                
-                #if os(macOS)
-                HomeView()
-                #endif
-
             }
-        }
+            .modify {
+                #if os(iOS)
+                $0.navigationViewStyle(.stack)
+                #endif
+            }
     }
 }
 

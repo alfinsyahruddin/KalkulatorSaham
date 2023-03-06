@@ -11,13 +11,14 @@ import ComposableArchitecture
 
 struct Main: ReducerProtocol {
     struct State: Equatable {
+        var settings = Settings.State()
         var profitLossCalculator = ProfitLossCalculator.State()
     }
     
     enum Action: Equatable {
+        case settings(Settings.Action)
         case profitLossCalculator(ProfitLossCalculator.Action)
         case didTapShareButton
-        case didTapSettingsButton
     }
     
     var body: some ReducerProtocol<State, Action> {
@@ -26,11 +27,14 @@ struct Main: ReducerProtocol {
             switch action {
             case .didTapShareButton:
                 return .none
-            case .didTapSettingsButton:
-                return .none
             default:
                 return .none
             }
+        }
+   
+        
+        Scope(state: \.settings, action: /Action.settings) {
+            Settings()
         }
         
         Scope(state: \.profitLossCalculator, action: /Action.profitLossCalculator) {

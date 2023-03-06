@@ -14,6 +14,13 @@
 		A10E693429B1AADB00DA5DCA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A10E693329B1AADB00DA5DCA /* ComposableArchitecture */; };
 		A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E693729B1B3D500DA5DCA /* Menu.swift */; };
 		A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E693D29B1B49E00DA5DCA /* MainView.swift */; };
+		A122533F29B6188900C87F8A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122533E29B6188900C87F8A /* UserDefaultsKey.swift */; };
+		A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC329B5C9C8001B7502 /* SettingsView.swift */; };
+		A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC529B5C9F9001B7502 /* Settings.swift */; };
+		A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC729B5CCF2001B7502 /* LanguageView.swift */; };
+		A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC929B5CDED001B7502 /* ThemeView.swift */; };
+		A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFCB29B5DA39001B7502 /* RadioSelect.swift */; };
+		A17FEFCE29B5E625001B7502 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFCD29B5E625001B7502 /* NavigationView.swift */; };
 		A19D668629B4554100445B63 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D668529B4554100445B63 /* Color+Custom.swift */; };
 		A1EB2C0429B4AEC000EAF46B /* StockCalculator in Frameworks */ = {isa = PBXBuildFile; productRef = A1EB2C0329B4AEC000EAF46B /* StockCalculator */; };
 		A1EB2C0629B4AF7D00EAF46B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EB2C0529B4AF7D00EAF46B /* Colors.xcassets */; };
@@ -37,6 +44,13 @@
 		A10E692B29B1983000DA5DCA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A10E693729B1B3D500DA5DCA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		A10E693D29B1B49E00DA5DCA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A122533E29B6188900C87F8A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		A17FEFC329B5C9C8001B7502 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A17FEFC529B5C9F9001B7502 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A17FEFC729B5CCF2001B7502 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		A17FEFC929B5CDED001B7502 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		A17FEFCB29B5DA39001B7502 /* RadioSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSelect.swift; sourceTree = "<group>"; };
+		A17FEFCD29B5E625001B7502 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		A19D668529B4554100445B63 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		A1EB2C0529B4AF7D00EAF46B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A1EB2C0729B4B0DC00EAF46B /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
@@ -106,6 +120,7 @@
 		A10E693529B1B3B100DA5DCA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A122533D29B6186C00C87F8A /* Constants */,
 				A10E693F29B1B62C00DA5DCA /* Assets */,
 				A19D668429B4552800445B63 /* Extensions */,
 				A1EB2C0C29B4B56900EAF46B /* ViewModifiers */,
@@ -126,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				A10E693A29B1B44500DA5DCA /* Main */,
+				A17FEFC029B5C988001B7502 /* Settings */,
 				A1F9B0EE29B1E565004D2676 /* ProfitLossCalculator */,
 			);
 			path = Modules;
@@ -146,7 +162,6 @@
 			children = (
 				A10E693D29B1B49E00DA5DCA /* MainView.swift */,
 				A1EB2C1429B4C6B400EAF46B /* HomeView.swift */,
-				A1EB2C0729B4B0DC00EAF46B /* MenuRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +180,41 @@
 			isa = PBXGroup;
 			children = (
 				A1F9B0EA29B1D152004D2676 /* Main.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		A122533D29B6186C00C87F8A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A122533E29B6188900C87F8A /* UserDefaultsKey.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A17FEFC029B5C988001B7502 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A17FEFC229B5C99C001B7502 /* Store */,
+				A17FEFC129B5C994001B7502 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A17FEFC129B5C994001B7502 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A17FEFC329B5C9C8001B7502 /* SettingsView.swift */,
+				A17FEFC929B5CDED001B7502 /* ThemeView.swift */,
+				A17FEFC729B5CCF2001B7502 /* LanguageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A17FEFC229B5C99C001B7502 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A17FEFC529B5C9F9001B7502 /* Settings.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -189,6 +239,7 @@
 			children = (
 				A1EB2C0D29B4B57F00EAF46B /* watermarked.swift */,
 				A1EB2C1029B4C30500EAF46B /* modify.swift */,
+				A17FEFCD29B5E625001B7502 /* NavigationView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -197,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				A1EB2C0A29B4B35200EAF46B /* ScreenView.swift */,
+				A1EB2C0729B4B0DC00EAF46B /* MenuRow.swift */,
+				A17FEFCB29B5DA39001B7502 /* RadioSelect.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,19 +359,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17FEFCE29B5E625001B7502 /* NavigationView.swift in Sources */,
 				A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */,
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
 				A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */,
+				A122533F29B6188900C87F8A /* UserDefaultsKey.swift in Sources */,
 				A1EB2C0829B4B0DC00EAF46B /* MenuRow.swift in Sources */,
 				A19D668629B4554100445B63 /* Color+Custom.swift in Sources */,
 				A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */,
 				A1F9B0F229B1E5C5004D2676 /* ProfitLossCalculator.swift in Sources */,
+				A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */,
 				A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */,
+				A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */,
+				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
 				A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */,
 				A1F9B0F429B1E5D0004D2676 /* ProfitLossCalculatorView.swift in Sources */,
+				A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */,
 				A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */,
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,
+				A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSaham;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,7 +564,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSaham;
 				PRODUCT_NAME = "$(TARGET_NAME)";

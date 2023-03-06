@@ -15,7 +15,6 @@ struct ProfitLossCalculatorView: View {
         ScreenView {
             Text("Profit & Loss Calculator")
         }
-        .background(Color.red)
         .modify {
             #if os(iOS)
                 $0.navigationBarTitle("Profit & Loss Calculator", displayMode: .inline)
