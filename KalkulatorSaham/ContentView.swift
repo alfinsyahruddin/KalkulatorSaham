@@ -9,13 +9,15 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ContentView: View {
+    let store = Store(
+        initialState: Main.State(),
+        reducer: Main()
+    )
+    
     var body: some View {
         MainView(
-            store: Store(
-                initialState: Main.State(),
-                reducer: Main()
-            )
-        )        
+            store: store
+        )
     }
 }
 

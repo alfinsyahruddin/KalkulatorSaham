@@ -32,10 +32,10 @@ struct MainView: View {
                             Group {
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -43,21 +43,21 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
-                                    MenuRow(id: "PL", label: "profit_loss_calculator".tr())
+                                    MenuRow(id: "PL", label: "trading_return_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -65,10 +65,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -76,10 +76,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -87,10 +87,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -98,10 +98,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -109,10 +109,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {
@@ -120,10 +120,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ProfitLossCalculatorView(
+                                    destination: TradingReturnCalculatorView(
                                         store: self.store.scope(
-                                            state: \.profitLossCalculator,
-                                            action: Main.Action.profitLossCalculator
+                                            state: \.tradingReturnCalculator,
+                                            action: Main.Action.tradingReturnCalculator
                                         )
                                     )
                                 ) {

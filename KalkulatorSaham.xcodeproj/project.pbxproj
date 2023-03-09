@@ -19,6 +19,12 @@
 		A122534829B6221B00C87F8A /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534729B6221B00C87F8A /* String+Localization.swift */; };
 		A122534B29B6239D00C87F8A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534A29B6239D00C87F8A /* Language.swift */; };
 		A122534D29B623B700C87F8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534C29B623B700C87F8A /* Theme.swift */; };
+		A173FD4229B99C5900F17675 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4129B99C5900F17675 /* card.swift */; };
+		A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4329B9A91900F17675 /* Array+Chunk.swift */; };
+		A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4529B9A94000F17675 /* cornerRadius.swift */; };
+		A173FD4829B9A98F00F17675 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4729B9A98F00F17675 /* InformationCard.swift */; };
+		A173FD4A29B9A9A300F17675 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4929B9A9A300F17675 /* CustomTextField.swift */; };
+		A173FD4C29B9A9DE00F17675 /* BrokerFeeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */; };
 		A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC329B5C9C8001B7502 /* SettingsView.swift */; };
 		A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC529B5C9F9001B7502 /* Settings.swift */; };
 		A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FEFC729B5CCF2001B7502 /* LanguageView.swift */; };
@@ -35,8 +41,8 @@
 		A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C1429B4C6B400EAF46B /* HomeView.swift */; };
 		A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0EA29B1D152004D2676 /* Main.swift */; };
 		A1F9B0ED29B1DEBC004D2676 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F9B0EC29B1DEBC004D2676 /* Icons.xcassets */; };
-		A1F9B0F229B1E5C5004D2676 /* ProfitLossCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0F129B1E5C5004D2676 /* ProfitLossCalculator.swift */; };
-		A1F9B0F429B1E5D0004D2676 /* ProfitLossCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0F329B1E5D0004D2676 /* ProfitLossCalculatorView.swift */; };
+		A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0F129B1E5C5004D2676 /* TradingReturnCalculator.swift */; };
+		A1F9B0F429B1E5D0004D2676 /* TradingReturnCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0F329B1E5D0004D2676 /* TradingReturnCalculatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +60,12 @@
 		A122534729B6221B00C87F8A /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		A122534A29B6239D00C87F8A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A122534C29B623B700C87F8A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A173FD4129B99C5900F17675 /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
+		A173FD4329B9A91900F17675 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
+		A173FD4529B9A94000F17675 /* cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cornerRadius.swift; sourceTree = "<group>"; };
+		A173FD4729B9A98F00F17675 /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
+		A173FD4929B9A9A300F17675 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerFeeInformation.swift; sourceTree = "<group>"; };
 		A17FEFC329B5C9C8001B7502 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A17FEFC529B5C9F9001B7502 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A17FEFC729B5CCF2001B7502 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
@@ -69,8 +81,8 @@
 		A1EB2C1429B4C6B400EAF46B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A1F9B0EA29B1D152004D2676 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A1F9B0EC29B1DEBC004D2676 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		A1F9B0F129B1E5C5004D2676 /* ProfitLossCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitLossCalculator.swift; sourceTree = "<group>"; };
-		A1F9B0F329B1E5D0004D2676 /* ProfitLossCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitLossCalculatorView.swift; sourceTree = "<group>"; };
+		A1F9B0F129B1E5C5004D2676 /* TradingReturnCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingReturnCalculator.swift; sourceTree = "<group>"; };
+		A1F9B0F329B1E5D0004D2676 /* TradingReturnCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingReturnCalculatorView.swift; sourceTree = "<group>"; };
 		A1F9B0F529B1EE19004D2676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +165,7 @@
 			children = (
 				A10E693A29B1B44500DA5DCA /* Main */,
 				A17FEFC029B5C988001B7502 /* Settings */,
-				A1F9B0EE29B1E565004D2676 /* ProfitLossCalculator */,
+				A1F9B0EE29B1E565004D2676 /* TradingReturnCalculator */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -252,6 +264,7 @@
 			children = (
 				A19D668529B4554100445B63 /* Color+Custom.swift */,
 				A122534729B6221B00C87F8A /* String+Localization.swift */,
+				A173FD4329B9A91900F17675 /* Array+Chunk.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +281,8 @@
 			children = (
 				A1EB2C0D29B4B57F00EAF46B /* watermarked.swift */,
 				A1EB2C1029B4C30500EAF46B /* modify.swift */,
+				A173FD4129B99C5900F17675 /* card.swift */,
+				A173FD4529B9A94000F17675 /* cornerRadius.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -279,23 +294,26 @@
 				A1EB2C0A29B4B35200EAF46B /* ScreenView.swift */,
 				A1EB2C0729B4B0DC00EAF46B /* MenuRow.swift */,
 				A17FEFCB29B5DA39001B7502 /* RadioSelect.swift */,
+				A173FD4729B9A98F00F17675 /* InformationCard.swift */,
+				A173FD4929B9A9A300F17675 /* CustomTextField.swift */,
+				A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A1F9B0EE29B1E565004D2676 /* ProfitLossCalculator */ = {
+		A1F9B0EE29B1E565004D2676 /* TradingReturnCalculator */ = {
 			isa = PBXGroup;
 			children = (
 				A1F9B0F029B1E5B9004D2676 /* Store */,
 				A1F9B0EF29B1E5B3004D2676 /* Views */,
 			);
-			path = ProfitLossCalculator;
+			path = TradingReturnCalculator;
 			sourceTree = "<group>";
 		};
 		A1F9B0EF29B1E5B3004D2676 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A1F9B0F329B1E5D0004D2676 /* ProfitLossCalculatorView.swift */,
+				A1F9B0F329B1E5D0004D2676 /* TradingReturnCalculatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,7 +321,7 @@
 		A1F9B0F029B1E5B9004D2676 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				A1F9B0F129B1E5C5004D2676 /* ProfitLossCalculator.swift */,
+				A1F9B0F129B1E5C5004D2676 /* TradingReturnCalculator.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -390,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A173FD4A29B9A9A300F17675 /* CustomTextField.swift in Sources */,
 				A17FEFCE29B5E625001B7502 /* NavView.swift in Sources */,
 				A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */,
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
@@ -399,18 +418,23 @@
 				A1EB2C0829B4B0DC00EAF46B /* MenuRow.swift in Sources */,
 				A19D668629B4554100445B63 /* Color+Custom.swift in Sources */,
 				A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */,
-				A1F9B0F229B1E5C5004D2676 /* ProfitLossCalculator.swift in Sources */,
+				A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */,
+				A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */,
+				A173FD4C29B9A9DE00F17675 /* BrokerFeeInformation.swift in Sources */,
 				A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */,
 				A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */,
 				A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */,
 				A122534829B6221B00C87F8A /* String+Localization.swift in Sources */,
 				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
+				A173FD4229B99C5900F17675 /* card.swift in Sources */,
 				A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */,
-				A1F9B0F429B1E5D0004D2676 /* ProfitLossCalculatorView.swift in Sources */,
+				A1F9B0F429B1E5D0004D2676 /* TradingReturnCalculatorView.swift in Sources */,
 				A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */,
 				A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */,
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,
+				A173FD4829B9A98F00F17675 /* InformationCard.swift in Sources */,
+				A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */,
 				A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */,
 				A122534B29B6239D00C87F8A /* Language.swift in Sources */,
 			);

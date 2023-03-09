@@ -12,12 +12,12 @@ import ComposableArchitecture
 struct Main: ReducerProtocol {
     struct State: Equatable {
         var settings = Settings.State()
-        var profitLossCalculator = ProfitLossCalculator.State()
+        var tradingReturnCalculator = TradingReturnCalculator.State()
     }
     
     enum Action: Equatable {
         case settings(Settings.Action)
-        case profitLossCalculator(ProfitLossCalculator.Action)
+        case tradingReturnCalculator(TradingReturnCalculator.Action)
         case didTapShareButton
     }
     
@@ -37,8 +37,8 @@ struct Main: ReducerProtocol {
             Settings()
         }
         
-        Scope(state: \.profitLossCalculator, action: /Action.profitLossCalculator) {
-            ProfitLossCalculator()
+        Scope(state: \.tradingReturnCalculator, action: /Action.tradingReturnCalculator) {
+            TradingReturnCalculator()
         }
     }
 }

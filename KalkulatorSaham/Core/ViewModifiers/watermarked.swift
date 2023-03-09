@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        modifier(Watermark(text: text))
+    }
+}
+
+
 struct Watermark: ViewModifier {
     var text: String
 
@@ -19,11 +27,5 @@ struct Watermark: ViewModifier {
                 .padding(5)
                 .background(Color.black)
         }
-    }
-}
-
-extension View {
-    func watermarked(with text: String) -> some View {
-        modifier(Watermark(text: text))
     }
 }
