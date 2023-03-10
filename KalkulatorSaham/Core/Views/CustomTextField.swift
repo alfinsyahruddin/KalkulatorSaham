@@ -25,7 +25,7 @@ struct CustomTextField: View {
             .font(.caption.weight(.bold))
 
             TextField(placeholder ?? label, text: text)
-                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                .padding(EdgeInsets(top: 7, leading: 14, bottom: 7, trailing: 14))
                 .card()
         }
     }

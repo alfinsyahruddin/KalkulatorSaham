@@ -13,110 +13,117 @@ struct TradingReturnCalculatorView: View {
     
     var body: some View {
         ScreenView {
-            WithViewStore(store, observe: { $0 }) { viewStore in
-                VStack(alignment: .leading, spacing: 20) {
-                    HStack(spacing: 10) {
-                        CustomTextField(
-                            label: "buy_price".tr(),
-                            text: viewStore.binding(\.$buyPrice)
-                        )
-                        
-                        CustomTextField(
-                            label: "sell_price".tr(),
-                            text: viewStore.binding(\.$sellPrice)
-                        )
-                        
-                        CustomTextField(
-                            label: "lot".tr(),
-                            text: viewStore.binding(\.$lot)
-                        )
-                    }
-                    
-             
-                    BrokerFeeInformation()
-                    
-                    
-                    InformationCard(
-                        title: "calculation_result".tr(),
-                        headerStyle: InformationCardHeaderStyle(
-                            color: .systemBackground,
-                            backgroundColor: .green
-                        ),
-                        items: [
-                            InformationCardItem(
-                                key: "status".tr(),
-                                value: "xxx",
-                                valueStyle: InformationCardItemStyle(
-                                    color: .green
-                                )
-                            ),
-                            InformationCardItem(
-                                key: "profit".tr(),
-                                value: "xxx"
-                            ),
-
-                            InformationCardItem(
-                                key: "total_fee".tr(),
-                                value: "xxx"
-                            ),
-                            InformationCardItem(
-                                key: "net_profit".tr(),
-                                value: "xxx"
+            ScrollView {
+                WithViewStore(store, observe: { $0 }) { viewStore in
+                    VStack(alignment: .leading, spacing: 20) {
+                        HStack(spacing: 10) {
+                            CustomTextField(
+                                label: "buy_price".tr(),
+                                text: viewStore.binding(\.$buyPrice)
                             )
-                        ]
-                    )
-                    
-                    
-                    InformationCard(
-                        title: "buy_detail".tr(),
-                        items: [
-                            InformationCardItem(
-                                key: "buy_price".tr(),
-                                value: "xxx"
-                            ),
-                            InformationCardItem(
-                                key: "buy_value".tr(),
-                                value: "xxx"
-                            ),
                             
-                            InformationCardItem(
-                                key: "buy_fee".tr(),
-                                value: "xxx"
-                            ),
-                            InformationCardItem(
-                                key: "total_paid".tr(),
-                                value: "xxx"
+                            CustomTextField(
+                                label: "sell_price".tr(),
+                                text: viewStore.binding(\.$sellPrice)
                             )
-                        ]
-                    )
-                    
-                    InformationCard(
-                        title: "sell_detail",
-                        items: [
-                            InformationCardItem(
-                                key: "sell_price".tr(),
-                                value: "xxx"
-                            ),
-                            InformationCardItem(
-                                key: "sell_value".tr(),
-                                value: "xxx"
-                            ),
-
-                            InformationCardItem(
-                                key: "sell_fee".tr(),
-                                value: "xxx"
-                            ),
-                            InformationCardItem(
-                                key: "total_received".tr(),
-                                value: "xxx"
+                            
+                            CustomTextField(
+                                label: "lot".tr(),
+                                text: viewStore.binding(\.$lot)
                             )
-                        ]
-                    )
-                    
-                    
-                    Spacer()
+                        }
+                        
+                        
+                        BrokerFeeInformation()
+                        
+                        
+                        Button("calculate".tr()) {
+                            
+                        }
+                        .buttonStyle(CustomButtonStyle())
+                        
+                        
+                        InformationCard(
+                            title: "calculation_result".tr(),
+                            headerStyle: InformationCardHeaderStyle(
+                                color: .systemBackground,
+                                backgroundColor: .green
+                            ),
+                            items: [
+                                InformationCardItem(
+                                    key: "status".tr(),
+                                    value: "xxx",
+                                    valueStyle: InformationCardItemStyle(
+                                        color: .green
+                                    )
+                                ),
+                                InformationCardItem(
+                                    key: "profit".tr(),
+                                    value: "xxx"
+                                ),
+                                
+                                InformationCardItem(
+                                    key: "total_fee".tr(),
+                                    value: "xxx"
+                                ),
+                                InformationCardItem(
+                                    key: "net_profit".tr(),
+                                    value: "xxx"
+                                )
+                            ]
+                        )
+                        
+                        
+                        InformationCard(
+                            title: "buy_detail".tr(),
+                            items: [
+                                InformationCardItem(
+                                    key: "buy_price".tr(),
+                                    value: "xxx"
+                                ),
+                                InformationCardItem(
+                                    key: "buy_value".tr(),
+                                    value: "xxx"
+                                ),
+                                
+                                InformationCardItem(
+                                    key: "buy_fee".tr(),
+                                    value: "xxx"
+                                ),
+                                InformationCardItem(
+                                    key: "total_paid".tr(),
+                                    value: "xxx"
+                                )
+                            ]
+                        )
+                        
+                        InformationCard(
+                            title: "sell_detail".tr(),
+                            items: [
+                                InformationCardItem(
+                                    key: "sell_price".tr(),
+                                    value: "xxx"
+                                ),
+                                InformationCardItem(
+                                    key: "sell_value".tr(),
+                                    value: "xxx"
+                                ),
+                                
+                                InformationCardItem(
+                                    key: "sell_fee".tr(),
+                                    value: "xxx"
+                                ),
+                                InformationCardItem(
+                                    key: "total_received".tr(),
+                                    value: "xxx"
+                                )
+                            ]
+                        )
+                        
+                        Spacer()
+                    }
+                    .padding()
                 }
-                .padding()
             }
         }
         .modify {

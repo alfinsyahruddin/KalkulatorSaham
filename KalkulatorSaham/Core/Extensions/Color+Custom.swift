@@ -17,6 +17,7 @@ extension Color {
     static let tertiarySystemBackground = Color("TertiarySystemBackground")
     static let cardBackground = Color("CardBackground")
     
+    static let yellow = Color("AccentColor")
 }
 
 #if os(iOS)

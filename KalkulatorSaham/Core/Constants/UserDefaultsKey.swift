@@ -10,4 +10,6 @@ import Foundation
 struct UserDefaultsKey {
     static let theme = "theme"
     static let language = "language"
+    static let buyFee = "buyFee"
+    static let sellFee = "sellFee"
 }

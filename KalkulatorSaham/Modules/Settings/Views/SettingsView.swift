@@ -32,7 +32,7 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink(
-                        destination: LanguageView(
+                        destination: BrokerFeeView(
                             store: store
                         )
                     ) {

@@ -42,3 +42,17 @@
 "sell_value" = "Sell Value";
 "sell_fee" = "Sell Fee";
 "total_received" = "Total Received";
+"coming_soon" = "Coming Soon!";
+"this_feature_is_not_available_at_this_time" = "This feature is not available at this time, We will notify you once this feature is ready.";
+"symmetric" = "Symmetric";
+"asymmetric" = "Asymmetric";
+"acceleration" = "Acceleration";
+"price" = "Price";
+"percentage" = "Percentage";
+"total_percentage" = "Total Percentage";
+"total" = "Total";
+"loss" = "Loss";
+"profit" = "Profit";
+"value" = "Value";
+"calculate" = "Calculate";
+"please_enter_broker_fee" = "Please enter broker fee in percentage.";

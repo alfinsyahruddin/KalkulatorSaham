@@ -42,3 +42,17 @@
 "sell_value" = "Nilai Jual";
 "sell_fee" = "Biaya Jual";
 "total_received" = "Total Diterima";
+"coming_soon" = "Segera Datang!";
+"this_feature_is_not_available_at_this_time" = "Fitur ini belum tersedia saat ini, Kami akan memberi tahu anda jika fitur ini suadah siap.";
+"symmetric" = "Simetris";
+"asymmetric" = "Asimetris";
+"acceleration" = "Akselerasi";
+"price" = "Harga";
+"percentage" = "Persentase";
+"total_percentage" = "Total Persentase";
+"total" = "Total";
+"loss" = "Kerugian";
+"profit" = "Keuntungan";
+"value" = "Nilai";
+"calculate" = "Hitung{";
+"please_enter_broker_fee" = "Silakan masukkan biaya broker dalam persentase.";

@@ -13,11 +13,15 @@ struct Main: ReducerProtocol {
     struct State: Equatable {
         var settings = Settings.State()
         var tradingReturnCalculator = TradingReturnCalculator.State()
+        var araArbCalculator = AraArbCalculator.State()
+        var profitPerTickCalculator = ProfitPerTickCalculator.State()
     }
     
     enum Action: Equatable {
         case settings(Settings.Action)
         case tradingReturnCalculator(TradingReturnCalculator.Action)
+        case araArbCalculator(AraArbCalculator.Action)
+        case profitPerTickCalculator(ProfitPerTickCalculator.Action)
         case didTapShareButton
     }
     
@@ -37,9 +41,19 @@ struct Main: ReducerProtocol {
             Settings()
         }
         
+        Scope(state: \.araArbCalculator, action: /Action.araArbCalculator) {
+            AraArbCalculator()
+        }
+        
         Scope(state: \.tradingReturnCalculator, action: /Action.tradingReturnCalculator) {
             TradingReturnCalculator()
         }
+        
+        Scope(state: \.profitPerTickCalculator, action: /Action.profitPerTickCalculator) {
+            ProfitPerTickCalculator()
+        }
+        
+      
     }
 }
 

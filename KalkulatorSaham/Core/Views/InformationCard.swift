@@ -10,7 +10,7 @@ import SwiftUI
 
 struct InformationCardHeaderStyle: Hashable {
     var color: Color = .label
-    var backgroundColor: Color = .secondarySystemBackground
+    var backgroundColor: Color = .tertiarySystemBackground
 }
 
 struct InformationCardItemStyle: Hashable {

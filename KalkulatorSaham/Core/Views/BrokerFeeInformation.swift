@@ -16,10 +16,10 @@ struct BrokerFeeInformation: View {
                     .fontWeight(.bold)
                 Text("buy_x_&_sell_x".tr(with: ["0.15%", "0.25%"]))
                 Text("change".tr())
-                    .foregroundColor(.red)
+                    .foregroundColor(.accentColor)
                     .fontWeight(.bold)
             }
         }
-        .font(.callout)
+        .font(.caption)
     }
 }

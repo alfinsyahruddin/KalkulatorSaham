@@ -15,9 +15,9 @@ struct MainView: View {
         self.store = store
 
         #if canImport(UIKit)
-            UINavigationBar.appearance().largeTitleTextAttributes = [
-                .foregroundColor: UIColor(Color.accentColor)
-            ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(Color.accentColor)
+        ]
         #endif
     }
 
@@ -29,13 +29,12 @@ struct MainView: View {
                     List {
                         
                         WithViewStore(store, observe: \.settings) { viewStore in
-                            Group {
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
+                                    destination: AraArbCalculatorView(
                                         store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
+                                            state: \.araArbCalculator,
+                                            action: Main.Action.araArbCalculator
                                         )
                                     )
                                 ) {
@@ -54,10 +53,10 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
+                                    destination: ProfitPerTickCalculatorView(
                                         store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
+                                            state: \.profitPerTickCalculator,
+                                            action: Main.Action.profitPerTickCalculator
                                         )
                                     )
                                 ) {
@@ -65,75 +64,74 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("average_price_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "AP", label: "average_price_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("risk_reward_ratio_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "RR", label: "risk_reward_ratio_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("price_book_value_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "PB", label: "price_book_value_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("dividen_yield_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "DY", label: "dividen_yield_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("stock_split_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "SS", label: "stock_split_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        )
-                                    )
+                                    destination: ComingSoonView()
+                                        .modify {
+                                            #if os(iOS)
+                                            $0.navigationBarTitle("right_issue_calculator".tr(), displayMode: .inline)
+                                            #endif
+                                        }
                                 ) {
                                     MenuRow(id: "RI", label: "right_issue_calculator".tr())
                                 }
                                 
-                            }
-                            .listRowBackground(Color.clear)
                             
                         }
+                            .listRowBackground(Color.clear)
                         
                     }
                     

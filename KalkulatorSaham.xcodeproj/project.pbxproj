@@ -19,6 +19,24 @@
 		A122534829B6221B00C87F8A /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534729B6221B00C87F8A /* String+Localization.swift */; };
 		A122534B29B6239D00C87F8A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534A29B6239D00C87F8A /* Language.swift */; };
 		A122534D29B623B700C87F8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534C29B623B700C87F8A /* Theme.swift */; };
+		A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002229BB1148002A1F5E /* StorageProtocol.swift */; };
+		A15B002529BB1154002A1F5E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */; };
+		A15B002829BB1588002A1F5E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002729BB1588002A1F5E /* Storage.swift */; };
+		A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002929BB1DA7002A1F5E /* ThemeManager.swift */; };
+		A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002C29BB2115002A1F5E /* UserDefaults.swift */; };
+		A15B002F29BB29BA002A1F5E /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */; };
+		A1648AA429BA146E00705200 /* AraArbCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA329BA146E00705200 /* AraArbCalculator.swift */; };
+		A1648AA629BA14DA00705200 /* AraArbCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */; };
+		A1648AAA29BA163000705200 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA929BA163000705200 /* ComingSoonView.swift */; };
+		A1648AAC29BA19FA00705200 /* Double+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AAB29BA19FA00705200 /* Double+Format.swift */; };
+		A1648AAE29BA1A2100705200 /* Int+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AAD29BA1A2100705200 /* Int+Format.swift */; };
+		A1648AB029BA1A5C00705200 /* NumberFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AAF29BA1A5C00705200 /* NumberFormatType.swift */; };
+		A1648AB229BA1F8600705200 /* String+Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AB129BA1F8600705200 /* String+Percentage.swift */; };
+		A1648AB429BA20CC00705200 /* border.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AB329BA20CC00705200 /* border.swift */; };
+		A1648AB729BA210B00705200 /* AutoRejectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AB629BA210B00705200 /* AutoRejectCard.swift */; };
+		A1648ABD29BA226B00705200 /* ProfitPerTickCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648ABC29BA226B00705200 /* ProfitPerTickCalculator.swift */; };
+		A1648ABF29BA22AA00705200 /* ProfitPerTickCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648ABE29BA22AA00705200 /* ProfitPerTickCalculatorView.swift */; };
+		A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AC029BA240900705200 /* BrokerFeeView.swift */; };
 		A173FD4229B99C5900F17675 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4129B99C5900F17675 /* card.swift */; };
 		A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4329B9A91900F17675 /* Array+Chunk.swift */; };
 		A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4529B9A94000F17675 /* cornerRadius.swift */; };
@@ -60,6 +78,24 @@
 		A122534729B6221B00C87F8A /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		A122534A29B6239D00C87F8A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A122534C29B623B700C87F8A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A15B002229BB1148002A1F5E /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		A15B002729BB1588002A1F5E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		A15B002929BB1DA7002A1F5E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		A15B002C29BB2115002A1F5E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		A1648AA329BA146E00705200 /* AraArbCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraArbCalculator.swift; sourceTree = "<group>"; };
+		A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraArbCalculatorView.swift; sourceTree = "<group>"; };
+		A1648AA929BA163000705200 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		A1648AAB29BA19FA00705200 /* Double+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Format.swift"; sourceTree = "<group>"; };
+		A1648AAD29BA1A2100705200 /* Int+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Format.swift"; sourceTree = "<group>"; };
+		A1648AAF29BA1A5C00705200 /* NumberFormatType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatType.swift; sourceTree = "<group>"; };
+		A1648AB129BA1F8600705200 /* String+Percentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Percentage.swift"; sourceTree = "<group>"; };
+		A1648AB329BA20CC00705200 /* border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = border.swift; sourceTree = "<group>"; };
+		A1648AB629BA210B00705200 /* AutoRejectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoRejectCard.swift; sourceTree = "<group>"; };
+		A1648ABC29BA226B00705200 /* ProfitPerTickCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPerTickCalculator.swift; sourceTree = "<group>"; };
+		A1648ABE29BA22AA00705200 /* ProfitPerTickCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPerTickCalculatorView.swift; sourceTree = "<group>"; };
+		A1648AC029BA240900705200 /* BrokerFeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerFeeView.swift; sourceTree = "<group>"; };
 		A173FD4129B99C5900F17675 /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
 		A173FD4329B9A91900F17675 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
 		A173FD4529B9A94000F17675 /* cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cornerRadius.swift; sourceTree = "<group>"; };
@@ -141,11 +177,13 @@
 		A10E693529B1B3B100DA5DCA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A15B002629BB1578002A1F5E /* DI */,
+				A10E693F29B1B62C00DA5DCA /* Assets */,
 				A122534929B6239700C87F8A /* Enums */,
 				A122534229B61D4B00C87F8A /* Localization */,
 				A122533D29B6186C00C87F8A /* Constants */,
-				A10E693F29B1B62C00DA5DCA /* Assets */,
 				A19D668429B4552800445B63 /* Extensions */,
+				A15B002029BB1113002A1F5E /* Managers */,
 				A1EB2C0C29B4B56900EAF46B /* ViewModifiers */,
 				A1EB2C0F29B4B67C00EAF46B /* Views */,
 			);
@@ -164,8 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				A10E693A29B1B44500DA5DCA /* Main */,
-				A17FEFC029B5C988001B7502 /* Settings */,
+				A1648AA029BA142700705200 /* AraArbCalculator */,
 				A1F9B0EE29B1E565004D2676 /* TradingReturnCalculator */,
+				A1648AB929BA223900705200 /* ProfitPerTickCalculator */,
+				A17FEFC029B5C988001B7502 /* Settings */,
+				A1648AA729BA161D00705200 /* ComingSoon */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -226,10 +267,121 @@
 		A122534929B6239700C87F8A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				A1648AAF29BA1A5C00705200 /* NumberFormatType.swift */,
 				A122534A29B6239D00C87F8A /* Language.swift */,
 				A122534C29B623B700C87F8A /* Theme.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		A15B002029BB1113002A1F5E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A15B002B29BB1E4C002A1F5E /* Theme */,
+				A15B002129BB1122002A1F5E /* Storage */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A15B002129BB1122002A1F5E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A15B002229BB1148002A1F5E /* StorageProtocol.swift */,
+				A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A15B002629BB1578002A1F5E /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				A15B002729BB1588002A1F5E /* Storage.swift */,
+				A15B002C29BB2115002A1F5E /* UserDefaults.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		A15B002B29BB1E4C002A1F5E /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				A15B002929BB1DA7002A1F5E /* ThemeManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		A1648AA029BA142700705200 /* AraArbCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AB829BA212600705200 /* Components */,
+				A1648AA129BA144600705200 /* Store */,
+				A1648AA229BA144E00705200 /* Views */,
+			);
+			path = AraArbCalculator;
+			sourceTree = "<group>";
+		};
+		A1648AA129BA144600705200 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AA329BA146E00705200 /* AraArbCalculator.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		A1648AA229BA144E00705200 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1648AA729BA161D00705200 /* ComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AA829BA162500705200 /* Views */,
+			);
+			path = ComingSoon;
+			sourceTree = "<group>";
+		};
+		A1648AA829BA162500705200 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AA929BA163000705200 /* ComingSoonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1648AB829BA212600705200 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1648AB629BA210B00705200 /* AutoRejectCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A1648AB929BA223900705200 /* ProfitPerTickCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A1648ABB29BA225600705200 /* Store */,
+				A1648ABA29BA225000705200 /* Views */,
+			);
+			path = ProfitPerTickCalculator;
+			sourceTree = "<group>";
+		};
+		A1648ABA29BA225000705200 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1648ABE29BA22AA00705200 /* ProfitPerTickCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1648ABB29BA225600705200 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A1648ABC29BA226B00705200 /* ProfitPerTickCalculator.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		A17FEFC029B5C988001B7502 /* Settings */ = {
@@ -247,6 +399,7 @@
 				A17FEFC329B5C9C8001B7502 /* SettingsView.swift */,
 				A17FEFC929B5CDED001B7502 /* ThemeView.swift */,
 				A17FEFC729B5CCF2001B7502 /* LanguageView.swift */,
+				A1648AC029BA240900705200 /* BrokerFeeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +418,9 @@
 				A19D668529B4554100445B63 /* Color+Custom.swift */,
 				A122534729B6221B00C87F8A /* String+Localization.swift */,
 				A173FD4329B9A91900F17675 /* Array+Chunk.swift */,
+				A1648AAB29BA19FA00705200 /* Double+Format.swift */,
+				A1648AAD29BA1A2100705200 /* Int+Format.swift */,
+				A1648AB129BA1F8600705200 /* String+Percentage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +439,7 @@
 				A1EB2C1029B4C30500EAF46B /* modify.swift */,
 				A173FD4129B99C5900F17675 /* card.swift */,
 				A173FD4529B9A94000F17675 /* cornerRadius.swift */,
+				A1648AB329BA20CC00705200 /* border.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -297,6 +454,7 @@
 				A173FD4729B9A98F00F17675 /* InformationCard.swift */,
 				A173FD4929B9A9A300F17675 /* CustomTextField.swift */,
 				A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */,
+				A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,33 +566,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15B002F29BB29BA002A1F5E /* CustomButtonStyle.swift in Sources */,
+				A1648AAE29BA1A2100705200 /* Int+Format.swift in Sources */,
+				A15B002829BB1588002A1F5E /* Storage.swift in Sources */,
 				A173FD4A29B9A9A300F17675 /* CustomTextField.swift in Sources */,
 				A17FEFCE29B5E625001B7502 /* NavView.swift in Sources */,
 				A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */,
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
 				A122534D29B623B700C87F8A /* Theme.swift in Sources */,
 				A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */,
+				A1648AAA29BA163000705200 /* ComingSoonView.swift in Sources */,
 				A122533F29B6188900C87F8A /* UserDefaultsKey.swift in Sources */,
 				A1EB2C0829B4B0DC00EAF46B /* MenuRow.swift in Sources */,
 				A19D668629B4554100445B63 /* Color+Custom.swift in Sources */,
 				A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */,
 				A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */,
+				A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */,
 				A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */,
+				A1648AAC29BA19FA00705200 /* Double+Format.swift in Sources */,
 				A173FD4C29B9A9DE00F17675 /* BrokerFeeInformation.swift in Sources */,
 				A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */,
+				A1648AB729BA210B00705200 /* AutoRejectCard.swift in Sources */,
 				A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */,
 				A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */,
+				A1648ABD29BA226B00705200 /* ProfitPerTickCalculator.swift in Sources */,
+				A1648AB429BA20CC00705200 /* border.swift in Sources */,
+				A1648AA429BA146E00705200 /* AraArbCalculator.swift in Sources */,
+				A1648AA629BA14DA00705200 /* AraArbCalculatorView.swift in Sources */,
 				A122534829B6221B00C87F8A /* String+Localization.swift in Sources */,
 				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
+				A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */,
 				A173FD4229B99C5900F17675 /* card.swift in Sources */,
 				A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */,
 				A1F9B0F429B1E5D0004D2676 /* TradingReturnCalculatorView.swift in Sources */,
+				A15B002529BB1154002A1F5E /* UserDefaultsStorage.swift in Sources */,
 				A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */,
 				A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */,
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,
+				A1648AB229BA1F8600705200 /* String+Percentage.swift in Sources */,
 				A173FD4829B9A98F00F17675 /* InformationCard.swift in Sources */,
+				A1648ABF29BA22AA00705200 /* ProfitPerTickCalculatorView.swift in Sources */,
 				A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */,
+				A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */,
+				A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */,
+				A1648AB029BA1A5C00705200 /* NumberFormatType.swift in Sources */,
 				A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */,
 				A122534B29B6239D00C87F8A /* Language.swift in Sources */,
 			);
@@ -683,7 +859,7 @@
 			repositoryURL = "https://github.com/alfinsyahruddin/StockCalculator";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
