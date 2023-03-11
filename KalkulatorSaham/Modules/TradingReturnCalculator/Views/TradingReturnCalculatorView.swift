@@ -10,7 +10,7 @@ import ComposableArchitecture
 import StockCalculator
 
 struct TradingReturnCalculatorView: View {
-    let store: Store<TradingReturnCalculator.State, TradingReturnCalculator.Action>
+    let store: StoreOf<TradingReturnCalculator>
     let settingsStore: StoreOf<Settings>
 
     var body: some View {

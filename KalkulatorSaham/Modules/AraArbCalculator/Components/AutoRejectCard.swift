@@ -24,11 +24,11 @@ struct AutoRejectCard: View {
                 
                 HStack {
                     Text(price.f(.currency))
-                        .font(.title3)
+                        .font(.body)
                         .fontWeight(.bold)
                     
                     Text(priceChange.f(.withPlus))
-                        .font(.title3)
+                        .font(.body)
                         .foregroundColor(color)
                 }
             }
@@ -41,7 +41,7 @@ struct AutoRejectCard: View {
                     .foregroundColor(.secondaryLabel)
                 
                 Text(percentage.f(.withPlus).percentage())
-                    .font(.title3)
+                    .font(.body)
                     .foregroundColor(color)
             }
             
@@ -52,7 +52,7 @@ struct AutoRejectCard: View {
                     .foregroundColor(.secondaryLabel)
                 
                 Text(totalPercentage.f(.withPlus).percentage())
-                    .font(.title3)
+                    .font(.body)
                     .foregroundColor(color)
             }
         }

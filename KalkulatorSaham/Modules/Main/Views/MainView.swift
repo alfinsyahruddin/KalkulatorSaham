@@ -61,6 +61,10 @@ struct MainView: View {
                                         store: store.scope(
                                             state: \.profitPerTickCalculator,
                                             action: Main.Action.profitPerTickCalculator
+                                        ),
+                                        settingsStore: store.scope(
+                                            state: \.settings,
+                                            action: Main.Action.settings
                                         )
                                     )
                                 ) {

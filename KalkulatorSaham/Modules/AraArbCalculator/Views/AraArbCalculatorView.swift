@@ -8,6 +8,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import StockCalculator
 
 struct AraArbCalculatorView: View {
     let store: StoreOf<AraArbCalculator>
@@ -20,7 +21,8 @@ struct AraArbCalculatorView: View {
                         VStack(spacing: 10) {
                             CustomTextField(
                                 label: "price".tr(),
-                                text: viewStore.binding(\.$price)
+                                value: viewStore.binding(\.$price),
+                                keyboardType: .numberPad
                             )
                             
                             Picker("Type", selection: viewStore.binding(\.$type)) {
@@ -32,38 +34,57 @@ struct AraArbCalculatorView: View {
                         }
                         
                         Button("calculate".tr()) {
-                            
+                            viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
                         
-                        VStack(spacing: 10) {
-                            AutoRejectCard(
-                                color: .green,
-                                priceCaption: "ARA #1",
-                                price: 135,
-                                priceChange: 35,
-                                percentage: 35,
-                                totalPercentage: 35
-                            )
-                            
-                            AutoRejectCard(
-                                color: .yellow,
-                                priceCaption: "price".tr(),
-                                price: 100,
-                                priceChange: 0,
-                                percentage: 0,
-                                totalPercentage: 0
-                            )
-                            
-                            AutoRejectCard(
-                                color: .red,
-                                priceCaption: "ARB #1",
-                                price: 135,
-                                priceChange: 35,
-                                percentage: 35,
-                                totalPercentage: 35
-                            )
+                        Divider()
+                        
+                        if let autoRejects = viewStore.autoRejects {
+                            VStack(spacing: 10) {
+                                ForEach(0..<autoRejects.ara.count, id: \.self) { index in
+                                    let autoReject = autoRejects.ara[index]
+                                    
+                                    AutoRejectCard(
+                                        color: .green,
+                                        priceCaption: "ARA #\(5-index)",
+                                        price: autoReject.price,
+                                        priceChange: autoReject.priceChange,
+                                        percentage: autoReject.percentage,
+                                        totalPercentage: autoReject.totalPercentage
+                                    )
+                                }
+                                
+                                AutoRejectCard(
+                                    color: .yellow,
+                                    priceCaption: "Price",
+                                    price: viewStore.autoRejectPrice,
+                                    priceChange: 0,
+                                    percentage: 0,
+                                    totalPercentage: 0
+                                )
+
+                                ForEach(0..<autoRejects.arb.count, id: \.self) { index in
+                                    let autoReject = autoRejects.arb[index]
+                                    
+                                    AutoRejectCard(
+                                        color: .red,
+                                        priceCaption: "ARB #\(index+1)",
+                                        price: autoReject.price,
+                                        priceChange: autoReject.priceChange,
+                                        percentage: autoReject.percentage,
+                                        totalPercentage: autoReject.totalPercentage
+                                    )
+                                }
+                            }
                         }
+                        
+                        
+                        
+                      
+                            
+                      
+                        
                         
                         
                         Spacer()

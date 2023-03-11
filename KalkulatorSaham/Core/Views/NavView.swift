@@ -40,7 +40,7 @@ struct NavView<Content: View>: View {
 
 struct Toolbar: View {
     var store: StoreOf<Main>
-    
+
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             HStack {
@@ -49,6 +49,7 @@ struct Toolbar: View {
                 }) {
                     Image("icon.share").renderingMode(.template)
                 }
+                
                 
                 NavigationLink(
                     destination: SettingsView(store: self.store.scope(
@@ -60,6 +61,12 @@ struct Toolbar: View {
                 }
                 
             }
+            .sheet(isPresented: viewStore.binding(\.$showShareSheet)) {
+                ActivityView(
+                    text: "download_kalkulator_saham_app_on_the_appstore".tr()
+                )
+            }
         }
-    }    
+    }
 }
+

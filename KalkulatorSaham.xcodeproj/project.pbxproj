@@ -19,6 +19,10 @@
 		A122534829B6221B00C87F8A /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534729B6221B00C87F8A /* String+Localization.swift */; };
 		A122534B29B6239D00C87F8A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534A29B6239D00C87F8A /* Language.swift */; };
 		A122534D29B623B700C87F8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122534C29B623B700C87F8A /* Theme.swift */; };
+		A12C077B29BCCD4300B4F0EE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C077A29BCCD4300B4F0EE /* ActivityView.swift */; };
+		A12C077D29BCCD7000B4F0EE /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C077C29BCCD7000B4F0EE /* TableView.swift */; };
+		A12C077F29BCCD9E00B4F0EE /* Collection+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C077E29BCCD9E00B4F0EE /* Collection+Subscript.swift */; };
+		A12C078129BCCDB500B4F0EE /* Double+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C078029BCCDB500B4F0EE /* Double+Color.swift */; };
 		A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002229BB1148002A1F5E /* StorageProtocol.swift */; };
 		A15B002529BB1154002A1F5E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */; };
 		A15B002829BB1588002A1F5E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002729BB1588002A1F5E /* Storage.swift */; };
@@ -82,6 +86,10 @@
 		A122534729B6221B00C87F8A /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		A122534A29B6239D00C87F8A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A122534C29B623B700C87F8A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A12C077A29BCCD4300B4F0EE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		A12C077C29BCCD7000B4F0EE /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		A12C077E29BCCD9E00B4F0EE /* Collection+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Subscript.swift"; sourceTree = "<group>"; };
+		A12C078029BCCDB500B4F0EE /* Double+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Color.swift"; sourceTree = "<group>"; };
 		A15B002229BB1148002A1F5E /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		A15B002729BB1588002A1F5E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -185,9 +193,9 @@
 		A10E693529B1B3B100DA5DCA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A1B8B9DE29BB661700056960 /* Config */,
 				A15B002629BB1578002A1F5E /* DI */,
 				A10E693F29B1B62C00DA5DCA /* Assets */,
+				A1B8B9DE29BB661700056960 /* Config */,
 				A122534929B6239700C87F8A /* Enums */,
 				A122534229B61D4B00C87F8A /* Localization */,
 				A122533D29B6186C00C87F8A /* Constants */,
@@ -433,6 +441,8 @@
 				A1648AB129BA1F8600705200 /* String+Percentage.swift */,
 				A1B8B9DA29BB5E0F00056960 /* StockCalculator+Status.swift */,
 				A1B8B9DC29BB63DA00056960 /* UIApplication+TapGesture.swift */,
+				A12C077E29BCCD9E00B4F0EE /* Collection+Subscript.swift */,
+				A12C078029BCCDB500B4F0EE /* Double+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +485,8 @@
 				A173FD4929B9A9A300F17675 /* CustomTextField.swift */,
 				A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */,
 				A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */,
+				A12C077A29BCCD4300B4F0EE /* ActivityView.swift */,
+				A12C077C29BCCD7000B4F0EE /* TableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -603,6 +615,7 @@
 				A19D668629B4554100445B63 /* Color+Custom.swift in Sources */,
 				A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */,
 				A1B8B9D929BB592B00056960 /* StockCalculator.swift in Sources */,
+				A12C077F29BCCD9E00B4F0EE /* Collection+Subscript.swift in Sources */,
 				A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */,
 				A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */,
 				A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */,
@@ -617,6 +630,7 @@
 				A1648AB429BA20CC00705200 /* border.swift in Sources */,
 				A1648AA429BA146E00705200 /* AraArbCalculator.swift in Sources */,
 				A1648AA629BA14DA00705200 /* AraArbCalculatorView.swift in Sources */,
+				A12C077D29BCCD7000B4F0EE /* TableView.swift in Sources */,
 				A122534829B6221B00C87F8A /* String+Localization.swift in Sources */,
 				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
 				A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */,
@@ -627,11 +641,13 @@
 				A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */,
 				A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */,
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
+				A12C077B29BCCD4300B4F0EE /* ActivityView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,
 				A1648AB229BA1F8600705200 /* String+Percentage.swift in Sources */,
 				A173FD4829B9A98F00F17675 /* InformationCard.swift in Sources */,
 				A1648ABF29BA22AA00705200 /* ProfitPerTickCalculatorView.swift in Sources */,
 				A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */,
+				A12C078129BCCDB500B4F0EE /* Double+Color.swift in Sources */,
 				A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */,
 				A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */,
 				A1648AB029BA1A5C00705200 /* NumberFormatType.swift in Sources */,
@@ -882,8 +898,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alfinsyahruddin/StockCalculator";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				kind = exactVersion;
+				version = 0.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
