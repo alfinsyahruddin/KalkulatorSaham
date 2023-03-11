@@ -33,7 +33,7 @@ struct InformationCard: View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Text(title)
-                    .font(.title3.weight(.bold))
+                    .font(.body.weight(.bold))
                 
                 Spacer()
             }
@@ -69,6 +69,7 @@ struct InformationCard: View {
                     }
                 }
             }
+            .font(.caption)
             .padding()
         }
         .card(cornerRadius: 12)

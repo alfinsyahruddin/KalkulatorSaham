@@ -9,6 +9,6 @@ import Foundation
 
 extension String {
     func percentage() -> Self {
-        return self + "%"
+        return self == "nan" ? "0%" : self + "%"
     }
 }

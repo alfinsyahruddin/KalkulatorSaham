@@ -33,7 +33,7 @@ struct Settings: ReducerProtocol {
         @BindingState var buyFee = {
             @Dependency(\.userDefaults) var userDefaults
          
-            let buyFee = userDefaults.string(forKey: UserDefaultsKey.buyFee) ?? "0.0"
+            let buyFee = userDefaults.double(forKey: UserDefaultsKey.buyFee)
             
             return buyFee
         }()
@@ -41,7 +41,7 @@ struct Settings: ReducerProtocol {
         @BindingState var sellFee = {
             @Dependency(\.userDefaults) var userDefaults
          
-            let sellFee = userDefaults.string(forKey: UserDefaultsKey.sellFee) ?? "0.0"
+            let sellFee = userDefaults.double(forKey: UserDefaultsKey.sellFee)
             
             return sellFee
         }()

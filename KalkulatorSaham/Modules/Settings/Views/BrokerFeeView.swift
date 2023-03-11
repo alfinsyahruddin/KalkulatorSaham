@@ -22,12 +22,14 @@ struct BrokerFeeView: View {
                     HStack(spacing: 10) {
                         CustomTextField(
                             label: "buy_fee".tr(),
-                            text: viewStore.binding(\.$buyFee)
+                            value: viewStore.binding(\.$buyFee),
+                            keyboardType: .decimalPad
                         )
                         
                         CustomTextField(
                             label: "sell_fee".tr(),
-                            text: viewStore.binding(\.$sellFee)
+                            value: viewStore.binding(\.$sellFee),
+                            keyboardType: .decimalPad
                         )
                     }
                                         

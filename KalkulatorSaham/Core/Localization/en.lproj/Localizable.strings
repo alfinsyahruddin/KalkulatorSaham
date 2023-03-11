@@ -56,3 +56,4 @@
 "value" = "Value";
 "calculate" = "Calculate";
 "please_enter_broker_fee" = "Please enter broker fee in percentage.";
+"status" = "Status";

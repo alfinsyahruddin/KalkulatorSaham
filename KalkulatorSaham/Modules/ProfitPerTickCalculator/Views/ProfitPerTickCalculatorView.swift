@@ -29,7 +29,7 @@ struct ProfitPerTickCalculatorView: View {
                                 )
                             }
                             
-                            BrokerFeeInformation()
+//                            BrokerFeeInformation()
                             
                             Button("calculate".tr()) {
                                 

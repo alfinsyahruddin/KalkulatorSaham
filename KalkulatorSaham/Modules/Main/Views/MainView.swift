@@ -32,7 +32,7 @@ struct MainView: View {
                                 
                                 NavigationLink(
                                     destination: AraArbCalculatorView(
-                                        store: self.store.scope(
+                                        store: store.scope(
                                             state: \.araArbCalculator,
                                             action: Main.Action.araArbCalculator
                                         )
@@ -43,9 +43,13 @@ struct MainView: View {
                                 
                                 NavigationLink(
                                     destination: TradingReturnCalculatorView(
-                                        store: self.store.scope(
+                                        store: store.scope(
                                             state: \.tradingReturnCalculator,
                                             action: Main.Action.tradingReturnCalculator
+                                        ),
+                                        settingsStore: store.scope(
+                                            state: \.settings,
+                                            action: Main.Action.settings
                                         )
                                     )
                                 ) {
@@ -54,7 +58,7 @@ struct MainView: View {
                                 
                                 NavigationLink(
                                     destination: ProfitPerTickCalculatorView(
-                                        store: self.store.scope(
+                                        store: store.scope(
                                             state: \.profitPerTickCalculator,
                                             action: Main.Action.profitPerTickCalculator
                                         )

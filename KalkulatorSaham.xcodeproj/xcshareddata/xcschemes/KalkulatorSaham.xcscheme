@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-               BuildableName = "KalkulatorSaham.app"
+               BuildableName = "Kalkulator Saham.app"
                BlueprintName = "KalkulatorSaham"
                ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-            BuildableName = "KalkulatorSaham.app"
+            BuildableName = "Kalkulator Saham.app"
             BlueprintName = "KalkulatorSaham"
             ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-            BuildableName = "KalkulatorSaham.app"
+            BuildableName = "Kalkulator Saham.app"
             BlueprintName = "KalkulatorSaham"
             ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
          </BuildableReference>

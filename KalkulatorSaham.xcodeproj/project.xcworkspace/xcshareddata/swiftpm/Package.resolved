@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alfinsyahruddin/StockCalculator",
       "state" : {
-        "revision" : "c43ff07d2a249c509fcae4a94d6c53918bb6a80e",
-        "version" : "0.1.0"
+        "revision" : "718b51f4fb4ef60021cb2648739a38225467f61f",
+        "version" : "0.1.2"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-composable-architecture",
       "state" : {
-        "revision" : "cd22f6a1b3a6210e1e365cbfa8706dbb1736ca27",
-        "version" : "0.51.0"
+        "revision" : "a99024bbd171d85a92bccbcea23e7c66f05dc12b",
+        "version" : "0.50.2"
       }
     },
     {

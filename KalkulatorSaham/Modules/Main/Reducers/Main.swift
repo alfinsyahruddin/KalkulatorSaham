@@ -26,17 +26,6 @@ struct Main: ReducerProtocol {
     }
     
     var body: some ReducerProtocol<State, Action> {
-        
-        Reduce { state, action in
-            switch action {
-            case .didTapShareButton:
-                return .none
-            default:
-                return .none
-            }
-        }
-   
-        
         Scope(state: \.settings, action: /Action.settings) {
             Settings()
         }
@@ -53,6 +42,16 @@ struct Main: ReducerProtocol {
             ProfitPerTickCalculator()
         }
         
+        
+        Reduce { state, action in
+            switch action {
+            case .didTapShareButton:
+                return .none
+            default:
+                return .none
+            }
+        }
+   
       
     }
 }
