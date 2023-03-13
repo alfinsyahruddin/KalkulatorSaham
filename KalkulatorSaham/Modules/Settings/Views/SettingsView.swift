@@ -38,6 +38,14 @@ struct SettingsView: View {
                     ) {
                         MenuRow(icon: "icon.percent", label: "broker_fee".tr())
                     }
+                    
+                    Button(action: {
+                        let url = URL(string: "https://apps.apple.com/us/app/kalkulator-saham/id6445988371?action=write-review")!
+                      
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }) {
+                        MenuRow(icon: "icon.star", label: "give_a_rating".tr())
+                    }
                 }
                 .listRowBackground(Color.clear)
             }
