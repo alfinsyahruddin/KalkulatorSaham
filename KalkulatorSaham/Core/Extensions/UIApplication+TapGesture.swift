@@ -5,6 +5,7 @@
 //  Created by Alfin on 10/03/23.
 //
 
+#if os(iOS)
 import SwiftUI
 
 extension UIApplication {
@@ -23,3 +24,4 @@ extension UIApplication: UIGestureRecognizerDelegate {
         return true // set to `false` if you don't want to detect tap during other gestures
     }
 }
+#endif

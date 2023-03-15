@@ -40,7 +40,11 @@ struct InformationCard: View {
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             .background(headerStyle.backgroundColor)
             .foregroundColor(headerStyle.color)
-            .cornerRadius(12, corners: [.topLeft, .topRight])
+            .modify {
+                #if os(iOS)
+                $0.cornerRadius(12, corners: [.topLeft, .topRight])
+                #endif
+            }
             
             Divider()
                 .frame(height: 1)

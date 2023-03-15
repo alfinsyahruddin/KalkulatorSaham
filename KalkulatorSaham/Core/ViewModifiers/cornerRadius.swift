@@ -5,10 +5,11 @@
 //  Created by Alfin on 09/03/23.
 //
 
+#if os(iOS)
 import SwiftUI
 
-
 extension View {
+    
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
@@ -24,4 +25,4 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
-
+#endif

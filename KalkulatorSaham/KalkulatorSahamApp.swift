@@ -12,7 +12,11 @@ struct KalkulatorSahamApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
+                .modify {
+                    #if os(iOS)
+                    $0.onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
+                    #endif
+                }
         }
     }
 }

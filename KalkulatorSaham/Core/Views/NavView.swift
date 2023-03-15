@@ -44,11 +44,13 @@ struct Toolbar: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             HStack {
+                #if os(iOS)
                 Button(action: {
                     viewStore.send(.didTapShareButton)
                 }) {
                     Image("icon.share").renderingMode(.template)
                 }
+                #endif
                 
                 
                 NavigationLink(
@@ -61,10 +63,14 @@ struct Toolbar: View {
                 }
                 
             }
-            .sheet(isPresented: viewStore.binding(\.$showShareSheet)) {
-                ActivityView(
-                    text: "download_kalkulator_saham_app_on_the_appstore".tr()
-                )
+            .modify {
+                #if os(iOS)
+                $0.sheet(isPresented: viewStore.binding(\.$showShareSheet)) {
+                    ActivityView(
+                        text: "download_kalkulator_saham_app_on_the_appstore".tr()
+                    )
+                }
+                #endif
             }
         }
     }

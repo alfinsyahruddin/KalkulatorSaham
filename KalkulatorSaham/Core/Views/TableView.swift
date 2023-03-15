@@ -39,31 +39,47 @@ struct TableView: View {
                 
                 // Rows
                 ForEach(0..<rows.count, id: \.self) { index in
-                    let row = rows[index]
-                    let color = colors[index]
-                    
-                    HStack(spacing: 0) {
-                        ForEach(0..<row.count, id: \.self) { index2 in
-                            let width = widths[index2]
-                            
-                            Text(" \(row[index2]) ")
-                                .font(.caption)
-                                .foregroundColor(color[index2])
-                                .frame(
-                                    width: width,
-                                    height: 30,
-                                    alignment: columns[index2].alignment
-                                )
-                        }
-                    }
-                    .modify {
-                        if index % 2 != 0 {
-                            $0.background(Color.secondarySystemBackground)
-                        }
-                    }
+                    TableRow(
+                        widths: widths,
+                        columns: columns,
+                        rows: rows,
+                        colors: colors,
+                        index: index
+                    )
                 }
                 
                 Divider()
+            }
+        }
+    }
+}
+
+struct TableRow: View {
+    var widths: [Double]
+    var columns: [TableColumn]
+    var rows: [[String]]
+    var colors: [[Color]] = []
+    var index: Int
+    
+    var body: some View {
+        let row = rows[index]
+        let color = colors[index]
+        
+        HStack(spacing: 0) {
+            ForEach(0..<row.count, id: \.self) { index2 in
+                Text(" \(row[index2]) ")
+                    .font(.caption)
+                    .foregroundColor(color[index2])
+                    .frame(
+                        width: widths[index2],
+                        height: 30,
+                        alignment: columns[index2].alignment
+                    )
+            }
+        }
+        .modify {
+            if index % 2 != 0 {
+                $0.background(Color.secondarySystemBackground)
             }
         }
     }
@@ -81,5 +97,3 @@ struct TableColumn {
         self.alignment = alignment
     }
 }
-
-

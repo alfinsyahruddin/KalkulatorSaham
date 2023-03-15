@@ -5,8 +5,8 @@
 //  Created by Alfin on 11/03/23.
 //
 
+#if os(iOS)
 import SwiftUI
-
 
 struct ActivityView: UIViewControllerRepresentable {
     let text: String
@@ -24,3 +24,4 @@ struct ActivityView: UIViewControllerRepresentable {
         
     }
 }
+#endif
