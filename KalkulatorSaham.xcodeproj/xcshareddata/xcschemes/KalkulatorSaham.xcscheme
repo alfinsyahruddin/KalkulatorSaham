@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-               BuildableName = "Kalkulator Saham.app"
+               BuildableName = "KalkulatorSaham.app"
                BlueprintName = "KalkulatorSaham"
                ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
             </BuildableReference>
@@ -28,6 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A12E693829C2E90900F6A3F7"
+               BuildableName = "KalkulatorSahamTests.xctest"
+               BlueprintName = "KalkulatorSahamTests"
+               ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -45,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-            BuildableName = "Kalkulator Saham.app"
+            BuildableName = "KalkulatorSaham.app"
             BlueprintName = "KalkulatorSaham"
             ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
          </BuildableReference>
@@ -62,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A10E691F29B1982D00DA5DCA"
-            BuildableName = "Kalkulator Saham.app"
+            BuildableName = "KalkulatorSaham.app"
             BlueprintName = "KalkulatorSaham"
             ReferencedContainer = "container:KalkulatorSaham.xcodeproj">
          </BuildableReference>
