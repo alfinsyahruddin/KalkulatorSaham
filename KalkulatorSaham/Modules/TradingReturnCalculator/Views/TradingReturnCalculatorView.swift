@@ -43,18 +43,11 @@ struct TradingReturnCalculatorView: View {
                             store: settingsStore,
                             calculateBrokerFee: viewStore.binding(\.$calculateBrokerFee)
                         )
-
-                        WithViewStore(settingsStore, observe: { $0 }) { settingsViewStore in
-                            Button("calculate".tr()) {
-                                viewStore.send(.calculateButtonTapped(
-                                    brokerFee: BrokerFee(
-                                        buy: settingsViewStore.buyFee,
-                                        sell: settingsViewStore.sellFee
-                                    )
-                                ))
-                            }
-                            .buttonStyle(CustomButtonStyle())
+                        
+                        Button("calculate".tr()) {
+                            viewStore.send(.calculateButtonTapped)
                         }
+                        .buttonStyle(CustomButtonStyle())
                         
                         Divider()
                         

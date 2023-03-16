@@ -21,11 +21,12 @@ struct TradingReturnCalculator: ReducerProtocol {
         @BindingState var calculateBrokerFee: Bool = true
 
         var tradingReturn: TradingReturn? = nil
+        var brokerFee: BrokerFee = BrokerFee(buy: 0, sell: 0)
     }
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
-        case calculateButtonTapped(brokerFee: BrokerFee)
+        case calculateButtonTapped
     }
     
     var body: some ReducerProtocol<State, Action> {
@@ -35,13 +36,14 @@ struct TradingReturnCalculator: ReducerProtocol {
         
         Reduce { state, action in
             switch action {
-            case .calculateButtonTapped(let brokerFee):
+            case .calculateButtonTapped:
+                print("BROKER FEE: \(state.brokerFee)")
                 state.tradingReturn = self.stockCalculator.calculateTradingReturn(
                     buyPrice: state.buyPrice,
                     sellPrice: state.sellPrice,
                     lot: state.lot,
                     brokerFee: state.calculateBrokerFee
-                        ? brokerFee
+                        ? state.brokerFee
                         : BrokerFee(buy: 0, sell: 0)
                 )
                 return .none

@@ -7,6 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+import StockCalculator
 
 
 struct Main: ReducerProtocol {
@@ -14,8 +15,19 @@ struct Main: ReducerProtocol {
         @BindingState var showShareSheet: Bool = false
         
         var settings = Settings.State()
-        var tradingReturnCalculator = TradingReturnCalculator.State()
         var araArbCalculator = AraArbCalculator.State()
+        var _tradingReturnCalculator = TradingReturnCalculator.State()
+        var tradingReturnCalculator: TradingReturnCalculator.State {
+            get {
+                var state = self._tradingReturnCalculator
+                state.brokerFee = BrokerFee(buy: self.settings.buyFee, sell: self.settings.sellFee)
+                return state
+            } set {
+                self._tradingReturnCalculator = newValue
+                self.settings.buyFee = newValue.brokerFee.buy
+                self.settings.sellFee = newValue.brokerFee.sell
+            }
+        }
         var profitPerTickCalculator = ProfitPerTickCalculator.State()
     }
     
