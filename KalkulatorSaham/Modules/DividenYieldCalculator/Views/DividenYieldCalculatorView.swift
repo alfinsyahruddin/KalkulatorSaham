@@ -22,13 +22,15 @@ struct DividenYieldCalculatorView: View {
                             CustomTextField(
                                 label: "price".tr(),
                                 value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["price"]
                             )
                             
                             CustomTextField(
                                 label: "dividen".tr(),
                                 value: viewStore.binding(\.$dividen),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["dividen"]
                             )
                         }
                         
@@ -36,6 +38,7 @@ struct DividenYieldCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)
                         
                         Separator()
                         

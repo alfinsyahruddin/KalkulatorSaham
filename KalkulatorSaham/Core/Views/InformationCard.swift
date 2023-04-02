@@ -61,8 +61,6 @@ struct InformationCard: View {
                     ForEach(items.chunked(into: 2), id: \.self) { item in
                         if item.first!.type == .divider {
                             Separator()
-                                .frame(height: 1)
-                                .background(Color.divider)
                         } else {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -89,8 +87,6 @@ struct InformationCard: View {
                     ForEach(items.chunked(into: 3), id: \.self) { item in
                         if item.first!.type == .divider {
                             Separator()
-                                .frame(height: 1)
-                                .background(Color.divider)
                         } else {
                             HStack {
                                 VStack(alignment: .leading) {

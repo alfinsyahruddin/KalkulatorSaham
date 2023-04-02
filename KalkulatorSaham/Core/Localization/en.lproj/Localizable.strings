@@ -92,3 +92,4 @@
 "transaction_history" = "Transaction History";
 "theoretical_price" = "Theoretical Price";
 "current_price" = "Current Price";
+"this_field_is_required" = "This field is required";

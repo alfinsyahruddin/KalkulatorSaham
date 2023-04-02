@@ -18,6 +18,7 @@ struct CustomTextField: View {
     var keyboardType: KeyboardType = .default
     var isRequired: Bool = true
     var isDisabled: Bool = false
+    var error: String? = nil
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -55,6 +56,18 @@ struct CustomTextField: View {
             .card(backgroundColor: isDisabled ? Color.label.opacity(0.1) : Color.cardBackground)
             .foregroundColor(isDisabled ? Color.label.opacity(0.5) : Color.label)
             .disabled(isDisabled)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.red, lineWidth: error == nil ? 0 : 1.5)
+            )
+            
+            if let error = error {
+                Text(error)
+                    .font(.caption)
+                    .foregroundColor(.red)
+            }
+            
+            Spacer()
         }
     }
 }

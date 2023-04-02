@@ -92,3 +92,4 @@
 "transaction_history" = "Riwayat Transaksi";
 "theoretical_price" = "Harga Teoritis";
 "current_price" = "Harga saat ini";
+"this_field_is_required" = "Field ini harus diisi";
