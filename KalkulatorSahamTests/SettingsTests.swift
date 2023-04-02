@@ -12,18 +12,13 @@ import ComposableArchitecture
 
 final class SettingsTests: XCTestCase {
     private var store: TestStore<Settings.State, Settings.Action, Settings.State, Settings.Action, ()>!
-    private var userDefaults: UserDefaults!
 
     override func setUpWithError() throws {
         store = TestStore(initialState: Settings.State(), reducer: Settings()) {
-            userDefaults = UserDefaults(suiteName: #file)
+            let userDefaults = UserDefaults(suiteName: #file)!
             userDefaults.removePersistentDomain(forName: #file)
             $0.userDefaults = userDefaults
         }
-    }
-    
-    override func tearDownWithError() throws {
-        store = nil
     }
     
     func test_setTheme() async throws {

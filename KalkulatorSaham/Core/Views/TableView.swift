@@ -48,7 +48,7 @@ struct TableView: View {
                     )
                 }
                 
-                Divider()
+                Separator()
             }
         }
     }

@@ -29,21 +29,48 @@ struct Main: ReducerProtocol {
             }
         }
         var profitPerTickCalculator = ProfitPerTickCalculator.State()
+        var averagePriceCalculator = AveragePriceCalculator.State()
+        var riskRewardRatioCalculator = RiskRewardRatioCalculator.State()
+        var priceBookValueCalculator = PriceBookValueCalculator.State()
+        var dividenYieldCalculator = DividenYieldCalculator.State()
+        var stockSplitCalculator = StockSplitCalculator.State()
+        var rightIssueCalculator = RightIssueCalculator.State()
     }
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
         
         case settings(Settings.Action)
+        case didTapShareButton
+
         case tradingReturnCalculator(TradingReturnCalculator.Action)
         case araArbCalculator(AraArbCalculator.Action)
         case profitPerTickCalculator(ProfitPerTickCalculator.Action)
-        case didTapShareButton
+        case averagePriceCalculator(AveragePriceCalculator.Action)
+        case riskRewardRatioCalculator(RiskRewardRatioCalculator.Action)
+        case priceBookValueCalculator(PriceBookValueCalculator.Action)
+        case dividenYieldCalculator(DividenYieldCalculator.Action)
+        case stockSplitCalculator(StockSplitCalculator.Action)
+        case rightIssueCalculator(RightIssueCalculator.Action)
     }
     
     var body: some ReducerProtocol<State, Action> {
+        
+        // MARK: Binding Reducer
         BindingReducer()
         
+        // MARK: Main Reducer
+        Reduce { state, action in
+            switch action {
+            case .didTapShareButton:
+                state.showShareSheet = true
+                return .none
+            default:
+                return .none
+            }
+        }
+        
+        // MARK: Scopes
         Scope(state: \.settings, action: /Action.settings) {
             Settings()
         }
@@ -60,16 +87,34 @@ struct Main: ReducerProtocol {
             ProfitPerTickCalculator()
         }
         
-        
-        Reduce { state, action in
-            switch action {
-            case .didTapShareButton:
-                state.showShareSheet = true
-                return .none
-            default:
-                return .none
-            }
+        Scope(state: \.averagePriceCalculator, action: /Action.averagePriceCalculator) {
+            AveragePriceCalculator()
         }
+        
+        Scope(state: \.riskRewardRatioCalculator, action: /Action.riskRewardRatioCalculator) {
+            RiskRewardRatioCalculator()
+        }
+        
+        Scope(state: \.priceBookValueCalculator, action: /Action.priceBookValueCalculator) {
+            PriceBookValueCalculator()
+        }
+        
+        Scope(state: \.riskRewardRatioCalculator, action: /Action.riskRewardRatioCalculator) {
+            RiskRewardRatioCalculator()
+        }
+        
+        Scope(state: \.dividenYieldCalculator, action: /Action.dividenYieldCalculator) {
+            DividenYieldCalculator()
+        }
+        
+        Scope(state: \.stockSplitCalculator, action: /Action.stockSplitCalculator) {
+            StockSplitCalculator()
+        }
+        
+        Scope(state: \.rightIssueCalculator, action: /Action.rightIssueCalculator) {
+            RightIssueCalculator()
+        }
+       
    
       
     }

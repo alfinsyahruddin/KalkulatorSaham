@@ -49,7 +49,7 @@ struct TradingReturnCalculatorView: View {
                         }
                         .buttonStyle(CustomButtonStyle())
                         
-                        Divider()
+                        Separator()
                         
                         if let tradingReturn = viewStore.tradingReturn {
                             InformationCard(

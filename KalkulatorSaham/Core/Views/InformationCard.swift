@@ -17,15 +17,21 @@ struct InformationCardItemStyle: Hashable {
     var color: Color = .label
 }
 
+enum InformationCardItemType {
+    case text, divider, hidden
+}
+
 struct InformationCardItem: Hashable {
-    var key: String
-    var value: String
+    var type: InformationCardItemType = .text
+    var key: String = ""
+    var value: String = ""
     var keyStyle: InformationCardItemStyle = InformationCardItemStyle()
     var valueStyle: InformationCardItemStyle = InformationCardItemStyle()
 }
 
 struct InformationCard: View {
     var title: String
+    var totalColumn: Int = 2
     var headerStyle: InformationCardHeaderStyle = InformationCardHeaderStyle()
     var items: [InformationCardItem]
 
@@ -46,32 +52,79 @@ struct InformationCard: View {
                 #endif
             }
             
-            Divider()
+            Separator()
                 .frame(height: 1)
                 .background(Color.divider)
 
             VStack(spacing: 20) {
-                ForEach(items.chunked(into: 2), id: \.self) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.first!.key)
-                                .foregroundColor(item.first!.keyStyle.color)
-                            Text(item.first!.value)
-                                .fontWeight(.bold)
-                                .foregroundColor(item.first!.valueStyle.color)
+                if totalColumn == 2 {
+                    ForEach(items.chunked(into: 2), id: \.self) { item in
+                        if item.first!.type == .divider {
+                            Separator()
+                                .frame(height: 1)
+                                .background(Color.divider)
+                        } else {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.first!.key)
+                                        .foregroundColor(item.first!.keyStyle.color)
+                                    Text(item.first!.value)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(item.first!.valueStyle.color)
+                                }
+                                
+                                Spacer()
+                                
+                                VStack(alignment: .trailing) {
+                                    Text(item.last!.key)
+                                        .foregroundColor(item.last!.keyStyle.color)
+                                    Text(item.last!.value)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(item.last!.valueStyle.color)
+                                }
+                            }
                         }
-                        
-                        Spacer()
-                        
-                        VStack(alignment: .trailing) {
-                            Text(item.last!.key)
-                                .foregroundColor(item.last!.keyStyle.color)
-                            Text(item.last!.value)
-                                .fontWeight(.bold)
-                                .foregroundColor(item.last!.valueStyle.color)
+                    }
+                } else if totalColumn == 3 {
+                    ForEach(items.chunked(into: 3), id: \.self) { item in
+                        if item.first!.type == .divider {
+                            Separator()
+                                .frame(height: 1)
+                                .background(Color.divider)
+                        } else {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.first!.key)
+                                        .foregroundColor(item.first!.keyStyle.color)
+                                    Text(item.first!.value)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(item.first!.valueStyle.color)
+                                }
+                                
+                                Spacer()
+                                
+                                VStack(alignment: .center) {
+                                    Text(item[1].key)
+                                        .foregroundColor(item[1].keyStyle.color)
+                                    Text(item[1].value)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(item[1].valueStyle.color)
+                                }
+                                
+                                Spacer()
+                                
+                                VStack(alignment: .trailing) {
+                                    Text(item.last!.key)
+                                        .foregroundColor(item.last!.keyStyle.color)
+                                    Text(item.last!.value)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(item.last!.valueStyle.color)
+                                }
+                            }
                         }
                     }
                 }
+              
             }
             .font(.caption)
             .padding()

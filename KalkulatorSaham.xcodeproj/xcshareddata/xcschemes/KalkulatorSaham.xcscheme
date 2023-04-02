@@ -33,7 +33,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12E693829C2E90900F6A3F7"
+               BlueprintIdentifier = "A12E694529C2EE5B00F6A3F7"
                BuildableName = "KalkulatorSahamTests.xctest"
                BlueprintName = "KalkulatorSahamTests"
                ReferencedContainer = "container:KalkulatorSaham.xcodeproj">

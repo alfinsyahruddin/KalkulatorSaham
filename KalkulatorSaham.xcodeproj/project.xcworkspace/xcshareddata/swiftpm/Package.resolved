@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "stockcalculator",
+      "identity" : "stock-calculator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alfinsyahruddin/StockCalculator",
+      "location" : "https://github.com/alfinsyahruddin/stock-calculator/",
       "state" : {
-        "revision" : "1ed6b6aeb4f130d89e3c3b2e33805a1ccaeb21e5",
-        "version" : "0.1.5"
+        "revision" : "96196b12d8bd8807a01c3e144a7d64b729e48786",
+        "version" : "0.1.4"
       }
     },
     {

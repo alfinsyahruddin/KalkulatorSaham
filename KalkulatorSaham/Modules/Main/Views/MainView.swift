@@ -18,6 +18,7 @@ struct MainView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(Color.accentColor)
         ]
+        UIView.appearance().tintColor = UIColor(Color.accentColor)
         #endif
     }
 
@@ -72,67 +73,67 @@ struct MainView: View {
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("average_price_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: AveragePriceCalculatorView(
+                                        store: store.scope(
+                                            state: \.averagePriceCalculator,
+                                            action: Main.Action.averagePriceCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "AP", label: "average_price_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("risk_reward_ratio_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: RiskRewardRatioCalculatorView(
+                                        store: store.scope(
+                                            state: \.riskRewardRatioCalculator,
+                                            action: Main.Action.riskRewardRatioCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "RR", label: "risk_reward_ratio_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("price_book_value_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: PriceBookValueCalculatorView(
+                                        store: store.scope(
+                                            state: \.priceBookValueCalculator,
+                                            action: Main.Action.priceBookValueCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "PB", label: "price_book_value_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("dividen_yield_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: DividenYieldCalculatorView(
+                                        store: store.scope(
+                                            state: \.dividenYieldCalculator,
+                                            action: Main.Action.dividenYieldCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "DY", label: "dividen_yield_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("stock_split_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: StockSplitCalculatorView(
+                                        store: store.scope(
+                                            state: \.stockSplitCalculator,
+                                            action: Main.Action.stockSplitCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "SS", label: "stock_split_calculator".tr())
                                 }
                                 
                                 NavigationLink(
-                                    destination: ComingSoonView()
-                                        .modify {
-                                            #if os(iOS)
-                                            $0.navigationBarTitle("right_issue_calculator".tr(), displayMode: .inline)
-                                            #endif
-                                        }
+                                    destination: RightIssueCalculatorView(
+                                        store: store.scope(
+                                            state: \.rightIssueCalculator,
+                                            action: Main.Action.rightIssueCalculator
+                                        )
+                                    )
                                 ) {
                                     MenuRow(id: "RI", label: "right_issue_calculator".tr())
                                 }

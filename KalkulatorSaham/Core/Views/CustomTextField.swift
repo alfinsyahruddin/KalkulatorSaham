@@ -15,12 +15,13 @@ struct CustomTextField: View {
     var placeholder: String? = nil
     var text: Binding<String>?
     var value: Binding<Double>?
-    var isRequired: Bool = true
     var keyboardType: KeyboardType = .default
+    var isRequired: Bool = true
+    var isDisabled: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            HStack {
+            HStack(spacing: 2) {
                 Text(label)
                 if isRequired {
                     Text("*")
@@ -29,29 +30,31 @@ struct CustomTextField: View {
             }
             .font(.caption.weight(.bold))
 
-            if let text = text {
-                TextField(placeholder ?? label, text: text)
-                    .textFieldStyle(.plain)
-                    .modify {
-                        #if os(iOS)
-                        $0.keyboardType(keyboardType.uikit)
-                        #endif
-                    }
-                    .padding(EdgeInsets(top: 7, leading: 14, bottom: 7, trailing: 14))
-                    .card()
+            Group {
+                if let text = text {
+                    TextField(placeholder ?? label, text: text)
+                        .textFieldStyle(.plain)
+                        .modify {
+                            #if os(iOS)
+                            $0.keyboardType(keyboardType.uikit)
+                            #endif
+                        }
+                }
+                
+                if let value = value {
+                    TextField(placeholder ?? label, value: value, formatter: numberFormatter)
+                        .textFieldStyle(.plain)
+                        .modify {
+                            #if os(iOS)
+                            $0.keyboardType(keyboardType.uikit)
+                            #endif
+                        }
+                }
             }
-            
-            if let value = value {
-                TextField(placeholder ?? label, value: value, formatter: numberFormatter)
-                    .textFieldStyle(.plain)
-                    .modify {
-                        #if os(iOS)
-                        $0.keyboardType(keyboardType.uikit)
-                        #endif
-                    }
-                    .padding(EdgeInsets(top: 7, leading: 14, bottom: 7, trailing: 14))
-                    .card()
-            }
+            .padding(EdgeInsets(top: 7, leading: 14, bottom: 7, trailing: 14))
+            .card(backgroundColor: isDisabled ? Color.label.opacity(0.1) : Color.cardBackground)
+            .foregroundColor(isDisabled ? Color.label.opacity(0.5) : Color.label)
+            .disabled(isDisabled)
         }
     }
 }

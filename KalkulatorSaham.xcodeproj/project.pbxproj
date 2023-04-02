@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A106CF3029D938D100DFB7A6 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF2F29D938D100DFB7A6 /* Separator.swift */; };
 		A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */; };
 		A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E692529B1982E00DA5DCA /* ContentView.swift */; };
 		A10E692829B1983000DA5DCA /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10E692729B1983000DA5DCA /* App.xcassets */; };
@@ -31,6 +32,21 @@
 		A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002929BB1DA7002A1F5E /* ThemeManager.swift */; };
 		A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002C29BB2115002A1F5E /* UserDefaults.swift */; };
 		A15B002F29BB29BA002A1F5E /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */; };
+		A16112FE29D85BD000087F17 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16112FD29D85BD000087F17 /* Launch Screen.storyboard */; };
+		A161130329D85D1B00087F17 /* RiskRewardRatioCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */; };
+		A161130529D85E2200087F17 /* RiskRewardRatioCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130429D85E2200087F17 /* RiskRewardRatioCalculatorView.swift */; };
+		A161130729D8602500087F17 /* ResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130629D8602500087F17 /* ResultCard.swift */; };
+		A161130A29D8661400087F17 /* PriceBookValueCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130929D8661400087F17 /* PriceBookValueCalculator.swift */; };
+		A161130E29D8668900087F17 /* PriceBookValueCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130D29D8668900087F17 /* PriceBookValueCalculatorView.swift */; };
+		A161131229D8675300087F17 /* DividenYieldCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161131129D8675300087F17 /* DividenYieldCalculator.swift */; };
+		A161131529D8678500087F17 /* DividenYieldCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161131429D8678500087F17 /* DividenYieldCalculatorView.swift */; };
+		A161131A29D8686300087F17 /* StockSplitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161131929D8686300087F17 /* StockSplitCalculator.swift */; };
+		A161131C29D868F800087F17 /* StockSplitCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161131B29D868F800087F17 /* StockSplitCalculatorView.swift */; };
+		A161132129D86F5500087F17 /* AveragePriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161132029D86F5500087F17 /* AveragePriceCalculator.swift */; };
+		A161132329D871AE00087F17 /* AveragePriceCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161132229D871AE00087F17 /* AveragePriceCalculatorView.swift */; };
+		A161132629D8732F00087F17 /* TransactionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161132529D8732F00087F17 /* TransactionCard.swift */; };
+		A161132B29D87EB100087F17 /* RightIssueCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161132A29D87EB100087F17 /* RightIssueCalculator.swift */; };
+		A161132D29D87F7700087F17 /* RightIssueCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161132C29D87F7700087F17 /* RightIssueCalculatorView.swift */; };
 		A1648AA429BA146E00705200 /* AraArbCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA329BA146E00705200 /* AraArbCalculator.swift */; };
 		A1648AA629BA14DA00705200 /* AraArbCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */; };
 		A1648AAA29BA163000705200 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AA929BA163000705200 /* ComingSoonView.swift */; };
@@ -60,13 +76,13 @@
 		A1B8B9DB29BB5E0F00056960 /* StockCalculator+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8B9DA29BB5E0F00056960 /* StockCalculator+Status.swift */; };
 		A1B8B9DD29BB63DA00056960 /* UIApplication+TapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8B9DC29BB63DA00056960 /* UIApplication+TapGesture.swift */; };
 		A1B8B9E029BB663600056960 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8B9DF29BB663600056960 /* NumberFormatter.swift */; };
-		A1EB2C0429B4AEC000EAF46B /* StockCalculator in Frameworks */ = {isa = PBXBuildFile; productRef = A1EB2C0329B4AEC000EAF46B /* StockCalculator */; };
 		A1EB2C0629B4AF7D00EAF46B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EB2C0529B4AF7D00EAF46B /* Colors.xcassets */; };
 		A1EB2C0829B4B0DC00EAF46B /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C0729B4B0DC00EAF46B /* MenuRow.swift */; };
 		A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C0A29B4B35200EAF46B /* ScreenView.swift */; };
 		A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C0D29B4B57F00EAF46B /* watermarked.swift */; };
 		A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C1029B4C30500EAF46B /* modify.swift */; };
 		A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB2C1429B4C6B400EAF46B /* HomeView.swift */; };
+		A1F8ADD829C4D678006BA630 /* StockCalculator in Frameworks */ = {isa = PBXBuildFile; productRef = A1F8ADD729C4D678006BA630 /* StockCalculator */; };
 		A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0EA29B1D152004D2676 /* Main.swift */; };
 		A1F9B0ED29B1DEBC004D2676 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1F9B0EC29B1DEBC004D2676 /* Icons.xcassets */; };
 		A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9B0F129B1E5C5004D2676 /* TradingReturnCalculator.swift */; };
@@ -87,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A106CF2F29D938D100DFB7A6 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		A10E692029B1982D00DA5DCA /* KalkulatorSaham.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KalkulatorSaham.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalkulatorSahamApp.swift; sourceTree = "<group>"; };
 		A10E692529B1982E00DA5DCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +131,21 @@
 		A15B002929BB1DA7002A1F5E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		A15B002C29BB2115002A1F5E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		A16112FD29D85BD000087F17 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskRewardRatioCalculator.swift; sourceTree = "<group>"; };
+		A161130429D85E2200087F17 /* RiskRewardRatioCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskRewardRatioCalculatorView.swift; sourceTree = "<group>"; };
+		A161130629D8602500087F17 /* ResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCard.swift; sourceTree = "<group>"; };
+		A161130929D8661400087F17 /* PriceBookValueCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceBookValueCalculator.swift; sourceTree = "<group>"; };
+		A161130D29D8668900087F17 /* PriceBookValueCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceBookValueCalculatorView.swift; sourceTree = "<group>"; };
+		A161131129D8675300087F17 /* DividenYieldCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividenYieldCalculator.swift; sourceTree = "<group>"; };
+		A161131429D8678500087F17 /* DividenYieldCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividenYieldCalculatorView.swift; sourceTree = "<group>"; };
+		A161131929D8686300087F17 /* StockSplitCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSplitCalculator.swift; sourceTree = "<group>"; };
+		A161131B29D868F800087F17 /* StockSplitCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSplitCalculatorView.swift; sourceTree = "<group>"; };
+		A161132029D86F5500087F17 /* AveragePriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePriceCalculator.swift; sourceTree = "<group>"; };
+		A161132229D871AE00087F17 /* AveragePriceCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePriceCalculatorView.swift; sourceTree = "<group>"; };
+		A161132529D8732F00087F17 /* TransactionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCard.swift; sourceTree = "<group>"; };
+		A161132A29D87EB100087F17 /* RightIssueCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightIssueCalculator.swift; sourceTree = "<group>"; };
+		A161132C29D87F7700087F17 /* RightIssueCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightIssueCalculatorView.swift; sourceTree = "<group>"; };
 		A1648AA329BA146E00705200 /* AraArbCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraArbCalculator.swift; sourceTree = "<group>"; };
 		A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraArbCalculatorView.swift; sourceTree = "<group>"; };
 		A1648AA929BA163000705200 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
@@ -165,7 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10E693429B1AADB00DA5DCA /* ComposableArchitecture in Frameworks */,
-				A1EB2C0429B4AEC000EAF46B /* StockCalculator in Frameworks */,
+				A1F8ADD829C4D678006BA630 /* StockCalculator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +237,7 @@
 				A10E693929B1B43A00DA5DCA /* Modules */,
 				A10E692529B1982E00DA5DCA /* ContentView.swift */,
 				A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */,
+				A16112FD29D85BD000087F17 /* Launch Screen.storyboard */,
 				A10E692929B1983000DA5DCA /* KalkulatorSaham.entitlements */,
 				A1F9B0F529B1EE19004D2676 /* Info.plist */,
 				A10E692A29B1983000DA5DCA /* Preview Content */,
@@ -252,6 +285,12 @@
 				A1648AA029BA142700705200 /* AraArbCalculator */,
 				A1F9B0EE29B1E565004D2676 /* TradingReturnCalculator */,
 				A1648AB929BA223900705200 /* ProfitPerTickCalculator */,
+				A161131D29D86D8F00087F17 /* AveragePriceCalculator */,
+				A16112FF29D85CE500087F17 /* RiskRewardRatioCalculator */,
+				A161130829D865E200087F17 /* PriceBookValueCalculator */,
+				A161130F29D8672A00087F17 /* DividenYieldCalculator */,
+				A161131629D8684D00087F17 /* StockSplitCalculator */,
+				A161132729D87E9500087F17 /* RightIssueCalculator */,
 				A17FEFC029B5C988001B7502 /* Settings */,
 				A1648AA729BA161D00705200 /* ComingSoon */,
 			);
@@ -367,10 +406,168 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		A16112FF29D85CE500087F17 /* RiskRewardRatioCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161130129D85D0D00087F17 /* Reducers */,
+				A161130029D85D0600087F17 /* Views */,
+			);
+			path = RiskRewardRatioCalculator;
+			sourceTree = "<group>";
+		};
+		A161130029D85D0600087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161130429D85E2200087F17 /* RiskRewardRatioCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161130129D85D0D00087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		A161130829D865E200087F17 /* PriceBookValueCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161130B29D8661900087F17 /* Reducers */,
+				A161130C29D8667600087F17 /* Views */,
+			);
+			path = PriceBookValueCalculator;
+			sourceTree = "<group>";
+		};
+		A161130B29D8661900087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161130929D8661400087F17 /* PriceBookValueCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		A161130C29D8667600087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161130D29D8668900087F17 /* PriceBookValueCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161130F29D8672A00087F17 /* DividenYieldCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161131029D8674600087F17 /* Reducers */,
+				A161131329D8677A00087F17 /* Views */,
+			);
+			path = DividenYieldCalculator;
+			sourceTree = "<group>";
+		};
+		A161131029D8674600087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161131129D8675300087F17 /* DividenYieldCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		A161131329D8677A00087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161131429D8678500087F17 /* DividenYieldCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161131629D8684D00087F17 /* StockSplitCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161131829D8685A00087F17 /* Reducers */,
+				A161131729D8685500087F17 /* Views */,
+			);
+			path = StockSplitCalculator;
+			sourceTree = "<group>";
+		};
+		A161131729D8685500087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161131B29D868F800087F17 /* StockSplitCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161131829D8685A00087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161131929D8686300087F17 /* StockSplitCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		A161131D29D86D8F00087F17 /* AveragePriceCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161131F29D86DAB00087F17 /* Reducers */,
+				A161131E29D86DA700087F17 /* Views */,
+			);
+			path = AveragePriceCalculator;
+			sourceTree = "<group>";
+		};
+		A161131E29D86DA700087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161132429D8731E00087F17 /* Components */,
+				A161132229D871AE00087F17 /* AveragePriceCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161131F29D86DAB00087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161132029D86F5500087F17 /* AveragePriceCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		A161132429D8731E00087F17 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A161132529D8732F00087F17 /* TransactionCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A161132729D87E9500087F17 /* RightIssueCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A161132929D87EA500087F17 /* Reducers */,
+				A161132829D87EA000087F17 /* Views */,
+			);
+			path = RightIssueCalculator;
+			sourceTree = "<group>";
+		};
+		A161132829D87EA000087F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A161132C29D87F7700087F17 /* RightIssueCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A161132929D87EA500087F17 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				A161132A29D87EB100087F17 /* RightIssueCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
 		A1648AA029BA142700705200 /* AraArbCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				A1648AB829BA212600705200 /* Components */,
 				A1648AA129BA144600705200 /* Reducers */,
 				A1648AA229BA144E00705200 /* Views */,
 			);
@@ -388,6 +585,7 @@
 		A1648AA229BA144E00705200 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1648AB829BA212600705200 /* Components */,
 				A1648AA529BA14DA00705200 /* AraArbCalculatorView.swift */,
 			);
 			path = Views;
@@ -529,6 +727,8 @@
 				A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */,
 				A12C077A29BCCD4300B4F0EE /* ActivityView.swift */,
 				A12C077C29BCCD7000B4F0EE /* TableView.swift */,
+				A161130629D8602500087F17 /* ResultCard.swift */,
+				A106CF2F29D938D100DFB7A6 /* Separator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -576,7 +776,7 @@
 			name = KalkulatorSaham;
 			packageProductDependencies = (
 				A10E693329B1AADB00DA5DCA /* ComposableArchitecture */,
-				A1EB2C0329B4AEC000EAF46B /* StockCalculator */,
+				A1F8ADD729C4D678006BA630 /* StockCalculator */,
 			);
 			productName = KalkulatorSaham;
 			productReference = A10E692029B1982D00DA5DCA /* KalkulatorSaham.app */;
@@ -631,7 +831,7 @@
 			mainGroup = A10E691729B1982D00DA5DCA;
 			packageReferences = (
 				A10E693229B1AADB00DA5DCA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				A1121D7E29B4AB9D00DC352A /* XCRemoteSwiftPackageReference "StockCalculator" */,
+				A1F8ADD629C4D678006BA630 /* XCRemoteSwiftPackageReference "stock-calculator" */,
 			);
 			productRefGroup = A10E692129B1982D00DA5DCA /* Products */;
 			projectDirPath = "";
@@ -648,6 +848,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16112FE29D85BD000087F17 /* Launch Screen.storyboard in Resources */,
 				A122534329B61D8600C87F8A /* Localizable.strings in Resources */,
 				A10E692C29B1983000DA5DCA /* Preview Assets.xcassets in Resources */,
 				A1EB2C0629B4AF7D00EAF46B /* Colors.xcassets in Resources */,
@@ -678,7 +879,9 @@
 				A17FEFCE29B5E625001B7502 /* NavView.swift in Sources */,
 				A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */,
 				A1B8B9DD29BB63DA00056960 /* UIApplication+TapGesture.swift in Sources */,
+				A161130529D85E2200087F17 /* RiskRewardRatioCalculatorView.swift in Sources */,
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
+				A161132629D8732F00087F17 /* TransactionCard.swift in Sources */,
 				A122534D29B623B700C87F8A /* Theme.swift in Sources */,
 				A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */,
 				A1648AAA29BA163000705200 /* ComingSoonView.swift in Sources */,
@@ -687,12 +890,17 @@
 				A1EB2C0829B4B0DC00EAF46B /* MenuRow.swift in Sources */,
 				A19D668629B4554100445B63 /* Color+Custom.swift in Sources */,
 				A1EB2C0B29B4B35200EAF46B /* ScreenView.swift in Sources */,
+				A161131C29D868F800087F17 /* StockSplitCalculatorView.swift in Sources */,
+				A161130E29D8668900087F17 /* PriceBookValueCalculatorView.swift in Sources */,
 				A1B8B9D929BB592B00056960 /* StockCalculator.swift in Sources */,
 				A1FCB43A29C209A800C46E0B /* KeyboardType.swift in Sources */,
+				A161132329D871AE00087F17 /* AveragePriceCalculatorView.swift in Sources */,
+				A106CF3029D938D100DFB7A6 /* Separator.swift in Sources */,
 				A12C077F29BCCD9E00B4F0EE /* Collection+Subscript.swift in Sources */,
 				A1F9B0F229B1E5C5004D2676 /* TradingReturnCalculator.swift in Sources */,
 				A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */,
 				A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */,
+				A161130329D85D1B00087F17 /* RiskRewardRatioCalculator.swift in Sources */,
 				A1648AAC29BA19FA00705200 /* Double+Format.swift in Sources */,
 				A173FD4C29B9A9DE00F17675 /* BrokerFeeInformation.swift in Sources */,
 				A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */,
@@ -701,13 +909,17 @@
 				A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */,
 				A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */,
 				A1648ABD29BA226B00705200 /* ProfitPerTickCalculator.swift in Sources */,
+				A161132D29D87F7700087F17 /* RightIssueCalculatorView.swift in Sources */,
 				A1648AB429BA20CC00705200 /* border.swift in Sources */,
 				A1648AA429BA146E00705200 /* AraArbCalculator.swift in Sources */,
 				A1648AA629BA14DA00705200 /* AraArbCalculatorView.swift in Sources */,
 				A12C077D29BCCD7000B4F0EE /* TableView.swift in Sources */,
 				A122534829B6221B00C87F8A /* String+Localization.swift in Sources */,
 				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
+				A161131529D8678500087F17 /* DividenYieldCalculatorView.swift in Sources */,
+				A161131A29D8686300087F17 /* StockSplitCalculator.swift in Sources */,
 				A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */,
+				A161130A29D8661400087F17 /* PriceBookValueCalculator.swift in Sources */,
 				A173FD4229B99C5900F17675 /* card.swift in Sources */,
 				A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */,
 				A1F9B0F429B1E5D0004D2676 /* TradingReturnCalculatorView.swift in Sources */,
@@ -718,16 +930,20 @@
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
 				A12C077B29BCCD4300B4F0EE /* ActivityView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,
+				A161130729D8602500087F17 /* ResultCard.swift in Sources */,
 				A1648AB229BA1F8600705200 /* String+Percentage.swift in Sources */,
 				A173FD4829B9A98F00F17675 /* InformationCard.swift in Sources */,
 				A1648ABF29BA22AA00705200 /* ProfitPerTickCalculatorView.swift in Sources */,
 				A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */,
 				A12C078129BCCDB500B4F0EE /* Double+Color.swift in Sources */,
 				A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */,
+				A161131229D8675300087F17 /* DividenYieldCalculator.swift in Sources */,
 				A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */,
 				A1648AB029BA1A5C00705200 /* NumberFormatType.swift in Sources */,
 				A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */,
 				A122534B29B6239D00C87F8A /* Language.swift in Sources */,
+				A161132129D86F5500087F17 /* AveragePriceCalculator.swift in Sources */,
+				A161132B29D87EB100087F17 /* RightIssueCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,7 +1095,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = KalkulatorSaham/KalkulatorSaham.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"KalkulatorSaham/Preview Content\"";
 				DEVELOPMENT_TEAM = 289XASJHAK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -894,6 +1110,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -902,7 +1119,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSaham;
 				PRODUCT_NAME = KalkulatorSaham;
 				SDKROOT = auto;
@@ -920,7 +1137,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = KalkulatorSaham/KalkulatorSaham.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"KalkulatorSaham/Preview Content\"";
 				DEVELOPMENT_TEAM = 289XASJHAK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -935,6 +1152,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -943,7 +1161,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSaham;
 				PRODUCT_NAME = KalkulatorSaham;
 				SDKROOT = auto;
@@ -1036,12 +1254,12 @@
 				version = 0.50.2;
 			};
 		};
-		A1121D7E29B4AB9D00DC352A /* XCRemoteSwiftPackageReference "StockCalculator" */ = {
+		A1F8ADD629C4D678006BA630 /* XCRemoteSwiftPackageReference "stock-calculator" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alfinsyahruddin/StockCalculator";
+			repositoryURL = "https://github.com/alfinsyahruddin/stock-calculator/";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.6;
+				version = 0.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1052,9 +1270,9 @@
 			package = A10E693229B1AADB00DA5DCA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		A1EB2C0329B4AEC000EAF46B /* StockCalculator */ = {
+		A1F8ADD729C4D678006BA630 /* StockCalculator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A1121D7E29B4AB9D00DC352A /* XCRemoteSwiftPackageReference "StockCalculator" */;
+			package = A1F8ADD629C4D678006BA630 /* XCRemoteSwiftPackageReference "stock-calculator" */;
 			productName = StockCalculator;
 		};
 /* End XCSwiftPackageProductDependency section */

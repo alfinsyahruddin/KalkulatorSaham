@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AutoRejectCard: View {
-    var color: Color
     var priceCaption: String
     var price: Double
     var priceChange: Double
     var percentage: Double
     var totalPercentage: Double
+    var color: Color = .yellow
     
     var body: some View {
         HStack {

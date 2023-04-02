@@ -9,20 +9,22 @@ import SwiftUI
 
 
 extension View {
-    func card(cornerRadius: Int = 8) -> some View {
-        modifier(CardViewModifier(cornerRadius: cornerRadius))
+    func card(cornerRadius: CGFloat = 8, backgroundColor: Color = .cardBackground) -> some View {
+        modifier(CardViewModifier(cornerRadius: cornerRadius, backgroundColor: backgroundColor))
     }
 }
 
 
 struct CardViewModifier: ViewModifier {
-    var cornerRadius: Int
+    var cornerRadius: CGFloat
+    var backgroundColor: Color
     
     func body(content: Content) -> some View {
         content
-            .background(Color.cardBackground)
+            .background(backgroundColor)
+            .cornerRadius(cornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: CGFloat(cornerRadius))
+                RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(Color.divider, lineWidth: 1.5)
             )
     }

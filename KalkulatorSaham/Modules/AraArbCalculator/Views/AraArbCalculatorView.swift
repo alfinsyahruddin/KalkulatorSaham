@@ -38,7 +38,7 @@ struct AraArbCalculatorView: View {
                         }
                         .buttonStyle(CustomButtonStyle())
                         
-                        Divider()
+                        Separator()
                         
                         if let autoRejects = viewStore.autoRejects {
                             VStack(spacing: 10) {
@@ -46,34 +46,34 @@ struct AraArbCalculatorView: View {
                                     let autoReject = autoRejects.ara[index]
                                     
                                     AutoRejectCard(
-                                        color: .green,
                                         priceCaption: "ARA #\(5-index)",
                                         price: autoReject.price,
                                         priceChange: autoReject.priceChange,
                                         percentage: autoReject.percentage,
-                                        totalPercentage: autoReject.totalPercentage
+                                        totalPercentage: autoReject.totalPercentage,
+                                        color: .green
                                     )
                                 }
                                 
                                 AutoRejectCard(
-                                    color: .yellow,
                                     priceCaption: "Price",
                                     price: viewStore.autoRejectPrice,
                                     priceChange: 0,
                                     percentage: 0,
-                                    totalPercentage: 0
+                                    totalPercentage: 0,
+                                    color: .yellow
                                 )
 
                                 ForEach(0..<autoRejects.arb.count, id: \.self) { index in
                                     let autoReject = autoRejects.arb[index]
                                     
                                     AutoRejectCard(
-                                        color: .red,
                                         priceCaption: "ARB #\(index+1)",
                                         price: autoReject.price,
                                         priceChange: autoReject.priceChange,
                                         percentage: autoReject.percentage,
-                                        totalPercentage: autoReject.totalPercentage
+                                        totalPercentage: autoReject.totalPercentage,
+                                        color: .red
                                     )
                                 }
                             }
