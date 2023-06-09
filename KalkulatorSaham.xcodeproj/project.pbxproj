@@ -11,7 +11,6 @@
 		A106CF3A29D93D1000DFB7A6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF3229D93D1000DFB7A6 /* Validator.swift */; };
 		A106CF3F29D93D1000DFB7A6 /* CustomRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF3829D93D1000DFB7A6 /* CustomRule.swift */; };
 		A106CF4029D93D1000DFB7A6 /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF3929D93D1000DFB7A6 /* RequiredRule.swift */; };
-		A106CF4229D9408800DFB7A6 /* ValidatorDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF4129D9408800DFB7A6 /* ValidatorDependency.swift */; };
 		A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */; };
 		A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E692529B1982E00DA5DCA /* ContentView.swift */; };
 		A10E692829B1983000DA5DCA /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10E692729B1983000DA5DCA /* App.xcassets */; };
@@ -111,7 +110,6 @@
 		A106CF3229D93D1000DFB7A6 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		A106CF3829D93D1000DFB7A6 /* CustomRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRule.swift; sourceTree = "<group>"; };
 		A106CF3929D93D1000DFB7A6 /* RequiredRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
-		A106CF4129D9408800DFB7A6 /* ValidatorDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorDependency.swift; sourceTree = "<group>"; };
 		A10E692029B1982D00DA5DCA /* KalkulatorSaham.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KalkulatorSaham.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalkulatorSahamApp.swift; sourceTree = "<group>"; };
 		A10E692529B1982E00DA5DCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -421,7 +419,6 @@
 				A15B002729BB1588002A1F5E /* Storage.swift */,
 				A15B002C29BB2115002A1F5E /* UserDefaults.swift */,
 				A1B8B9D829BB592B00056960 /* StockCalculator.swift */,
-				A106CF4129D9408800DFB7A6 /* ValidatorDependency.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -912,7 +909,6 @@
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
 				A161132629D8732F00087F17 /* TransactionCard.swift in Sources */,
 				A122534D29B623B700C87F8A /* Theme.swift in Sources */,
-				A106CF4229D9408800DFB7A6 /* ValidatorDependency.swift in Sources */,
 				A1EB2C1529B4C6B400EAF46B /* HomeView.swift in Sources */,
 				A1648AAA29BA163000705200 /* ComingSoonView.swift in Sources */,
 				A122533F29B6188900C87F8A /* UserDefaultsKey.swift in Sources */,
@@ -1291,7 +1287,7 @@
 			repositoryURL = "https://github.com/alfinsyahruddin/stock-calculator/";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.4;
+				version = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

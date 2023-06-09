@@ -23,20 +23,23 @@ struct RiskRewardRatioCalculatorView: View {
                             CustomTextField(
                                 label: "buy_price".tr(),
                                 value: viewStore.binding(\.$buyPrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["buyPrice"]
                             )
                             
                             CustomTextField(
                                 label: "stop_loss".tr(),
                                 value: viewStore.binding(\.$stopLossPrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["stopLoss"]
                             )
                             
                             
                             CustomTextField(
                                 label: "target_price".tr(),
                                 value: viewStore.binding(\.$targetPrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["targetPrice"]
                             )
                             
                             
@@ -46,10 +49,12 @@ struct RiskRewardRatioCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
-                        
-                        Separator()
+                        .disabled(!viewStore.errors.isEmpty)                        
+                    
                         
                         if let riskRewardRatio = viewStore.riskRewardRatio {
+                            Separator()
+                            
                             ResultCard(
                                 title: "risk_reward_ratio".tr(),
                                 content: "\(riskRewardRatio.risk.f()) : \(riskRewardRatio.reward.f())",

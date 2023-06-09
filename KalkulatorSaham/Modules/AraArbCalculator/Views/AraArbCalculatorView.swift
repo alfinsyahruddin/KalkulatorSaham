@@ -22,7 +22,8 @@ struct AraArbCalculatorView: View {
                             CustomTextField(
                                 label: "price".tr(),
                                 value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["price"]
                             )
                             
                             Picker("Type", selection: viewStore.binding(\.$type)) {
@@ -37,10 +38,12 @@ struct AraArbCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)
                         
-                        Separator()
                         
                         if let autoRejects = viewStore.autoRejects {
+                            Separator()
+                            
                             VStack(spacing: 10) {
                                 ForEach(0..<autoRejects.ara.count, id: \.self) { index in
                                     let autoReject = autoRejects.ara[index]

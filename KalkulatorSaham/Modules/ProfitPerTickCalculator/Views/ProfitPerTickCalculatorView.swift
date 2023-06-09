@@ -23,13 +23,15 @@ struct ProfitPerTickCalculatorView: View {
                                 CustomTextField(
                                     label: "price".tr(),
                                     value: viewStore.binding(\.$price),
-                                    keyboardType: .numberPad
+                                    keyboardType: .numberPad,
+                                    error: viewStore.errors["price"]
                                 )
                                 
                                 CustomTextField(
                                     label: "lot".tr(),
                                     value: viewStore.binding(\.$lot),
-                                    keyboardType: .numberPad
+                                    keyboardType: .numberPad,
+                                    error: viewStore.errors["lot"]
                                 )
                             }
                             
@@ -48,6 +50,7 @@ struct ProfitPerTickCalculatorView: View {
                                     ))
                                 }
                                 .buttonStyle(CustomButtonStyle())
+                                .disabled(!viewStore.errors.isEmpty)
                             }
                         }
                         .padding()

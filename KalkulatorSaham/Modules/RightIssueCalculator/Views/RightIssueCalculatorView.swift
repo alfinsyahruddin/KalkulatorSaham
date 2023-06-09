@@ -21,19 +21,22 @@ struct RightIssueCalculatorView: View {
                         HStack(spacing: 10) {
                             CustomTextField(
                                 label: "ticker".tr(),
-                                text: viewStore.binding(\.$ticker)
+                                text: viewStore.binding(\.$ticker),
+                                error: viewStore.errors["ticker"]
                             )
                             
                             CustomTextField(
                                 label: "cum_date_price".tr(),
                                 value: viewStore.binding(\.$cumDatePrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["cumDatePrice"]
                             )
                             
                             CustomTextField(
                                 label: "lot".tr(),
                                 value: viewStore.binding(\.$lot),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["lot"]
                             )
                         }
                         
@@ -41,19 +44,22 @@ struct RightIssueCalculatorView: View {
                             CustomTextField(
                                 label: "exercise_price".tr(),
                                 value: viewStore.binding(\.$exercisePrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["exercisePrice"]
                             )
                             
                             CustomTextField(
                                 label: "old_ratio".tr(),
                                 value: viewStore.binding(\.$oldRatio),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["oldRatio"]
                             )
 
                             CustomTextField(
                                 label: "new_ratio".tr(),
                                 value: viewStore.binding(\.$newRatio),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["newRatio"]
                             )
                         }
                         
@@ -61,23 +67,24 @@ struct RightIssueCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)                        
                         
-                        Separator()
                         
                         if let rightIssue = viewStore.rightIssue {
+                            Separator()
                             
-                                VStack(alignment: .leading) {
-                                    Text("before_ex_date".tr().uppercased())
-                                        .font(.caption.weight(.light))
-                                        .foregroundColor(.secondaryLabel)
-                                    
-                                    ResultCard(
-                                        title: "market_value".tr(),
-                                        content: rightIssue.value.f(.currency),
-                                        alignment: .leading,
-                                        contentFont: .body
-                                    )
-                                }
+                            VStack(alignment: .leading) {
+                                Text("before_ex_date".tr().uppercased())
+                                    .font(.caption.weight(.light))
+                                    .foregroundColor(.secondaryLabel)
+                                
+                                ResultCard(
+                                    title: "market_value".tr(),
+                                    content: rightIssue.value.f(.currency),
+                                    alignment: .leading,
+                                    contentFont: .body
+                                )
+                            }
                                 
                             VStack(alignment: .leading) {
                                 Text("after_ex_date".tr().uppercased())

@@ -10,7 +10,7 @@ import Foundation
 class RequiredRule: RuleProtocol {
     var options: [Option] = []
     
-    init(_ options: [Option]) {
+    init(_ options: [Option] = []) {
         self.options = options
     }
     

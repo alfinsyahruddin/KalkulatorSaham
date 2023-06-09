@@ -38,11 +38,12 @@ struct DividenYieldCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)
+                        .disabled(!viewStore.errors.isEmpty)                       
                         
-                        Separator()
                         
                         if let dividenYield = viewStore.dividenYield {
+                            Separator()
+                            
                             ResultCard(
                                 title: "dividen_yield".tr(),
                                 content: dividenYield.f().percentage(),

@@ -16,6 +16,7 @@ struct ProfitPerTickCalculator: ReducerProtocol {
         @BindingState var price: Double = 0
         @BindingState var lot: Double = 0
         @BindingState var calculateBrokerFee: Bool = true
+        var errors: Validator.Errors = [:]
 
         var rows: [[String]] = []
         var colors: [[Color]] = []
@@ -23,17 +24,39 @@ struct ProfitPerTickCalculator: ReducerProtocol {
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
+        case validate
+        case validateField(_ field: String)
         case calculateButtonTapped(brokerFee: BrokerFee)
+        case calculate(brokerFee: BrokerFee)
     }
     
     var body: some ReducerProtocol<State, Action> {
         BindingReducer()
 
         Reduce { state, action in
+            
+            // Validation Schema
+            let validator = Validator.schema([
+                ("price", state.price, rules: [RequiredRule([.notZero])]),
+                ("lot", state.lot, rules: [RequiredRule([.notZero])])
+            ], state.errors)
+            
             switch action {
-            case .calculateButtonTapped(let brokerFee):
-                guard state.price > 0 && state.lot > 0 else { return .none }
+            case .validate:
+                state.errors = validator.validate()
+                return .none
+            case let .validateField(field):
+                state.errors = validator.validateField(field)
+                return .none
                 
+            case .binding(\.$price):
+                return .send(.validateField("price"))
+                
+            case let .calculateButtonTapped(brokerFee):
+                return .merge(.send(.validate), .send(.calculate(brokerFee: brokerFee)))
+            case let .calculate(brokerFee):
+                guard state.errors.isEmpty else { return .none }
+                                
                 let limit = 10
                 let profitPerTicks = self.stockCalculator.calculateProfitPerTick(
                     price: state.price,

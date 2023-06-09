@@ -19,6 +19,7 @@ struct TradingReturnCalculator: ReducerProtocol {
         @BindingState var sellPrice: Double = 0
         @BindingState var lot: Double = 0
         @BindingState var calculateBrokerFee: Bool = true
+        var errors: Validator.Errors = [:]
 
         var tradingReturn: TradingReturn? = nil
         var brokerFee: BrokerFee = BrokerFee(buy: 0, sell: 0)
@@ -26,7 +27,10 @@ struct TradingReturnCalculator: ReducerProtocol {
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
+        case validate
+        case validateField(_ field: String)
         case calculateButtonTapped
+        case calculate
     }
     
     var body: some ReducerProtocol<State, Action> {
@@ -35,8 +39,34 @@ struct TradingReturnCalculator: ReducerProtocol {
         
         
         Reduce { state, action in
+            
+            // Validation Schema
+            let validator = Validator.schema([
+                ("buyPrice", state.buyPrice, rules: [RequiredRule([.notZero])]),
+                ("sellPrice", state.sellPrice, rules: [RequiredRule([.notZero])]),
+                ("lot", state.lot, rules: [RequiredRule([.notZero])])
+            ], state.errors)
+            
             switch action {
+            case .validate:
+                state.errors = validator.validate()
+                return .none
+            case let .validateField(field):
+                state.errors = validator.validateField(field)
+                return .none
+                
+            case .binding(\.$buyPrice):
+                return .send(.validateField("buyPrice"))
+            case .binding(\.$sellPrice):
+                return .send(.validateField("sellPrice"))
+            case .binding(\.$lot):
+                return .send(.validateField("lot"))
+                
             case .calculateButtonTapped:
+                return .merge(.send(.validate), .send(.calculate))
+            case .calculate:
+                guard state.errors.isEmpty else { return .none }
+
                 print("BROKER FEE: \(state.brokerFee)")
                 state.tradingReturn = self.stockCalculator.calculateTradingReturn(
                     buyPrice: state.buyPrice,

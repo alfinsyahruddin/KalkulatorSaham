@@ -17,17 +17,19 @@ struct AveragePriceCalculatorView: View {
             ScrollView {
                 WithViewStore(store, observe: { $0 }) { viewStore in
                     VStack(alignment: .leading, spacing: 20) {
-                        VStack(spacing: 10) {
+                        HStack(spacing: 10) {
                             CustomTextField(
                                 label: "price".tr(),
                                 value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["price"]
                             )
                             
                             CustomTextField(
                                 label: "lot".tr(),
                                 value: viewStore.binding(\.$lot),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["lot"]
                             )
                         }
                         
@@ -41,10 +43,12 @@ struct AveragePriceCalculatorView: View {
                             viewStore.send(.buyButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)
                         
-                        Separator()
                         
                         if let portfolio = viewStore.portfolio {
+                            Separator()
+
                             InformationCard(
                                 title: "portfolio".tr(),
                                 totalColumn: 3,

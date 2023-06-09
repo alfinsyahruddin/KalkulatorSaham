@@ -22,13 +22,15 @@ struct PriceBookValueCalculatorView: View {
                             CustomTextField(
                                 label: "price".tr(),
                                 value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["price"]
                             )
                             
                             CustomTextField(
                                 label: "book_value".tr(),
                                 value: viewStore.binding(\.$bookValue),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["bookValue"]
                             )
                         }
                         
@@ -36,10 +38,12 @@ struct PriceBookValueCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)
                         
-                        Separator()
                         
                         if let priceBookValue = viewStore.priceBookValue {
+                            Separator()
+                            
                             ResultCard(
                                 title: "price_book_value".tr(),
                                 content: "\(priceBookValue.f())x",

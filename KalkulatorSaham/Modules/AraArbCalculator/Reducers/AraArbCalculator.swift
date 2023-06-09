@@ -16,6 +16,7 @@ struct AraArbCalculator: ReducerProtocol {
     struct State: Equatable {
         @BindingState var price: Double = 0
         @BindingState var type: Int = 0
+        var errors: Validator.Errors = [:]
         
         var autoRejectPrice: Double = 0
         var autoRejects: AutoRejects? = nil
@@ -23,17 +24,38 @@ struct AraArbCalculator: ReducerProtocol {
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
+        case validate
+        case validateField(_ field: String)
         case calculateButtonTapped
+        case calculate
     }
     
     var body: some ReducerProtocol<State, Action> {
         BindingReducer()
 
         Reduce { state, action in
+            
+            // Validation Schema
+            let validator = Validator.schema([
+                ("price", state.price, rules: [RequiredRule([.notZero])])
+            ], state.errors)
+            
             switch action {
-            case .calculateButtonTapped:
-                guard state.price > 0 else { return .none }
+            case .validate:
+                state.errors = validator.validate()
+                return .none
+            case let .validateField(field):
+                state.errors = validator.validateField(field)
+                return .none
                 
+            case .binding(\.$price):
+                return .send(.validateField("price"))
+                
+            case .calculateButtonTapped:
+                return .merge(.send(.validate), .send(.calculate))
+            case .calculate:
+                guard state.errors.isEmpty else { return .none }
+                                    
                 var type: AutoRejectType
                 switch state.type {
                 case 0:

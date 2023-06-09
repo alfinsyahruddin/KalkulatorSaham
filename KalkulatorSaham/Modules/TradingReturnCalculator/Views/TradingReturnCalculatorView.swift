@@ -22,19 +22,22 @@ struct TradingReturnCalculatorView: View {
                             CustomTextField(
                                 label: "buy_price".tr(),
                                 value: viewStore.binding(\.$buyPrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["buyPrice"]
                             )
 
                             CustomTextField(
                                 label: "sell_price".tr(),
                                 value: viewStore.binding(\.$sellPrice),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["sellPrice"]
                             )
 
                             CustomTextField(
                                 label: "lot".tr(),
                                 value: viewStore.binding(\.$lot),
-                                keyboardType: .numberPad
+                                keyboardType: .numberPad,
+                                error: viewStore.errors["lot"]
                             )
                         }
 
@@ -48,10 +51,12 @@ struct TradingReturnCalculatorView: View {
                             viewStore.send(.calculateButtonTapped)
                         }
                         .buttonStyle(CustomButtonStyle())
+                        .disabled(!viewStore.errors.isEmpty)                     
                         
-                        Separator()
                         
                         if let tradingReturn = viewStore.tradingReturn {
+                            Separator()
+
                             InformationCard(
                                 title: "calculation_result".tr(),
                                 headerStyle: InformationCardHeaderStyle(

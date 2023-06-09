@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alfinsyahruddin/stock-calculator/",
       "state" : {
-        "revision" : "96196b12d8bd8807a01c3e144a7d64b729e48786",
-        "version" : "0.1.4"
+        "revision" : "f87e05fc7630e46b3f3783ce76a4658eed3a9b4b",
+        "version" : "0.2.0"
       }
     },
     {
