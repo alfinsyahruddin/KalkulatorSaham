@@ -137,10 +137,21 @@ struct MainView: View {
                                 ) {
                                     MenuRow(id: "RI", label: "right_issue_calculator".tr())
                                 }
-                                
+                            
+                                NavigationLink(
+                                    destination: LotCalculatorView(
+                                        store: store.scope(
+                                            state: \.lotCalculator,
+                                            action: Main.Action.lotCalculator
+                                        )
+                                    )
+                                ) {
+                                    MenuRow(id: "LC", label: "lot_calculator".tr())
+                                }
+                                    
                             
                         }
-                            .listRowBackground(Color.clear)
+                        .listRowBackground(Color.clear)
                         
                     }
                     

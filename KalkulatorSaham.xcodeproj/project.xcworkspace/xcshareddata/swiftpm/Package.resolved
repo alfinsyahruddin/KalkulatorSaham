@@ -1,4 +1,5 @@
 {
+  "originHash" : "b1cb6e55e11ccd68bc090e6ff462ac8b945ffb40a98e16150ee2c64e7aa17f39",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -14,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alfinsyahruddin/stock-calculator/",
       "state" : {
-        "revision" : "f87e05fc7630e46b3f3783ce76a4658eed3a9b4b",
-        "version" : "0.2.0"
+        "revision" : "643c11daa86cd2cb8d46bdc6c78346cea515b5be",
+        "version" : "0.2.1"
       }
     },
     {
@@ -100,5 +101,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ED173F52DEBF9280091AA76 /* LotCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED173F42DEBF9280091AA76 /* LotCalculator.swift */; };
+		8ED173F72DEBF9AA0091AA76 /* LotCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED173F62DEBF9AA0091AA76 /* LotCalculatorView.swift */; };
 		A106CF3029D938D100DFB7A6 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF2F29D938D100DFB7A6 /* Separator.swift */; };
 		A106CF3A29D93D1000DFB7A6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF3229D93D1000DFB7A6 /* Validator.swift */; };
 		A106CF3F29D93D1000DFB7A6 /* CustomRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106CF3829D93D1000DFB7A6 /* CustomRule.swift */; };
@@ -35,7 +37,6 @@
 		A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002929BB1DA7002A1F5E /* ThemeManager.swift */; };
 		A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002C29BB2115002A1F5E /* UserDefaults.swift */; };
 		A15B002F29BB29BA002A1F5E /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */; };
-		A16112FE29D85BD000087F17 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16112FD29D85BD000087F17 /* Launch Screen.storyboard */; };
 		A161130329D85D1B00087F17 /* RiskRewardRatioCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */; };
 		A161130529D85E2200087F17 /* RiskRewardRatioCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130429D85E2200087F17 /* RiskRewardRatioCalculatorView.swift */; };
 		A161130729D8602500087F17 /* ResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130629D8602500087F17 /* ResultCard.swift */; };
@@ -106,6 +107,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8ED173F42DEBF9280091AA76 /* LotCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotCalculator.swift; sourceTree = "<group>"; };
+		8ED173F62DEBF9AA0091AA76 /* LotCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotCalculatorView.swift; sourceTree = "<group>"; };
 		A106CF2F29D938D100DFB7A6 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		A106CF3229D93D1000DFB7A6 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		A106CF3829D93D1000DFB7A6 /* CustomRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRule.swift; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 		A15B002929BB1DA7002A1F5E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		A15B002C29BB2115002A1F5E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
-		A16112FD29D85BD000087F17 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskRewardRatioCalculator.swift; sourceTree = "<group>"; };
 		A161130429D85E2200087F17 /* RiskRewardRatioCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskRewardRatioCalculatorView.swift; sourceTree = "<group>"; };
 		A161130629D8602500087F17 /* ResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCard.swift; sourceTree = "<group>"; };
@@ -217,6 +219,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8ED173F12DEBF9010091AA76 /* LotCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				8ED173F22DEBF9140091AA76 /* Reducers */,
+				8ED173F32DEBF91A0091AA76 /* Views */,
+			);
+			path = LotCalculator;
+			sourceTree = "<group>";
+		};
+		8ED173F22DEBF9140091AA76 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				8ED173F42DEBF9280091AA76 /* LotCalculator.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		8ED173F32DEBF91A0091AA76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8ED173F62DEBF9AA0091AA76 /* LotCalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A106CF3129D93D1000DFB7A6 /* Validator */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +288,6 @@
 				A10E693929B1B43A00DA5DCA /* Modules */,
 				A10E692529B1982E00DA5DCA /* ContentView.swift */,
 				A10E692329B1982E00DA5DCA /* KalkulatorSahamApp.swift */,
-				A16112FD29D85BD000087F17 /* Launch Screen.storyboard */,
 				A10E692929B1983000DA5DCA /* KalkulatorSaham.entitlements */,
 				A1F9B0F529B1EE19004D2676 /* Info.plist */,
 				A10E692A29B1983000DA5DCA /* Preview Content */,
@@ -315,6 +341,7 @@
 				A161130F29D8672A00087F17 /* DividenYieldCalculator */,
 				A161131629D8684D00087F17 /* StockSplitCalculator */,
 				A161132729D87E9500087F17 /* RightIssueCalculator */,
+				8ED173F12DEBF9010091AA76 /* LotCalculator */,
 				A17FEFC029B5C988001B7502 /* Settings */,
 				A1648AA729BA161D00705200 /* ComingSoon */,
 			);
@@ -873,7 +900,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16112FE29D85BD000087F17 /* Launch Screen.storyboard in Resources */,
 				A122534329B61D8600C87F8A /* Localizable.strings in Resources */,
 				A10E692C29B1983000DA5DCA /* Preview Assets.xcassets in Resources */,
 				A1EB2C0629B4AF7D00EAF46B /* Colors.xcassets in Resources */,
@@ -927,10 +953,12 @@
 				A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */,
 				A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */,
 				A161130329D85D1B00087F17 /* RiskRewardRatioCalculator.swift in Sources */,
+				8ED173F52DEBF9280091AA76 /* LotCalculator.swift in Sources */,
 				A1648AAC29BA19FA00705200 /* Double+Format.swift in Sources */,
 				A173FD4C29B9A9DE00F17675 /* BrokerFeeInformation.swift in Sources */,
 				A17FEFC429B5C9C8001B7502 /* SettingsView.swift in Sources */,
 				A1648AB729BA210B00705200 /* AutoRejectCard.swift in Sources */,
+				8ED173F72DEBF9AA0091AA76 /* LotCalculatorView.swift in Sources */,
 				A1B8B9DB29BB5E0F00056960 /* StockCalculator+Status.swift in Sources */,
 				A1EB2C0E29B4B57F00EAF46B /* watermarked.swift in Sources */,
 				A17FEFCA29B5CDED001B7502 /* ThemeView.swift in Sources */,
@@ -1138,7 +1166,6 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1180,7 +1207,6 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1287,7 +1313,7 @@
 			repositoryURL = "https://github.com/alfinsyahruddin/stock-calculator/";
 			requirement = {
 				kind = exactVersion;
-				version = 0.2.0;
+				version = 0.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -93,3 +93,5 @@
 "theoretical_price" = "Theoretical Price";
 "current_price" = "Current Price";
 "this_field_is_required" = "This field is required";
+"lot_calculator" = "Lot Calculator";
+"max_buy" = "Max Buy";

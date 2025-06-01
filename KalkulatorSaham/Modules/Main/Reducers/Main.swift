@@ -35,6 +35,7 @@ struct Main: ReducerProtocol {
         var dividenYieldCalculator = DividenYieldCalculator.State()
         var stockSplitCalculator = StockSplitCalculator.State()
         var rightIssueCalculator = RightIssueCalculator.State()
+        var lotCalculator = LotCalculator.State()
     }
     
     enum Action: Equatable, BindableAction {
@@ -52,6 +53,7 @@ struct Main: ReducerProtocol {
         case dividenYieldCalculator(DividenYieldCalculator.Action)
         case stockSplitCalculator(StockSplitCalculator.Action)
         case rightIssueCalculator(RightIssueCalculator.Action)
+        case lotCalculator(LotCalculator.Action)
     }
     
     var body: some ReducerProtocol<State, Action> {
@@ -115,7 +117,9 @@ struct Main: ReducerProtocol {
             RightIssueCalculator()
         }
        
-   
+        Scope(state: \.lotCalculator, action: /Action.lotCalculator) {
+            LotCalculator()
+        }
       
     }
 }
