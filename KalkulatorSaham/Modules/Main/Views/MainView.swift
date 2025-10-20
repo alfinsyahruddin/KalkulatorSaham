@@ -143,6 +143,10 @@ struct MainView: View {
                                         store: store.scope(
                                             state: \.lotCalculator,
                                             action: Main.Action.lotCalculator
+                                        ),
+                                        settingsStore: store.scope(
+                                            state: \.settings,
+                                            action: Main.Action.settings
                                         )
                                     )
                                 ) {

@@ -11,7 +11,8 @@ import StockCalculator
 
 struct LotCalculatorView: View {
     let store: StoreOf<LotCalculator>
-    
+    let settingsStore: StoreOf<Settings>
+
     var body: some View {
         ScreenView {
             ScrollView {
@@ -33,11 +34,24 @@ struct LotCalculatorView: View {
                             )
                         }
                         
-                        Button("calculate".tr()) {
-                            viewStore.send(.calculateButtonTapped)
+                        BrokerFeeInformation(
+                            store: settingsStore,
+                            calculateBrokerFee: viewStore.binding(\.$calculateBrokerFee)
+                        )
+                        
+                        WithViewStore(settingsStore, observe: { $0 }) { settingsViewStore in
+                            Button("calculate".tr()) {
+                                viewStore.send(.calculateButtonTapped(
+                                    brokerFee: BrokerFee(
+                                        buy: settingsViewStore.buyFee,
+                                        sell: settingsViewStore.sellFee
+                                    )
+                                ))
+                            }
+                            .buttonStyle(CustomButtonStyle())
+                            .disabled(!viewStore.errors.isEmpty)
+                            
                         }
-                        .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)
                         
                         if let lotResult = viewStore.lotResult {
                             Separator()
@@ -58,6 +72,19 @@ struct LotCalculatorView: View {
                                 )
                             }
                         }
+                        
+                        TableView(
+                            columns: [
+                                TableColumn("Value", width: 20, alignment: .trailing),
+                                TableColumn("Loss", width: 15, alignment: .trailing),
+                                TableColumn("Price", width: 15, alignment: .trailing),
+                                TableColumn("Price", width: 15, alignment: .leading),
+                                TableColumn("Profit", width: 15, alignment: .leading),
+                                TableColumn("Value", width: 20, alignment: .leading)
+                            ],
+                            rows: viewStore.rows,
+                            colors: viewStore.colors
+                        )
                         
                         Spacer()
                     }
@@ -86,6 +113,10 @@ struct LotCalculatorView_Previews: PreviewProvider {
             store: store.scope(
                 state: \.lotCalculator,
                 action: Main.Action.lotCalculator
+            ),
+            settingsStore: store.scope(
+                state: \.settings,
+                action: Main.Action.settings
             )
         )
     }
