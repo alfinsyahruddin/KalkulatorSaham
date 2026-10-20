@@ -7,13 +7,11 @@
 
 import SwiftUI
 import ComposableArchitecture
-#if os(macOS)
-import AppKit
-#endif
 
 struct SettingsView: View {
     let store: StoreOf<Settings>
-    
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
         ScreenView {
             List {
@@ -25,7 +23,7 @@ struct SettingsView: View {
                     ) {
                         MenuRow(icon: "icon.moon", label: "theme".tr())
                     }
-                    
+
                     NavigationLink(
                         destination: LanguageView(
                             store: store
@@ -33,7 +31,7 @@ struct SettingsView: View {
                     ) {
                         MenuRow(icon: "icon.globe", label: "language".tr())
                     }
-                    
+
                     NavigationLink(
                         destination: BrokerFeeView(
                             store: store
@@ -41,23 +39,15 @@ struct SettingsView: View {
                     ) {
                         MenuRow(icon: "icon.percent", label: "broker_fee".tr())
                     }
-                    
-                    MenuRow(icon: "icon.star", label: "give_a_rating".tr())
-                        .onTapGesture {
-                            let url = URL(string: "https://apps.apple.com/us/app/kalkulator-saham/id6445988371?action=write-review")!
-                            #if os(iOS)
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                            #elseif os(macOS)
-                            NSWorkspace.shared.open(
-                                [url],
-                                withAppBundleIdentifier:"com.apple.Safari",
-                                options: [],
-                                additionalEventParamDescriptor: nil,
-                                launchIdentifiers: nil
-                            )
-                            #endif
-                        }
-                    
+
+                    Button {
+                        let url = URL(string: "https://apps.apple.com/us/app/kalkulator-saham/id6445988371?action=write-review")!
+                        openURL(url)
+                    } label: {
+                        MenuRow(icon: "icon.star", label: "give_a_rating".tr())
+                    }
+                    .buttonStyle(.plain)
+
                 }
                 .listRowBackground(Color.clear)
             }

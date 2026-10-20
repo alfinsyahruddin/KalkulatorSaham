@@ -11,17 +11,19 @@ import ComposableArchitecture
 import StockCalculator
 import SwiftUI
 
-struct DividenYieldCalculator: ReducerProtocol {
+@Reducer
+struct DividenYieldCalculator {
     @Dependency(\.stockCalculator) var stockCalculator
 
+    @ObservableState
     struct State: Equatable {
-        @BindingState var price: Double = 0
-        @BindingState var dividen: Double = 0
+        var price: Double = 0
+        var dividen: Double = 0
         var errors: Validator.Errors = [:]
-        
+
         var dividenYield: Double? = nil
     }
-    
+
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
         case validate
@@ -29,18 +31,18 @@ struct DividenYieldCalculator: ReducerProtocol {
         case calculateButtonTapped
         case calculate
     }
-    
-    var body: some ReducerProtocol<State, Action> {
+
+    var body: some ReducerOf<Self> {
         BindingReducer()
-        
+
         Reduce { state, action in
-            
+
             // Validation Schema
             let validator = Validator.schema([
                 ("price", state.price, rules: [RequiredRule([.notZero])]),
                 ("dividen", state.dividen, rules: [RequiredRule([.notZero])])
             ], state.errors)
-            
+
             switch action {
             case .validate:
                 state.errors = validator.validate()
@@ -49,16 +51,16 @@ struct DividenYieldCalculator: ReducerProtocol {
                 state.errors = validator.validateField(field)
                 return .none
 
-            case .binding(\.$price):
+            case .binding(\.price):
                 return .send(.validateField("price"))
-            case .binding(\.$dividen):
+            case .binding(\.dividen):
                 return .send(.validateField("dividen"))
-                
+
             case .calculateButtonTapped:
-                return .merge(.send(.validate), .send(.calculate))
+                return .concatenate(.send(.validate), .send(.calculate))
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
-                
+
                 state.dividenYield = self.stockCalculator.calculateDividenYield(
                     price: state.price,
                     dividen: state.dividen

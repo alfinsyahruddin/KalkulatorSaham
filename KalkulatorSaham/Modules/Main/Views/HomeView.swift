@@ -13,9 +13,7 @@ struct HomeView: View {
 
     var body: some View {
         ScreenView {
-            WithViewStore(store, observe: \.language) { viewStore in
-                Text("welcome".tr())
-            }
+            Text("welcome".tr())
         }
     }
 }

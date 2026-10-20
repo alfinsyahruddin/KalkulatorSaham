@@ -10,20 +10,15 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ThemeView: View {
-    let store: StoreOf<Settings>
-    
+    @Bindable var store: StoreOf<Settings>
+
     var body: some View {
         ScreenView {
-            WithViewStore(store, observe: \.theme) { viewStore in
-                RadioSelect<Theme>(
-                    options: Theme.allCases.map { $0.rawValue.capitalized },
-                    values: Theme.allCases,
-                    selected: viewStore.binding(
-                        get: { $0 },
-                        send: { .setTheme($0) }
-                    )
-                )
-            }
+            RadioSelect<Theme>(
+                options: Theme.allCases.map { $0.rawValue.capitalized },
+                values: Theme.allCases,
+                selected: $store.theme.sending(\.setTheme)
+            )
         }
         .modify {
             #if os(iOS)

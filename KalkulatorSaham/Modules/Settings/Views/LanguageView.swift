@@ -10,20 +10,15 @@ import ComposableArchitecture
 
 
 struct LanguageView: View {
-    let store: StoreOf<Settings>
-    
+    @Bindable var store: StoreOf<Settings>
+
     var body: some View {
         ScreenView {
-            WithViewStore(store, observe: \.language) { viewStore in
-                RadioSelect<Language>(
-                    options: Language.allCases.map { $0.rawValue.capitalized },
-                    values: Language.allCases,
-                    selected: viewStore.binding(
-                        get: { $0 },
-                        send: { .setLanguage($0) }
-                    )
-                )
-            }
+            RadioSelect<Language>(
+                options: Language.allCases.map { $0.rawValue.capitalized },
+                values: Language.allCases,
+                selected: $store.language.sending(\.setLanguage)
+            )
         }
         .modify {
             #if os(iOS)

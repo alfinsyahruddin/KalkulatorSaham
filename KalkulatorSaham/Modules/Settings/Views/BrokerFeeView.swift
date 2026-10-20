@@ -6,37 +6,34 @@
 //
 
 
-
 import SwiftUI
 import ComposableArchitecture
 
 struct BrokerFeeView: View {
-    let store: StoreOf<Settings>
+    @Bindable var store: StoreOf<Settings>
 
     var body: some View {
         ScreenView {
-            WithViewStore(store, observe: { $0 }) { viewStore in
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("please_enter_broker_fee".tr())
-                    
-                    HStack(spacing: 10) {
-                        CustomTextField(
-                            label: "buy_fee".tr(),
-                            value: viewStore.binding(\.$buyFee),
-                            keyboardType: .decimalPad
-                        )
-                        
-                        CustomTextField(
-                            label: "sell_fee".tr(),
-                            value: viewStore.binding(\.$sellFee),
-                            keyboardType: .decimalPad
-                        )
-                    }
-                                        
-                    Spacer()
+            VStack(alignment: .leading, spacing: 20) {
+                Text("please_enter_broker_fee".tr())
+
+                HStack(spacing: 10) {
+                    CustomTextField(
+                        label: "buy_fee".tr(),
+                        value: $store.buyFee,
+                        keyboardType: .decimalPad
+                    )
+
+                    CustomTextField(
+                        label: "sell_fee".tr(),
+                        value: $store.sellFee,
+                        keyboardType: .decimalPad
+                    )
                 }
-                .padding()
+
+                Spacer()
             }
+            .padding()
         }
         .modify {
             #if os(iOS)

@@ -13,34 +13,32 @@ struct BrokerFeeInformation: View {
     var calculateBrokerFee: Binding<Bool>
 
     var body: some View {
-        WithViewStore(store, observe: { $0 }) {viewStore in
-            VStack(alignment: .leading) {
-                HStack(spacing: 10) {
-                    Toggle("", isOn: calculateBrokerFee)
-                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                        .labelsHidden()
-                        .scaleEffect(0.6)
-                        .frame(width: 30)
+        VStack(alignment: .leading) {
+            HStack(spacing: 10) {
+                Toggle("", isOn: calculateBrokerFee)
+                    .toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                    .labelsHidden()
+                    .scaleEffect(0.6)
+                    .frame(width: 30)
 
-                    Text("calculate_broker_fee".tr())
-                    Spacer()
-                }
-                HStack {
-                    Text("broker_fee".tr() + ":")
+                Text("calculate_broker_fee".tr())
+                Spacer()
+            }
+            HStack {
+                Text("broker_fee".tr() + ":")
+                    .fontWeight(.bold)
+                Text("buy_x_&_sell_x".tr(with: [
+                    store.buyFee.f().percentage(),
+                    store.sellFee.f().percentage()
+                ]))
+
+                NavigationLink(destination: { BrokerFeeView(store: store ) }) {
+                    Text("change".tr())
+                        .foregroundColor(.accentColor)
                         .fontWeight(.bold)
-                    Text("buy_x_&_sell_x".tr(with: [
-                        viewStore.buyFee.f().percentage(),
-                        viewStore.sellFee.f().percentage()
-                    ]))
-                    
-                    NavigationLink(destination: { BrokerFeeView(store: store ) }) {
-                        Text("change".tr())
-                            .foregroundColor(.accentColor)
-                            .fontWeight(.bold)
-                    }
                 }
             }
-            .font(.caption)
         }
+        .font(.caption)
     }
 }

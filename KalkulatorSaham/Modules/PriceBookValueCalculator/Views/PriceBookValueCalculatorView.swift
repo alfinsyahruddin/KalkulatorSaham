@@ -11,52 +11,50 @@ import ComposableArchitecture
 import StockCalculator
 
 struct PriceBookValueCalculatorView: View {
-    let store: StoreOf<PriceBookValueCalculator>
-    
+    @Bindable var store: StoreOf<PriceBookValueCalculator>
+
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
-                    VStack(alignment: .leading, spacing: 20) {
-                        HStack(spacing: 10) {
-                            CustomTextField(
-                                label: "price".tr(),
-                                value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["price"]
-                            )
-                            
-                            CustomTextField(
-                                label: "book_value".tr(),
-                                value: viewStore.binding(\.$bookValue),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["bookValue"]
-                            )
-                        }
-                        
-                        Button("calculate".tr()) {
-                            viewStore.send(.calculateButtonTapped)
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)
-                        
-                        
-                        if let priceBookValue = viewStore.priceBookValue {
-                            Separator()
-                            
-                            ResultCard(
-                                title: "price_book_value".tr(),
-                                content: "\(priceBookValue.f())x",
-                                color: priceBookValue < 1 ? .green
-                                : priceBookValue > 1 ? .red
-                                : .yellow
-                            )
-                        }
-                        
-                        Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack(spacing: 10) {
+                        CustomTextField(
+                            label: "price".tr(),
+                            value: $store.price,
+                            keyboardType: .numberPad,
+                            error: store.errors["price"]
+                        )
+
+                        CustomTextField(
+                            label: "book_value".tr(),
+                            value: $store.bookValue,
+                            keyboardType: .numberPad,
+                            error: store.errors["bookValue"]
+                        )
                     }
-                    .padding()
+
+                    Button("calculate".tr()) {
+                        store.send(.calculateButtonTapped)
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .disabled(!store.errors.isEmpty)
+
+
+                    if let priceBookValue = store.priceBookValue {
+                        Separator()
+
+                        ResultCard(
+                            title: "price_book_value".tr(),
+                            content: "\(priceBookValue.f())x",
+                            color: priceBookValue < 1 ? .green
+                            : priceBookValue > 1 ? .red
+                            : .yellow
+                        )
+                    }
+
+                    Spacer()
                 }
+                .padding()
             }
         }
         .modify {
@@ -68,18 +66,18 @@ struct PriceBookValueCalculatorView: View {
 }
 
 
-
 struct PriceBookValueCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         PriceBookValueCalculatorView(
             store: store.scope(
                 state: \.priceBookValueCalculator,
-                action: Main.Action.priceBookValueCalculator
+                action: \.priceBookValueCalculator
             )
         )
     }

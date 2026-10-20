@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol StorageProtocol {
+protocol StorageProtocol: Sendable {
     func get<T>(_ key: String, type: T.Type) -> T? where T : Codable
     func set<T>(_ key: String, _ item: T) where T : Codable
     func delete(_ key: String)

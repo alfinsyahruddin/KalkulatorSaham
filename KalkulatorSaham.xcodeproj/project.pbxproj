@@ -34,7 +34,6 @@
 		A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002229BB1148002A1F5E /* StorageProtocol.swift */; };
 		A15B002529BB1154002A1F5E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */; };
 		A15B002829BB1588002A1F5E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002729BB1588002A1F5E /* Storage.swift */; };
-		A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002929BB1DA7002A1F5E /* ThemeManager.swift */; };
 		A15B002D29BB2115002A1F5E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002C29BB2115002A1F5E /* UserDefaults.swift */; };
 		A15B002F29BB29BA002A1F5E /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */; };
 		A161130329D85D1B00087F17 /* RiskRewardRatioCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */; };
@@ -137,7 +136,6 @@
 		A15B002229BB1148002A1F5E /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		A15B002729BB1588002A1F5E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		A15B002929BB1DA7002A1F5E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		A15B002C29BB2115002A1F5E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		A161130229D85D1B00087F17 /* RiskRewardRatioCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskRewardRatioCalculator.swift; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 		A15B002029BB1113002A1F5E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A15B002B29BB1E4C002A1F5E /* Theme */,
 				A15B002129BB1122002A1F5E /* Storage */,
 				A106CF3129D93D1000DFB7A6 /* Validator */,
 			);
@@ -448,14 +445,6 @@
 				A1B8B9D829BB592B00056960 /* StockCalculator.swift */,
 			);
 			path = DI;
-			sourceTree = "<group>";
-		};
-		A15B002B29BB1E4C002A1F5E /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				A15B002929BB1DA7002A1F5E /* ThemeManager.swift */,
-			);
-			path = Theme;
 			sourceTree = "<group>";
 		};
 		A16112FF29D85CE500087F17 /* RiskRewardRatioCalculator */ = {
@@ -972,7 +961,6 @@
 				A17FEFC629B5C9F9001B7502 /* Settings.swift in Sources */,
 				A161131529D8678500087F17 /* DividenYieldCalculatorView.swift in Sources */,
 				A161131A29D8686300087F17 /* StockSplitCalculator.swift in Sources */,
-				A15B002A29BB1DA7002A1F5E /* ThemeManager.swift in Sources */,
 				A161130A29D8661400087F17 /* PriceBookValueCalculator.swift in Sources */,
 				A173FD4229B99C5900F17675 /* card.swift in Sources */,
 				A1EB2C1129B4C30500EAF46B /* modify.swift in Sources */,
@@ -1180,7 +1168,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1221,7 +1209,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1235,12 +1223,14 @@
 				DEVELOPMENT_TEAM = 289XASJHAK;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSahamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KalkulatorSaham.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KalkulatorSaham";
 			};
@@ -1255,12 +1245,14 @@
 				DEVELOPMENT_TEAM = 289XASJHAK;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alfin.KalkulatorSahamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KalkulatorSaham.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KalkulatorSaham";
 				VALIDATE_PRODUCT = YES;
@@ -1305,8 +1297,10 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = exactVersion;
-				version = 0.50.2;
+				version = 1.26.2;
 			};
+			traits = (
+			);
 		};
 		A1F8ADD629C4D678006BA630 /* XCRemoteSwiftPackageReference "stock-calculator" */ = {
 			isa = XCRemoteSwiftPackageReference;

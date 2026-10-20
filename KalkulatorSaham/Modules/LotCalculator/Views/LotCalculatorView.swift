@@ -10,86 +10,82 @@ import ComposableArchitecture
 import StockCalculator
 
 struct LotCalculatorView: View {
-    let store: StoreOf<LotCalculator>
+    @Bindable var store: StoreOf<LotCalculator>
     let settingsStore: StoreOf<Settings>
 
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
-                    VStack(alignment: .leading, spacing: 20) {
-                        HStack(spacing: 10) {
-                            CustomTextField(
-                                label: "price".tr(),
-                                value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["price"]
-                            )
-                            
-                            CustomTextField(
-                                label: "max_buy".tr(),
-                                value: viewStore.binding(\.$maxBuy),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["maxBuy"]
-                            )
-                        }
-                        
-                        BrokerFeeInformation(
-                            store: settingsStore,
-                            calculateBrokerFee: viewStore.binding(\.$calculateBrokerFee)
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack(spacing: 10) {
+                        CustomTextField(
+                            label: "price".tr(),
+                            value: $store.price,
+                            keyboardType: .numberPad,
+                            error: store.errors["price"]
                         )
-                        
-                        WithViewStore(settingsStore, observe: { $0 }) { settingsViewStore in
-                            Button("calculate".tr()) {
-                                viewStore.send(.calculateButtonTapped(
-                                    brokerFee: BrokerFee(
-                                        buy: settingsViewStore.buyFee,
-                                        sell: settingsViewStore.sellFee
-                                    )
-                                ))
-                            }
-                            .buttonStyle(CustomButtonStyle())
-                            .disabled(!viewStore.errors.isEmpty)
-                            
-                        }
-                        
-                        if let lotResult = viewStore.lotResult {
-                            Separator()
-                            
-                            HStack(spacing: 16) {
-                                ResultCard(
-                                    title: "lot".tr(),
-                                    content: lotResult.lot.f(),
-                                    alignment: .leading,
-                                    contentFont: .body
-                                )
-                                
-                                ResultCard(
-                                    title: "total".tr(),
-                                    content: lotResult.value.f(.currency),
-                                    alignment: .leading,
-                                    contentFont: .body
-                                )
-                            }
-                        }
-                        
-                        TableView(
-                            columns: [
-                                TableColumn("Value", width: 20, alignment: .trailing),
-                                TableColumn("Loss", width: 15, alignment: .trailing),
-                                TableColumn("Price", width: 15, alignment: .trailing),
-                                TableColumn("Price", width: 15, alignment: .leading),
-                                TableColumn("Profit", width: 15, alignment: .leading),
-                                TableColumn("Value", width: 20, alignment: .leading)
-                            ],
-                            rows: viewStore.rows,
-                            colors: viewStore.colors
+
+                        CustomTextField(
+                            label: "max_buy".tr(),
+                            value: $store.maxBuy,
+                            keyboardType: .numberPad,
+                            error: store.errors["maxBuy"]
                         )
-                        
-                        Spacer()
                     }
-                    .padding()
+
+                    BrokerFeeInformation(
+                        store: settingsStore,
+                        calculateBrokerFee: $store.calculateBrokerFee
+                    )
+
+                    Button("calculate".tr()) {
+                        store.send(.calculateButtonTapped(
+                            brokerFee: BrokerFee(
+                                buy: settingsStore.buyFee,
+                                sell: settingsStore.sellFee
+                            )
+                        ))
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .disabled(!store.errors.isEmpty)
+
+
+                    if let lotResult = store.lotResult {
+                        Separator()
+
+                        HStack(spacing: 16) {
+                            ResultCard(
+                                title: "lot".tr(),
+                                content: lotResult.lot.f(),
+                                alignment: .leading,
+                                contentFont: .body
+                            )
+
+                            ResultCard(
+                                title: "total".tr(),
+                                content: lotResult.value.f(.currency),
+                                alignment: .leading,
+                                contentFont: .body
+                            )
+                        }
+                    }
+
+                    TableView(
+                        columns: [
+                            TableColumn("Value", width: 20, alignment: .trailing),
+                            TableColumn("Loss", width: 15, alignment: .trailing),
+                            TableColumn("Price", width: 15, alignment: .trailing),
+                            TableColumn("Price", width: 15, alignment: .leading),
+                            TableColumn("Profit", width: 15, alignment: .leading),
+                            TableColumn("Value", width: 20, alignment: .leading)
+                        ],
+                        rows: store.rows,
+                        colors: store.colors
+                    )
+
+                    Spacer()
                 }
+                .padding()
             }
         }
         .modify {
@@ -101,22 +97,22 @@ struct LotCalculatorView: View {
 }
 
 
-
 struct LotCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         LotCalculatorView(
             store: store.scope(
                 state: \.lotCalculator,
-                action: Main.Action.lotCalculator
+                action: \.lotCalculator
             ),
             settingsStore: store.scope(
                 state: \.settings,
-                action: Main.Action.settings
+                action: \.settings
             )
         )
     }

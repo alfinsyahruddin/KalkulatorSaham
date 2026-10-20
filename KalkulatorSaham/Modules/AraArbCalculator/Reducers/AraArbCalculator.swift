@@ -10,18 +10,20 @@ import ComposableArchitecture
 import StockCalculator
 
 
-struct AraArbCalculator: ReducerProtocol {
+@Reducer
+struct AraArbCalculator {
     @Dependency(\.stockCalculator) var stockCalculator
 
+    @ObservableState
     struct State: Equatable {
-        @BindingState var price: Double = 0
-        @BindingState var type: Int = 0
+        var price: Double = 0
+        var type: Int = 0
         var errors: Validator.Errors = [:]
-        
+
         var autoRejectPrice: Double = 0
         var autoRejects: AutoRejects? = nil
     }
-    
+
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
         case validate
@@ -29,17 +31,17 @@ struct AraArbCalculator: ReducerProtocol {
         case calculateButtonTapped
         case calculate
     }
-    
-    var body: some ReducerProtocol<State, Action> {
+
+    var body: some ReducerOf<Self> {
         BindingReducer()
 
         Reduce { state, action in
-            
+
             // Validation Schema
             let validator = Validator.schema([
                 ("price", state.price, rules: [RequiredRule([.notZero])])
             ], state.errors)
-            
+
             switch action {
             case .validate:
                 state.errors = validator.validate()
@@ -47,15 +49,15 @@ struct AraArbCalculator: ReducerProtocol {
             case let .validateField(field):
                 state.errors = validator.validateField(field)
                 return .none
-                
-            case .binding(\.$price):
+
+            case .binding(\.price):
                 return .send(.validateField("price"))
-                
+
             case .calculateButtonTapped:
-                return .merge(.send(.validate), .send(.calculate))
+                return .concatenate(.send(.validate), .send(.calculate))
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
-                                    
+
                 var type: AutoRejectType
                 switch state.type {
                 case 0:

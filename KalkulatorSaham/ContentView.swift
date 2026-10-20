@@ -9,15 +9,18 @@ import SwiftUI
 import ComposableArchitecture
 
 struct ContentView: View {
-    let store = Store(
-        initialState: Main.State(),
-        reducer: Main()
-    )
-    
+    @State private var store = Store(
+        initialState: Main.State()
+    ) {
+        Main()
+    }
+
     var body: some View {
         MainView(
             store: store
         )
+        .preferredColorScheme(store.settings.theme == .system ? nil : store.settings.theme == .dark ? .dark : .light)
+        .id(store.settings.language)
     }
 }
 

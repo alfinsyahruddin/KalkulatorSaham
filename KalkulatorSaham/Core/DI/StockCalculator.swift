@@ -10,12 +10,15 @@ import ComposableArchitecture
 import StockCalculator
 
 private enum StockCalculatorDependencyKey: DependencyKey {
-    static let liveValue: StockCalculator = StockCalculator()
+    // The SDK exposes a mutable class. Create an instance per access instead of
+    // sharing that class across concurrent dependency contexts.
+    static let liveValue: @Sendable () -> StockCalculator = { StockCalculator() }
+    // Pure local calculations use the same deterministic implementation in tests.
+    static let testValue = liveValue
 }
 
 extension DependencyValues {
   var stockCalculator: StockCalculator {
-    get { self[StockCalculatorDependencyKey.self] }
-    set { self[StockCalculatorDependencyKey.self] = newValue }
+    self[StockCalculatorDependencyKey.self]()
   }
 }

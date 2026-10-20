@@ -11,50 +11,48 @@ import ComposableArchitecture
 import StockCalculator
 
 struct DividenYieldCalculatorView: View {
-    let store: StoreOf<DividenYieldCalculator>
-    
+    @Bindable var store: StoreOf<DividenYieldCalculator>
+
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
-                    VStack(alignment: .leading, spacing: 20) {
-                        HStack(spacing: 10) {
-                            CustomTextField(
-                                label: "price".tr(),
-                                value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["price"]
-                            )
-                            
-                            CustomTextField(
-                                label: "dividen".tr(),
-                                value: viewStore.binding(\.$dividen),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["dividen"]
-                            )
-                        }
-                        
-                        Button("calculate".tr()) {
-                            viewStore.send(.calculateButtonTapped)
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)                       
-                        
-                        
-                        if let dividenYield = viewStore.dividenYield {
-                            Separator()
-                            
-                            ResultCard(
-                                title: "dividen_yield".tr(),
-                                content: dividenYield.f().percentage(),
-                                color: .yellow
-                            )
-                        }
-                        
-                        Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack(spacing: 10) {
+                        CustomTextField(
+                            label: "price".tr(),
+                            value: $store.price,
+                            keyboardType: .numberPad,
+                            error: store.errors["price"]
+                        )
+
+                        CustomTextField(
+                            label: "dividen".tr(),
+                            value: $store.dividen,
+                            keyboardType: .numberPad,
+                            error: store.errors["dividen"]
+                        )
                     }
-                    .padding()
+
+                    Button("calculate".tr()) {
+                        store.send(.calculateButtonTapped)
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .disabled(!store.errors.isEmpty)
+
+
+                    if let dividenYield = store.dividenYield {
+                        Separator()
+
+                        ResultCard(
+                            title: "dividen_yield".tr(),
+                            content: dividenYield.f().percentage(),
+                            color: .yellow
+                        )
+                    }
+
+                    Spacer()
                 }
+                .padding()
             }
         }
         .modify {
@@ -66,18 +64,18 @@ struct DividenYieldCalculatorView: View {
 }
 
 
-
 struct DividenYieldCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         DividenYieldCalculatorView(
             store: store.scope(
                 state: \.dividenYieldCalculator,
-                action: Main.Action.dividenYieldCalculator
+                action: \.dividenYieldCalculator
             )
         )
     }

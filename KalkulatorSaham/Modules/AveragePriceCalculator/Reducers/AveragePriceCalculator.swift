@@ -11,19 +11,21 @@ import ComposableArchitecture
 import StockCalculator
 
 
-struct AveragePriceCalculator: ReducerProtocol {
+@Reducer
+struct AveragePriceCalculator {
     @Dependency(\.stockCalculator) var stockCalculator
-    
+
+    @ObservableState
     struct State: Equatable {
-        @BindingState var price: Double = 0
-        @BindingState var lot: Double = 0
+        var price: Double = 0
+        var lot: Double = 0
         var value: Double = 0
         var errors: Validator.Errors = [:]
 
         var portfolio: Portfolio? = nil
         var transactions: [Transaction] = []
     }
-    
+
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
         case validate
@@ -32,19 +34,19 @@ struct AveragePriceCalculator: ReducerProtocol {
         case buy
         case deleteButtonTapped(index: Int)
     }
-    
-    var body: some ReducerProtocol<State, Action> {
+
+    var body: some ReducerOf<Self> {
         BindingReducer()
-        
-        
+
+
         Reduce { state, action in
-            
+
             // Validation Schema
             let validator = Validator.schema([
                 ("price", state.price, rules: [RequiredRule([.notZero])]),
                 ("lot", state.lot, rules: [RequiredRule([.notZero])])
             ], state.errors)
-            
+
             switch action {
             case .validate:
                 state.errors = validator.validate()
@@ -52,19 +54,19 @@ struct AveragePriceCalculator: ReducerProtocol {
             case let .validateField(field):
                 state.errors = validator.validateField(field)
                 return .none
-                
-            case .binding(\.$price):
+
+            case .binding(\.price):
                 state.value = state.price * (state.lot * self.stockCalculator.sharesPerLot)
                 return .send(.validateField("price"))
-            case .binding(\.$lot):
+            case .binding(\.lot):
                 state.value = state.price * (state.lot * self.stockCalculator.sharesPerLot)
                 return .send(.validateField("lot"))
-                
+
             case .buyButtonTapped:
-                return .merge(.send(.validate), .send(.buy))
+                return .concatenate(.send(.validate), .send(.buy))
             case .buy:
                 guard state.errors.isEmpty else { return .none }
-                
+
                 state.transactions.insert(
                     Transaction(
                         price: state.price,

@@ -10,10 +10,12 @@ import ComposableArchitecture
 import StockCalculator
 
 
-struct Main: ReducerProtocol {
+@Reducer
+struct Main {
+    @ObservableState
     struct State: Equatable {
-        @BindingState var showShareSheet: Bool = false
-        
+        var showShareSheet: Bool = false
+
         var settings = Settings.State()
         var araArbCalculator = AraArbCalculator.State()
         var _tradingReturnCalculator = TradingReturnCalculator.State()
@@ -37,10 +39,10 @@ struct Main: ReducerProtocol {
         var rightIssueCalculator = RightIssueCalculator.State()
         var lotCalculator = LotCalculator.State()
     }
-    
+
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<State>)
-        
+
         case settings(Settings.Action)
         case didTapShareButton
 
@@ -55,12 +57,12 @@ struct Main: ReducerProtocol {
         case rightIssueCalculator(RightIssueCalculator.Action)
         case lotCalculator(LotCalculator.Action)
     }
-    
-    var body: some ReducerProtocol<State, Action> {
-        
+
+    var body: some ReducerOf<Self> {
+
         // MARK: Binding Reducer
         BindingReducer()
-        
+
         // MARK: Main Reducer
         Reduce { state, action in
             switch action {
@@ -71,56 +73,53 @@ struct Main: ReducerProtocol {
                 return .none
             }
         }
-        
+
         // MARK: Scopes
-        Scope(state: \.settings, action: /Action.settings) {
+        Scope(state: \.settings, action: \.settings) {
             Settings()
         }
-        
-        Scope(state: \.araArbCalculator, action: /Action.araArbCalculator) {
+
+        Scope(state: \.araArbCalculator, action: \.araArbCalculator) {
             AraArbCalculator()
         }
-        
-        Scope(state: \.tradingReturnCalculator, action: /Action.tradingReturnCalculator) {
+
+        Scope(state: \.tradingReturnCalculator, action: \.tradingReturnCalculator) {
             TradingReturnCalculator()
         }
-        
-        Scope(state: \.profitPerTickCalculator, action: /Action.profitPerTickCalculator) {
+
+        Scope(state: \.profitPerTickCalculator, action: \.profitPerTickCalculator) {
             ProfitPerTickCalculator()
         }
-        
-        Scope(state: \.averagePriceCalculator, action: /Action.averagePriceCalculator) {
+
+        Scope(state: \.averagePriceCalculator, action: \.averagePriceCalculator) {
             AveragePriceCalculator()
         }
-        
-        Scope(state: \.riskRewardRatioCalculator, action: /Action.riskRewardRatioCalculator) {
+
+        Scope(state: \.riskRewardRatioCalculator, action: \.riskRewardRatioCalculator) {
             RiskRewardRatioCalculator()
         }
-        
-        Scope(state: \.priceBookValueCalculator, action: /Action.priceBookValueCalculator) {
+
+        Scope(state: \.priceBookValueCalculator, action: \.priceBookValueCalculator) {
             PriceBookValueCalculator()
         }
-        
-        Scope(state: \.riskRewardRatioCalculator, action: /Action.riskRewardRatioCalculator) {
-            RiskRewardRatioCalculator()
-        }
-        
-        Scope(state: \.dividenYieldCalculator, action: /Action.dividenYieldCalculator) {
+
+
+        Scope(state: \.dividenYieldCalculator, action: \.dividenYieldCalculator) {
             DividenYieldCalculator()
         }
-        
-        Scope(state: \.stockSplitCalculator, action: /Action.stockSplitCalculator) {
+
+        Scope(state: \.stockSplitCalculator, action: \.stockSplitCalculator) {
             StockSplitCalculator()
         }
-        
-        Scope(state: \.rightIssueCalculator, action: /Action.rightIssueCalculator) {
+
+        Scope(state: \.rightIssueCalculator, action: \.rightIssueCalculator) {
             RightIssueCalculator()
         }
-       
-        Scope(state: \.lotCalculator, action: /Action.lotCalculator) {
+
+        Scope(state: \.lotCalculator, action: \.lotCalculator) {
             LotCalculator()
         }
-      
+
     }
 }
 

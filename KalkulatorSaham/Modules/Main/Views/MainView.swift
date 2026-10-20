@@ -25,158 +25,138 @@ struct MainView: View {
 
     var body: some View {
         NavView(store: store) {
-                
-                ScreenView {
-                    List {
-                        
-                        WithViewStore(store, observe: \.settings) { viewStore in
-                                
-                                NavigationLink(
-                                    destination: AraArbCalculatorView(
-                                        store: store.scope(
-                                            state: \.araArbCalculator,
-                                            action: Main.Action.araArbCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "AA", label: "ara_arb_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: TradingReturnCalculatorView(
-                                        store: store.scope(
-                                            state: \.tradingReturnCalculator,
-                                            action: Main.Action.tradingReturnCalculator
-                                        ),
-                                        settingsStore: store.scope(
-                                            state: \.settings,
-                                            action: Main.Action.settings
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "PL", label: "trading_return_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: ProfitPerTickCalculatorView(
-                                        store: store.scope(
-                                            state: \.profitPerTickCalculator,
-                                            action: Main.Action.profitPerTickCalculator
-                                        ),
-                                        settingsStore: store.scope(
-                                            state: \.settings,
-                                            action: Main.Action.settings
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "PT", label: "profit_per_tick_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: AveragePriceCalculatorView(
-                                        store: store.scope(
-                                            state: \.averagePriceCalculator,
-                                            action: Main.Action.averagePriceCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "AP", label: "average_price_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: RiskRewardRatioCalculatorView(
-                                        store: store.scope(
-                                            state: \.riskRewardRatioCalculator,
-                                            action: Main.Action.riskRewardRatioCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "RR", label: "risk_reward_ratio_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: PriceBookValueCalculatorView(
-                                        store: store.scope(
-                                            state: \.priceBookValueCalculator,
-                                            action: Main.Action.priceBookValueCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "PB", label: "price_book_value_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: DividenYieldCalculatorView(
-                                        store: store.scope(
-                                            state: \.dividenYieldCalculator,
-                                            action: Main.Action.dividenYieldCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "DY", label: "dividen_yield_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: StockSplitCalculatorView(
-                                        store: store.scope(
-                                            state: \.stockSplitCalculator,
-                                            action: Main.Action.stockSplitCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "SS", label: "stock_split_calculator".tr())
-                                }
-                                
-                                NavigationLink(
-                                    destination: RightIssueCalculatorView(
-                                        store: store.scope(
-                                            state: \.rightIssueCalculator,
-                                            action: Main.Action.rightIssueCalculator
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "RI", label: "right_issue_calculator".tr())
-                                }
-                            
-                                NavigationLink(
-                                    destination: LotCalculatorView(
-                                        store: store.scope(
-                                            state: \.lotCalculator,
-                                            action: Main.Action.lotCalculator
-                                        ),
-                                        settingsStore: store.scope(
-                                            state: \.settings,
-                                            action: Main.Action.settings
-                                        )
-                                    )
-                                ) {
-                                    MenuRow(id: "LC", label: "lot_calculator".tr())
-                                }
-                                    
-                            
+            ScreenView {
+                List {
+                    Group {
+                        NavigationLink(
+                            destination: AraArbCalculatorView(
+                                store: store.scope(
+                                    state: \.araArbCalculator,
+                                    action: \.araArbCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "AA", label: "ara_arb_calculator".tr())
                         }
-                        .listRowBackground(Color.clear)
-                        
+
+                        NavigationLink(
+                            destination: TradingReturnCalculatorView(
+                                store: store.scope(
+                                    state: \.tradingReturnCalculator,
+                                    action: \.tradingReturnCalculator
+                                ),
+                                settingsStore: store.scope(
+                                    state: \.settings,
+                                    action: \.settings
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "PL", label: "trading_return_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: ProfitPerTickCalculatorView(
+                                store: store.scope(
+                                    state: \.profitPerTickCalculator,
+                                    action: \.profitPerTickCalculator
+                                ),
+                                settingsStore: store.scope(
+                                    state: \.settings,
+                                    action: \.settings
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "PT", label: "profit_per_tick_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: AveragePriceCalculatorView(
+                                store: store.scope(
+                                    state: \.averagePriceCalculator,
+                                    action: \.averagePriceCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "AP", label: "average_price_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: RiskRewardRatioCalculatorView(
+                                store: store.scope(
+                                    state: \.riskRewardRatioCalculator,
+                                    action: \.riskRewardRatioCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "RR", label: "risk_reward_ratio_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: PriceBookValueCalculatorView(
+                                store: store.scope(
+                                    state: \.priceBookValueCalculator,
+                                    action: \.priceBookValueCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "PB", label: "price_book_value_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: DividenYieldCalculatorView(
+                                store: store.scope(
+                                    state: \.dividenYieldCalculator,
+                                    action: \.dividenYieldCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "DY", label: "dividen_yield_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: StockSplitCalculatorView(
+                                store: store.scope(
+                                    state: \.stockSplitCalculator,
+                                    action: \.stockSplitCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "SS", label: "stock_split_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: RightIssueCalculatorView(
+                                store: store.scope(
+                                    state: \.rightIssueCalculator,
+                                    action: \.rightIssueCalculator
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "RI", label: "right_issue_calculator".tr())
+                        }
+
+                        NavigationLink(
+                            destination: LotCalculatorView(
+                                store: store.scope(
+                                    state: \.lotCalculator,
+                                    action: \.lotCalculator
+                                ),
+                                settingsStore: store.scope(
+                                    state: \.settings,
+                                    action: \.settings
+                                )
+                            )
+                        ) {
+                            MenuRow(id: "LC", label: "lot_calculator".tr())
+                        }
                     }
-                    
-                }
-                .listStyle(.plain)
-                .modify {
-                    if #available(macOS 13, *), #available(iOS 16, *) {
-                        $0.scrollContentBackground(.hidden)
-                    }
-                }
-                .modify {
-                    #if os(iOS)
-                    $0.navigationBarTitle("Kalkulator Saham", displayMode: .large)
-                    #endif
+                    .listRowBackground(Color.clear)
                 }
             }
-            .modify {
-                #if os(iOS)
-                $0.navigationViewStyle(.stack)
-                #endif
-            }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Kalkulator Saham")
+        }
     }
 }
 
@@ -185,9 +165,10 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView(
             store: Store(
-                initialState: Main.State(),
-                reducer: Main()
-            )
+                initialState: Main.State()
+            ) {
+                Main()
+            }
         )
     }
 }

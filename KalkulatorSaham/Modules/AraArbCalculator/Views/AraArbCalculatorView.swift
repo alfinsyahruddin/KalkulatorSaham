@@ -11,89 +11,80 @@ import ComposableArchitecture
 import StockCalculator
 
 struct AraArbCalculatorView: View {
-    let store: StoreOf<AraArbCalculator>
-    
+    @Bindable var store: StoreOf<AraArbCalculator>
+
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
-                    VStack(alignment: .leading, spacing: 20) {
-                        VStack(spacing: 10) {
-                            CustomTextField(
-                                label: "price".tr(),
-                                value: viewStore.binding(\.$price),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["price"]
-                            )
-                            
-                            Picker("Type", selection: viewStore.binding(\.$type)) {
-                                Text("symmetric".tr()).tag(0)
-                                Text("asymmetric".tr()).tag(1)
-                                Text("acceleration".tr()).tag(2)
-                            }
-                            .pickerStyle(.segmented)
-                        }
-                        
-                        Button("calculate".tr()) {
-                            viewStore.send(.calculateButtonTapped)
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)
-                        
-                        
-                        if let autoRejects = viewStore.autoRejects {
-                            Separator()
-                            
-                            VStack(spacing: 10) {
-                                ForEach(0..<autoRejects.ara.count, id: \.self) { index in
-                                    let autoReject = autoRejects.ara[index]
-                                    
-                                    AutoRejectCard(
-                                        priceCaption: "ARA #\(5-index)",
-                                        price: autoReject.price,
-                                        priceChange: autoReject.priceChange,
-                                        percentage: autoReject.percentage,
-                                        totalPercentage: autoReject.totalPercentage,
-                                        color: .green
-                                    )
-                                }
-                                
-                                AutoRejectCard(
-                                    priceCaption: "Price",
-                                    price: viewStore.autoRejectPrice,
-                                    priceChange: 0,
-                                    percentage: 0,
-                                    totalPercentage: 0,
-                                    color: .yellow
-                                )
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(spacing: 10) {
+                        CustomTextField(
+                            label: "price".tr(),
+                            value: $store.price,
+                            keyboardType: .numberPad,
+                            error: store.errors["price"]
+                        )
 
-                                ForEach(0..<autoRejects.arb.count, id: \.self) { index in
-                                    let autoReject = autoRejects.arb[index]
-                                    
-                                    AutoRejectCard(
-                                        priceCaption: "ARB #\(index+1)",
-                                        price: autoReject.price,
-                                        priceChange: autoReject.priceChange,
-                                        percentage: autoReject.percentage,
-                                        totalPercentage: autoReject.totalPercentage,
-                                        color: .red
-                                    )
-                                }
+                        Picker("Type", selection: $store.type) {
+                            Text("symmetric".tr()).tag(0)
+                            Text("asymmetric".tr()).tag(1)
+                            Text("acceleration".tr()).tag(2)
+                        }
+                        .pickerStyle(.segmented)
+                    }
+
+                    Button("calculate".tr()) {
+                        store.send(.calculateButtonTapped)
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .disabled(!store.errors.isEmpty)
+
+
+                    if let autoRejects = store.autoRejects {
+                        Separator()
+
+                        VStack(spacing: 10) {
+                            ForEach(0..<autoRejects.ara.count, id: \.self) { index in
+                                let autoReject = autoRejects.ara[index]
+
+                                AutoRejectCard(
+                                    priceCaption: "ARA #\(5-index)",
+                                    price: autoReject.price,
+                                    priceChange: autoReject.priceChange,
+                                    percentage: autoReject.percentage,
+                                    totalPercentage: autoReject.totalPercentage,
+                                    color: .green
+                                )
+                            }
+
+                            AutoRejectCard(
+                                priceCaption: "Price",
+                                price: store.autoRejectPrice,
+                                priceChange: 0,
+                                percentage: 0,
+                                totalPercentage: 0,
+                                color: .yellow
+                            )
+
+                            ForEach(0..<autoRejects.arb.count, id: \.self) { index in
+                                let autoReject = autoRejects.arb[index]
+
+                                AutoRejectCard(
+                                    priceCaption: "ARB #\(index+1)",
+                                    price: autoReject.price,
+                                    priceChange: autoReject.priceChange,
+                                    percentage: autoReject.percentage,
+                                    totalPercentage: autoReject.totalPercentage,
+                                    color: .red
+                                )
                             }
                         }
-                        
-                        
-                        
-                      
-                            
-                      
-                        
-                        
-                        
-                        Spacer()
                     }
-                    .padding()
+
+
+                    Spacer()
                 }
+                .padding()
             }
         }
         .modify {
@@ -105,18 +96,18 @@ struct AraArbCalculatorView: View {
 }
 
 
-
 struct AraArbCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         AraArbCalculatorView(
             store: store.scope(
                 state: \.araArbCalculator,
-                action: Main.Action.araArbCalculator
+                action: \.araArbCalculator
             )
         )
     }

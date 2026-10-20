@@ -9,83 +9,78 @@ import Foundation
 import ComposableArchitecture
 
 
-struct Settings: ReducerProtocol {
+@Reducer
+struct Settings {
     @Dependency(\.userDefaults) var userDefaults
 
+    @ObservableState
     struct State: Equatable {
         var theme: Theme = {
             @Dependency(\.userDefaults) var userDefaults
-         
-            let theme = Theme.init(rawValue: userDefaults.string(forKey: UserDefaultsKey.theme) ?? "system")!
-            ThemeManager.updateTheme(theme)
-            
+
+            let theme = Theme(rawValue: userDefaults.string(forKey: UserDefaultsKey.theme) ?? "system") ?? .system
+
             return theme
         }()
-        
+
         var language: Language = {
             @Dependency(\.userDefaults) var userDefaults
-         
-            let language = Language.init(rawValue:  userDefaults.string(forKey: UserDefaultsKey.language) ?? "system")!
-            
+
+            let language = Language(rawValue: userDefaults.string(forKey: UserDefaultsKey.language) ?? "system") ?? .system
+
             return language
         }()
-        
-        @BindingState var buyFee = {
+
+        var buyFee = {
             @Dependency(\.userDefaults) var userDefaults
-         
+
             let buyFee = userDefaults.double(forKey: UserDefaultsKey.buyFee)
-            
+
             return buyFee
         }()
-        
-        @BindingState var sellFee = {
+
+        var sellFee = {
             @Dependency(\.userDefaults) var userDefaults
-         
+
             let sellFee = userDefaults.double(forKey: UserDefaultsKey.sellFee)
-            
+
             return sellFee
         }()
-        
+
     }
-    
+
     enum Action: Equatable, BindableAction {
         case setTheme(Theme)
         case setLanguage(Language)
-        
+
         case binding(BindingAction<State>)
     }
-    
-    var body: some ReducerProtocol<State, Action> {
+
+    var body: some ReducerOf<Self> {
         BindingReducer()
-        
+
         Reduce { state, action in
             switch action {
-            case .binding(\.$buyFee):
-                return .fireAndForget { [state] in
-                    userDefaults.set(state.buyFee, forKey: UserDefaultsKey.buyFee)
-                }
-            case .binding(\.$sellFee):
-                return .fireAndForget { [state] in
-                    userDefaults.set(state.sellFee, forKey: UserDefaultsKey.sellFee)
-                }
+            case .binding(\.buyFee):
+                userDefaults.set(state.buyFee, forKey: UserDefaultsKey.buyFee)
+                return .none
+            case .binding(\.sellFee):
+                userDefaults.set(state.sellFee, forKey: UserDefaultsKey.sellFee)
+                return .none
             case let .setTheme(theme):
                 state.theme = theme
-                return .fireAndForget {
-                    userDefaults.set(theme.rawValue, forKey: UserDefaultsKey.theme)
-                    
-                    ThemeManager.updateTheme(theme)
-                }
+                userDefaults.set(theme.rawValue, forKey: UserDefaultsKey.theme)
+                return .none
             case let .setLanguage(language):
                 state.language = language
-                return .fireAndForget {
-                    userDefaults.set(language.rawValue, forKey: UserDefaultsKey.language)
-                }
+                userDefaults.set(language.rawValue, forKey: UserDefaultsKey.language)
+                return .none
             default:
                 return .none
             }
         }
     }
-    
+
 }
 
 

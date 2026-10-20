@@ -6,68 +6,65 @@
 //
 
 
-
 import SwiftUI
 import ComposableArchitecture
 import StockCalculator
 
 struct RiskRewardRatioCalculatorView: View {
-    let store: StoreOf<RiskRewardRatioCalculator>
-    
+    @Bindable var store: StoreOf<RiskRewardRatioCalculator>
+
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
-                    VStack(alignment: .leading, spacing: 20) {
-                        HStack(spacing: 10) {
-                            CustomTextField(
-                                label: "buy_price".tr(),
-                                value: viewStore.binding(\.$buyPrice),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["buyPrice"]
-                            )
-                            
-                            CustomTextField(
-                                label: "stop_loss".tr(),
-                                value: viewStore.binding(\.$stopLossPrice),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["stopLoss"]
-                            )
-                            
-                            
-                            CustomTextField(
-                                label: "target_price".tr(),
-                                value: viewStore.binding(\.$targetPrice),
-                                keyboardType: .numberPad,
-                                error: viewStore.errors["targetPrice"]
-                            )
-                            
-                            
-                        }
-                        
-                        Button("calculate".tr()) {
-                            viewStore.send(.calculateButtonTapped)
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .disabled(!viewStore.errors.isEmpty)                        
-                    
-                        
-                        if let riskRewardRatio = viewStore.riskRewardRatio {
-                            Separator()
-                            
-                            ResultCard(
-                                title: "risk_reward_ratio".tr(),
-                                content: "\(riskRewardRatio.risk.f()) : \(riskRewardRatio.reward.f())",
-                                color: (riskRewardRatio.reward - riskRewardRatio.risk) > 0 ? .green
-                                    : (riskRewardRatio.reward - riskRewardRatio.risk) < 0 ? .red
-                                    : .yellow
-                            )
-                        }
-                        
-                        Spacer()
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack(spacing: 10) {
+                        CustomTextField(
+                            label: "buy_price".tr(),
+                            value: $store.buyPrice,
+                            keyboardType: .numberPad,
+                            error: store.errors["buyPrice"]
+                        )
+
+                        CustomTextField(
+                            label: "stop_loss".tr(),
+                            value: $store.stopLossPrice,
+                            keyboardType: .numberPad,
+                            error: store.errors["stopLoss"]
+                        )
+
+
+                        CustomTextField(
+                            label: "target_price".tr(),
+                            value: $store.targetPrice,
+                            keyboardType: .numberPad,
+                            error: store.errors["targetPrice"]
+                        )
+
+
                     }
-                    .padding()
+
+                    Button("calculate".tr()) {
+                        store.send(.calculateButtonTapped)
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .disabled(!store.errors.isEmpty)
+
+
+                    if let riskRewardRatio = store.riskRewardRatio {
+                        Separator()
+
+                        ResultCard(
+                            title: "risk_reward_ratio".tr(),
+                            content: "\(riskRewardRatio.risk.f()) : \(riskRewardRatio.reward.f())",
+                            color: (riskRewardRatio.reward - riskRewardRatio.risk) > 0 ? .green
+                                : (riskRewardRatio.reward - riskRewardRatio.risk) < 0 ? .red
+                                : .yellow
+                        )
+                    }
+
+                    Spacer()
                 }
+                .padding()
             }
         }
         .modify {
@@ -79,18 +76,18 @@ struct RiskRewardRatioCalculatorView: View {
 }
 
 
-
 struct RiskRewardRatioCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         RiskRewardRatioCalculatorView(
             store: store.scope(
                 state: \.riskRewardRatioCalculator,
-                action: Main.Action.riskRewardRatioCalculator
+                action: \.riskRewardRatioCalculator
             )
         )
     }

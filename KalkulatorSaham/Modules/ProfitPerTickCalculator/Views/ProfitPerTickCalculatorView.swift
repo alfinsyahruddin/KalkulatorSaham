@@ -10,67 +10,63 @@ import ComposableArchitecture
 import StockCalculator
 
 struct ProfitPerTickCalculatorView: View {
-    let store: StoreOf<ProfitPerTickCalculator>
+    @Bindable var store: StoreOf<ProfitPerTickCalculator>
     let settingsStore: StoreOf<Settings>
 
     var body: some View {
         ScreenView {
             ScrollView {
-                WithViewStore(store, observe: { $0 }) { viewStore in
+                VStack(alignment: .leading, spacing: 20) {
                     VStack(alignment: .leading, spacing: 20) {
-                        VStack(alignment: .leading, spacing: 20) {
-                            HStack(spacing: 10) {
-                                CustomTextField(
-                                    label: "price".tr(),
-                                    value: viewStore.binding(\.$price),
-                                    keyboardType: .numberPad,
-                                    error: viewStore.errors["price"]
-                                )
-                                
-                                CustomTextField(
-                                    label: "lot".tr(),
-                                    value: viewStore.binding(\.$lot),
-                                    keyboardType: .numberPad,
-                                    error: viewStore.errors["lot"]
-                                )
-                            }
-                            
-                            BrokerFeeInformation(
-                                store: settingsStore,
-                                calculateBrokerFee: viewStore.binding(\.$calculateBrokerFee)
+                        HStack(spacing: 10) {
+                            CustomTextField(
+                                label: "price".tr(),
+                                value: $store.price,
+                                keyboardType: .numberPad,
+                                error: store.errors["price"]
                             )
 
-                            WithViewStore(settingsStore, observe: { $0 }) { settingsViewStore in
-                                Button("calculate".tr()) {
-                                    viewStore.send(.calculateButtonTapped(
-                                        brokerFee: BrokerFee(
-                                            buy: settingsViewStore.buyFee,
-                                            sell: settingsViewStore.sellFee
-                                        )
-                                    ))
-                                }
-                                .buttonStyle(CustomButtonStyle())
-                                .disabled(!viewStore.errors.isEmpty)
-                            }
+                            CustomTextField(
+                                label: "lot".tr(),
+                                value: $store.lot,
+                                keyboardType: .numberPad,
+                                error: store.errors["lot"]
+                            )
                         }
-                        .padding()
-                        
-                  
-                        TableView(
-                            columns: [
-                                TableColumn("Value", width: 20, alignment: .trailing),
-                                TableColumn("Loss", width: 15, alignment: .trailing),
-                                TableColumn("Price", width: 15, alignment: .trailing),
-                                TableColumn("Price", width: 15, alignment: .leading),
-                                TableColumn("Profit", width: 15, alignment: .leading),
-                                TableColumn("Value", width: 20, alignment: .leading)
-                            ],
-                            rows: viewStore.rows,
-                            colors: viewStore.colors
+
+                        BrokerFeeInformation(
+                            store: settingsStore,
+                            calculateBrokerFee: $store.calculateBrokerFee
                         )
-                        
-                        Spacer()
+
+                        Button("calculate".tr()) {
+                            store.send(.calculateButtonTapped(
+                                brokerFee: BrokerFee(
+                                    buy: settingsStore.buyFee,
+                                    sell: settingsStore.sellFee
+                                )
+                            ))
+                        }
+                        .buttonStyle(CustomButtonStyle())
+                        .disabled(!store.errors.isEmpty)
                     }
+                    .padding()
+
+
+                    TableView(
+                        columns: [
+                            TableColumn("Value", width: 20, alignment: .trailing),
+                            TableColumn("Loss", width: 15, alignment: .trailing),
+                            TableColumn("Price", width: 15, alignment: .trailing),
+                            TableColumn("Price", width: 15, alignment: .leading),
+                            TableColumn("Profit", width: 15, alignment: .leading),
+                            TableColumn("Value", width: 20, alignment: .leading)
+                        ],
+                        rows: store.rows,
+                        colors: store.colors
+                    )
+
+                    Spacer()
                 }
             }
         }
@@ -86,18 +82,19 @@ struct ProfitPerTickCalculatorView: View {
 struct ProfitPerTickCalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(
-            initialState: Main.State(),
-            reducer: Main()
-        )
-        
+            initialState: Main.State()
+        ) {
+            Main()
+        }
+
         ProfitPerTickCalculatorView(
             store: store.scope(
                 state: \.profitPerTickCalculator,
-                action: Main.Action.profitPerTickCalculator
+                action: \.profitPerTickCalculator
             ),
             settingsStore: store.scope(
                 state: \.settings,
-                action: Main.Action.settings
+                action: \.settings
             )
         )
     }
