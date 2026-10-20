@@ -29,8 +29,27 @@ struct AraArbCalculatorView: View {
                             Text("symmetric".tr()).tag(0)
                             Text("asymmetric".tr()).tag(1)
                             Text("acceleration".tr()).tag(2)
+                            Text("custom".tr()).tag(3)
                         }
                         .pickerStyle(.segmented)
+
+                        if store.usesCustomPercentages {
+                            CustomTextField(
+                                label: "ara_percentage".tr(),
+                                value: $store.araPercentage,
+                                keyboardType: .decimalPad,
+                                error: store.errors["araPercentage"]
+                            )
+                            CustomTextField(
+                                label: "arb_percentage".tr(),
+                                value: $store.arbPercentage,
+                                keyboardType: .decimalPad,
+                                error: store.errors["arbPercentage"]
+                            )
+                            Text("custom_auto_reject_percentage_hint".tr())
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
 
                     Button("calculate".tr()) {
@@ -48,7 +67,7 @@ struct AraArbCalculatorView: View {
                                 let autoReject = autoRejects.ara[index]
 
                                 AutoRejectCard(
-                                    priceCaption: "ARA #\(5-index)",
+                                    priceCaption: "ARA #\(autoRejects.ara.count-index)",
                                     price: autoReject.price,
                                     priceChange: autoReject.priceChange,
                                     percentage: autoReject.percentage,

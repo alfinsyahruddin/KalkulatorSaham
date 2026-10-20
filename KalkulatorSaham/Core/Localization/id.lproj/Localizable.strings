@@ -95,3 +95,9 @@
 "this_field_is_required" = "Field ini harus diisi";
 "lot_calculator" = "Kalkulator Lot";
 "max_buy" = "Maksimal Beli";
+
+"custom" = "Kustom";
+"ara_percentage" = "ARA (%)";
+"arb_percentage" = "ARB (%)";
+"custom_auto_reject_percentage_hint" = "Masukkan persentase 0–100. ARB diisi sebagai persentase penurunan bernilai positif.";
+"percentage_must_be_between_0_and_100" = "Masukkan persentase antara 0 dan 100.";
