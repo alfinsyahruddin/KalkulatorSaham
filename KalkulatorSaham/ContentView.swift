@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct ContentView: View {
     @State private var store = Store(
-        initialState: Main.State()
+        initialState: Main.State.restored()
     ) {
         Main()
     }

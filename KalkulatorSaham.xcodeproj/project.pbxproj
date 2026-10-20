@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1000000000000000000007 /* CalculatorDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000008; };
+		BF1000000000000000000005 /* SubmittedTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000006; };
+		BF1000000000000000000003 /* SubmittedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000004; };
+		BF1000000000000000000001 /* CalculationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000002; };
 		B14585D02AE1000000000001 /* AraArbCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14585D02AE1000000000002 /* AraArbCalculatorTests.swift */; };
 		8ED173F52DEBF9280091AA76 /* LotCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED173F42DEBF9280091AA76 /* LotCalculator.swift */; };
 		8ED173F72DEBF9AA0091AA76 /* LotCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED173F62DEBF9AA0091AA76 /* LotCalculatorView.swift */; };
@@ -19,7 +23,7 @@
 		A10E692829B1983000DA5DCA /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10E692729B1983000DA5DCA /* App.xcassets */; };
 		A10E692C29B1983000DA5DCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10E692B29B1983000DA5DCA /* Preview Assets.xcassets */; };
 		A10E693429B1AADB00DA5DCA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A10E693329B1AADB00DA5DCA /* ComposableArchitecture */; };
-		A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E693729B1B3D500DA5DCA /* Menu.swift */; };
+		A10E693829B1B3D500DA5DCA /* CalculatorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E693729B1B3D500DA5DCA /* CalculatorScreen.swift */; };
 		A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10E693D29B1B49E00DA5DCA /* MainView.swift */; };
 		A122533F29B6188900C87F8A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122533E29B6188900C87F8A /* UserDefaultsKey.swift */; };
 		A122534329B61D8600C87F8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A122534529B61D8600C87F8A /* Localizable.strings */; };
@@ -107,6 +111,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF1000000000000000000008 /* CalculatorDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDestinationView.swift; sourceTree = "<group>"; };
+		BF1000000000000000000006 /* SubmittedTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedTransaction.swift; sourceTree = "<group>"; };
+		BF1000000000000000000004 /* SubmittedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedForm.swift; sourceTree = "<group>"; };
+		BF1000000000000000000002 /* CalculationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationSession.swift; sourceTree = "<group>"; };
 		B14585D02AE1000000000002 /* AraArbCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraArbCalculatorTests.swift; sourceTree = "<group>"; };
 		8ED173F42DEBF9280091AA76 /* LotCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotCalculator.swift; sourceTree = "<group>"; };
 		8ED173F62DEBF9AA0091AA76 /* LotCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotCalculatorView.swift; sourceTree = "<group>"; };
@@ -120,7 +128,7 @@
 		A10E692729B1983000DA5DCA /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
 		A10E692929B1983000DA5DCA /* KalkulatorSaham.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KalkulatorSaham.entitlements; sourceTree = "<group>"; };
 		A10E692B29B1983000DA5DCA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A10E693729B1B3D500DA5DCA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		A10E693729B1B3D500DA5DCA /* CalculatorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorScreen.swift; sourceTree = "<group>"; };
 		A10E693D29B1B49E00DA5DCA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A122533E29B6188900C87F8A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A122534429B61D8600C87F8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -323,7 +331,10 @@
 		A10E693629B1B3BA00DA5DCA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A10E693729B1B3D500DA5DCA /* Menu.swift */,
+				A10E693729B1B3D500DA5DCA /* CalculatorScreen.swift */,
+				BF1000000000000000000006 /* SubmittedTransaction.swift */,
+				BF1000000000000000000004 /* SubmittedForm.swift */,
+				BF1000000000000000000002 /* CalculationSession.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -362,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				A10E693D29B1B49E00DA5DCA /* MainView.swift */,
+				BF1000000000000000000008 /* CalculatorDestinationView.swift */,
 				A1EB2C1429B4C6B400EAF46B /* HomeView.swift */,
 			);
 			path = Views;
@@ -921,7 +933,10 @@
 				A1B8B9E029BB663600056960 /* NumberFormatter.swift in Sources */,
 				A17FEFCE29B5E625001B7502 /* NavView.swift in Sources */,
 				A106CF4029D93D1000DFB7A6 /* RequiredRule.swift in Sources */,
-				A10E693829B1B3D500DA5DCA /* Menu.swift in Sources */,
+				A10E693829B1B3D500DA5DCA /* CalculatorScreen.swift in Sources */,
+				BF1000000000000000000005 /* SubmittedTransaction.swift in Sources */,
+				BF1000000000000000000003 /* SubmittedForm.swift in Sources */,
+				BF1000000000000000000001 /* CalculationSession.swift in Sources */,
 				A1B8B9DD29BB63DA00056960 /* UIApplication+TapGesture.swift in Sources */,
 				A161130529D85E2200087F17 /* RiskRewardRatioCalculatorView.swift in Sources */,
 				A1F9B0EB29B1D152004D2676 /* Main.swift in Sources */,
@@ -973,6 +988,7 @@
 				A17FEFC829B5CCF2001B7502 /* LanguageView.swift in Sources */,
 				A1FCB43829C208CA00C46E0B /* NSTextField+FocusRingType.swift in Sources */,
 				A10E693E29B1B49E00DA5DCA /* MainView.swift in Sources */,
+				BF1000000000000000000007 /* CalculatorDestinationView.swift in Sources */,
 				A10E692629B1982E00DA5DCA /* ContentView.swift in Sources */,
 				A12C077B29BCCD4300B4F0EE /* ActivityView.swift in Sources */,
 				A10E692429B1982E00DA5DCA /* KalkulatorSahamApp.swift in Sources */,

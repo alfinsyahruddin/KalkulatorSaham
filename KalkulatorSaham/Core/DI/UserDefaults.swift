@@ -9,6 +9,14 @@ struct UserDefaultsClient: Sendable {
         suiteName.flatMap(UserDefaults.init(suiteName:)) ?? .standard
     }
 
+    func data(forKey key: String) -> Data? {
+        defaults.data(forKey: key)
+    }
+
+    func set(_ value: Data, forKey key: String) {
+        defaults.set(value, forKey: key)
+    }
+
     func string(forKey key: String) -> String? {
         defaults.string(forKey: key)
     }

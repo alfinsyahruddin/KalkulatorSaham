@@ -65,18 +65,23 @@ struct RiskRewardRatioCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.riskRewardRatio = self.stockCalculator.calculateRiskRewardRatio(
-                    buyPrice: state.buyPrice,
-                    targetPrice: state.targetPrice,
-                    stopLossPrice: state.stopLossPrice
-                )
-
+                calculateResult(state: &state)
                 return .none
             default:
                 return .none
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.riskRewardRatio = self.stockCalculator.calculateRiskRewardRatio(
+            buyPrice: state.buyPrice,
+            targetPrice: state.targetPrice,
+            stopLossPrice: state.stopLossPrice
+        )
+    }
+
 }
 
 

@@ -12,9 +12,26 @@ import StockCalculator
 
 @Reducer
 struct Main {
+    @Dependency(\.userDefaults) var userDefaults
     @ObservableState
     struct State: Equatable {
         var showShareSheet: Bool = false
+        var path: [CalculatorScreen] = []
+        var selectedScreen: CalculatorScreen? {
+            get { path.last }
+            set { path = newValue.map { [$0] } ?? [] }
+        }
+        var session = CalculationSession()
+
+        static func restored() -> Self {
+            @Dependency(\.userDefaults) var userDefaults
+            guard let data = userDefaults.data(forKey: CalculationSession.storageKey),
+                  let session = try? JSONDecoder().decode(CalculationSession.self, from: data),
+                  session.version == 1 else { return Self() }
+            var state = Self()
+            session.restore(into: &state)
+            return state
+        }
 
         var settings = Settings.State()
         var araArbCalculator = AraArbCalculator.State()
@@ -118,6 +135,44 @@ struct Main {
 
         Scope(state: \.lotCalculator, action: \.lotCalculator) {
             LotCalculator()
+        }
+
+        // Run after child reducers so only completed, valid submissions are saved.
+        Reduce { state, action in
+            let screen: CalculatorScreen?
+            switch action {
+            case .araArbCalculator(.calculate) where state.araArbCalculator.errors.isEmpty: screen = .araArb
+            case .tradingReturnCalculator(.calculate) where state.tradingReturnCalculator.errors.isEmpty: screen = .tradingReturn
+            case .profitPerTickCalculator(.calculate) where state.profitPerTickCalculator.errors.isEmpty: screen = .profitPerTick
+            case .averagePriceCalculator(.buy) where state.averagePriceCalculator.errors.isEmpty: screen = .averagePrice
+            case .averagePriceCalculator(.deleteButtonTapped): screen = .averagePrice
+            case .riskRewardRatioCalculator(.calculate) where state.riskRewardRatioCalculator.errors.isEmpty: screen = .riskRewardRatio
+            case .priceBookValueCalculator(.calculate) where state.priceBookValueCalculator.errors.isEmpty: screen = .priceBookValue
+            case .dividenYieldCalculator(.calculate) where state.dividenYieldCalculator.errors.isEmpty: screen = .dividenYield
+            case .stockSplitCalculator(.calculate) where state.stockSplitCalculator.errors.isEmpty: screen = .stockSplit
+            case .rightIssueCalculator(.calculate) where state.rightIssueCalculator.errors.isEmpty: screen = .rightIssue
+            case .rightIssueCalculator(.binding(\.currentPrice)) where state.rightIssueCalculator.rightIssue != nil: screen = .rightIssue
+            case .lotCalculator(.calculateProfitPerTick) where state.lotCalculator.errors.isEmpty: screen = .lot
+            case .binding(\.path), .binding(\.selectedScreen): screen = nil
+            default: return .none
+            }
+            if let screen {
+                let brokerFee: BrokerFee?
+                switch action {
+                case let .profitPerTickCalculator(.calculate(fee)),
+                     let .lotCalculator(.calculateProfitPerTick(fee)):
+                    brokerFee = fee
+                default:
+                    brokerFee = nil
+                }
+                let snapshot = state
+                state.session.capture(screen, from: snapshot, brokerFee: brokerFee)
+            }
+            state.session.path = state.path
+            if let data = try? JSONEncoder().encode(state.session) {
+                userDefaults.set(data, forKey: CalculationSession.storageKey)
+            }
+            return .none
         }
 
     }

@@ -64,61 +64,70 @@ struct LotCalculator {
             case let .calculate(brokerFee):
                 guard state.errors.isEmpty else { return .none }
 
-                state.lotResult = self.stockCalculator.calculateLot(
-                    price: state.price,
-                    maxBuy: state.maxBuy
-                )
-
+                calculateResult(state: &state)
                 return .send(.calculateProfitPerTick(brokerFee: brokerFee))
 
             case let .calculateProfitPerTick(brokerFee):
                 guard state.errors.isEmpty else { return .none }
 
-                let limit = 10
-                let profitPerTicks = self.stockCalculator.calculateProfitPerTick(
-                    price: state.price,
-                    lot: state.lotResult?.lot ?? 0,
-                    brokerFee: state.calculateBrokerFee
-                        ? brokerFee
-                        : BrokerFee(buy: 0, sell: 0),
-                    limit: limit
-                )
-
-
-                var rows: [[String]] = []
-                var colors: [[Color]] = []
-                let down = profitPerTicks.filter { $0.price <= state.price }.sorted { $0.price > $1.price }
-                let up = profitPerTicks.filter { $0.price > state.price }
-
-                for index in 0..<limit+1 {
-                    rows.append([
-                        down[safe: index]?.value.f() ?? "",
-                        down[safe: index]?.percentage.f().percentage() ?? "",
-                        down[safe: index]?.price.f() ?? "",
-                        up[safe: index]?.price.f() ?? "",
-                        up[safe: index]?.percentage.f().percentage() ?? "",
-                        up[safe: index]?.value.f() ?? ""
-                    ])
-
-                    colors.append([
-                        (down[safe: index]?.value ?? 0).getColor(),
-                        (down[safe: index]?.percentage ?? 0).getColor(),
-                        (down[safe: index]?.price ?? 0).getColor(state.price),
-                        (up[safe: index]?.price ?? 0).getColor(state.price),
-                        (up[safe: index]?.percentage ?? 0).getColor(),
-                        (up[safe: index]?.value ?? 0).getColor()
-                    ])
-                }
-
-                state.rows = rows
-                state.colors = colors
-
+                calculateProfitPerTickResult(state: &state, brokerFee: brokerFee)
                 return .none
             default:
                 return .none
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.lotResult = self.stockCalculator.calculateLot(
+            price: state.price,
+            maxBuy: state.maxBuy
+        )
+    }
+
+    /// Shared by live submissions and session restoration.
+    func calculateProfitPerTickResult(state: inout State, brokerFee: BrokerFee) {
+        let limit = 10
+        let profitPerTicks = self.stockCalculator.calculateProfitPerTick(
+            price: state.price,
+            lot: state.lotResult?.lot ?? 0,
+            brokerFee: state.calculateBrokerFee
+                ? brokerFee
+                : BrokerFee(buy: 0, sell: 0),
+            limit: limit
+        )
+
+
+        var rows: [[String]] = []
+        var colors: [[Color]] = []
+        let down = profitPerTicks.filter { $0.price <= state.price }.sorted { $0.price > $1.price }
+        let up = profitPerTicks.filter { $0.price > state.price }
+
+        for index in 0..<limit+1 {
+            rows.append([
+                down[safe: index]?.value.f() ?? "",
+                down[safe: index]?.percentage.f().percentage() ?? "",
+                down[safe: index]?.price.f() ?? "",
+                up[safe: index]?.price.f() ?? "",
+                up[safe: index]?.percentage.f().percentage() ?? "",
+                up[safe: index]?.value.f() ?? ""
+            ])
+
+            colors.append([
+                (down[safe: index]?.value ?? 0).getColor(),
+                (down[safe: index]?.percentage ?? 0).getColor(),
+                (down[safe: index]?.price ?? 0).getColor(state.price),
+                (up[safe: index]?.price ?? 0).getColor(state.price),
+                (up[safe: index]?.percentage ?? 0).getColor(),
+                (up[safe: index]?.value ?? 0).getColor()
+            ])
+        }
+
+        state.rows = rows
+        state.colors = colors
+    }
+
 }
 
 

@@ -69,14 +69,7 @@ struct TradingReturnCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.tradingReturn = self.stockCalculator.calculateTradingReturn(
-                    buyPrice: state.buyPrice,
-                    sellPrice: state.sellPrice,
-                    lot: state.lot,
-                    brokerFee: state.calculateBrokerFee
-                        ? state.brokerFee
-                        : BrokerFee(buy: 0, sell: 0)
-                )
+                calculateResult(state: &state)
                 return .none
             default:
                 return .none
@@ -85,5 +78,18 @@ struct TradingReturnCalculator {
 
 
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.tradingReturn = self.stockCalculator.calculateTradingReturn(
+            buyPrice: state.buyPrice,
+            sellPrice: state.sellPrice,
+            lot: state.lot,
+            brokerFee: state.calculateBrokerFee
+                ? state.brokerFee
+                : BrokerFee(buy: 0, sell: 0)
+        )
+    }
+
 }
 

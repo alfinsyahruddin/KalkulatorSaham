@@ -65,18 +65,23 @@ struct StockSplitCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.stockSplit = self.stockCalculator.calculateStockSplit(
-                    price: state.price,
-                    oldRatio: state.oldRatio,
-                    newRatio: state.newRatio
-                )
-
+                calculateResult(state: &state)
                 return .none
             default:
                 return .none
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.stockSplit = self.stockCalculator.calculateStockSplit(
+            price: state.price,
+            oldRatio: state.oldRatio,
+            newRatio: state.newRatio
+        )
+    }
+
 }
 
 

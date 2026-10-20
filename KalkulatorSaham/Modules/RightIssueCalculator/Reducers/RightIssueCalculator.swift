@@ -75,17 +75,7 @@ struct RightIssueCalculator {
             case .binding(\.newRatio):
                 return .send(.validateField("newRatio"))
             case .binding(\.currentPrice):
-                state.rightIssue = self.stockCalculator.calculateRightIssue(
-                    ticker: state.ticker,
-                    cumDatePrice: state.cumDatePrice,
-                    lot: state.lot,
-                    exercisePrice: state.exercisePrice,
-                    oldRatio: state.oldRatio,
-                    newRatio: state.newRatio,
-                    currentPrice: state.currentPrice
-                )
-                state.theoreticalPrice = state.rightIssue!.theoreticalPrice
-
+                updateCurrentPriceResult(state: &state)
                 return .none
 
             case .calculateButtonTapped:
@@ -93,17 +83,7 @@ struct RightIssueCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.rightIssue = self.stockCalculator.calculateRightIssue(
-                    ticker: state.ticker,
-                    cumDatePrice: state.cumDatePrice,
-                    lot: state.lot,
-                    exercisePrice: state.exercisePrice,
-                    oldRatio: state.oldRatio,
-                    newRatio: state.newRatio
-                )
-                state.theoreticalPrice = state.rightIssue!.theoreticalPrice
-                state.currentPrice = state.rightIssue!.theoreticalPrice
-
+                calculateResult(state: &state)
                 return .none
 
             default:
@@ -111,6 +91,35 @@ struct RightIssueCalculator {
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.rightIssue = self.stockCalculator.calculateRightIssue(
+            ticker: state.ticker,
+            cumDatePrice: state.cumDatePrice,
+            lot: state.lot,
+            exercisePrice: state.exercisePrice,
+            oldRatio: state.oldRatio,
+            newRatio: state.newRatio
+        )
+        state.theoreticalPrice = state.rightIssue!.theoreticalPrice
+        state.currentPrice = state.rightIssue!.theoreticalPrice
+    }
+
+    /// Shared by live submissions and session restoration.
+    func updateCurrentPriceResult(state: inout State) {
+        state.rightIssue = self.stockCalculator.calculateRightIssue(
+            ticker: state.ticker,
+            cumDatePrice: state.cumDatePrice,
+            lot: state.lot,
+            exercisePrice: state.exercisePrice,
+            oldRatio: state.oldRatio,
+            newRatio: state.newRatio,
+            currentPrice: state.currentPrice
+        )
+        state.theoreticalPrice = state.rightIssue!.theoreticalPrice
+    }
+
 }
 
 

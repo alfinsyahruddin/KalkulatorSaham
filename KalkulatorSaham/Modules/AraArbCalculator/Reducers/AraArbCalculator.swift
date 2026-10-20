@@ -94,32 +94,38 @@ struct AraArbCalculator {
                 state.errors = validator.validate()
                 guard state.errors.isEmpty else { return .none }
 
-                var type: AutoRejectType
-                switch state.type {
-                case 0:
-                    type = .symmetric
-                case 1:
-                    type = .asymmetric
-                case 2:
-                    type = .acceleration
-                default:
-                    type = .symmetric
-                }
-
-                state.autoRejectPrice = state.price
-                state.autoRejects = self.stockCalculator.calculateAutoRejects(
-                    price: state.price,
-                    type: type,
-                    limit: 5,
-                    araPercentage: state.usesCustomPercentages ? state.araPercentage : nil,
-                    arbPercentage: state.usesCustomPercentages ? state.arbPercentage : nil
-                )
-                state.autoRejects?.ara.reverse()
+                calculateResult(state: &state)
                 return .none
             default:
                 return .none
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        var type: AutoRejectType
+        switch state.type {
+        case 0:
+            type = .symmetric
+        case 1:
+            type = .asymmetric
+        case 2:
+            type = .acceleration
+        default:
+            type = .symmetric
+        }
+
+        state.autoRejectPrice = state.price
+        state.autoRejects = self.stockCalculator.calculateAutoRejects(
+            price: state.price,
+            type: type,
+            limit: 5,
+            araPercentage: state.usesCustomPercentages ? state.araPercentage : nil,
+            arbPercentage: state.usesCustomPercentages ? state.arbPercentage : nil
+        )
+        state.autoRejects?.ara.reverse()
+    }
+
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NavView<Content: View>: View {
-    let store: StoreOf<Main>
+    @Bindable var store: StoreOf<Main>
     var content: () -> Content
 
     init(store: StoreOf<Main>, @ViewBuilder content: @escaping () -> Content) {
@@ -20,14 +20,21 @@ struct NavView<Content: View>: View {
     var body: some View {
         #if os(macOS)
         NavigationSplitView(sidebar: content, detail: {
-            HomeView(store: store.scope(state: \.settings, action: \.settings))
+            if let screen = store.selectedScreen {
+                CalculatorDestinationView(screen: screen, store: store)
+            } else {
+                HomeView(store: store.scope(state: \.settings, action: \.settings))
+            }
         })
         .toolbar {
             Toolbar(store: store)
         }
         #else
-        NavigationStack {
+        NavigationStack(path: $store.path) {
             content()
+                .navigationDestination(for: CalculatorScreen.self) { screen in
+                    CalculatorDestinationView(screen: screen, store: store)
+                }
                 .toolbar {
                     Toolbar(store: store)
                 }
@@ -52,15 +59,19 @@ struct Toolbar: View {
             #endif
 
 
-            NavigationLink(
-                destination: SettingsView(store: self.store.scope(
-                    state: \.settings,
-                    action: \.settings
-                ))
-            ) {
+            #if os(macOS)
+            Button {
+                store.send(.binding(.set(\.selectedScreen, .settings)))
+            } label: {
                 Image("icon.settings").renderingMode(.template)
                     .accessibilityLabel("settings".tr())
             }
+            #else
+            NavigationLink(value: CalculatorScreen.settings) {
+                Image("icon.settings").renderingMode(.template)
+                    .accessibilityLabel("settings".tr())
+            }
+            #endif
 
         }
         .modify {

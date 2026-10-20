@@ -51,6 +51,8 @@ struct MainTests {
         )
         await store.receive(\.tradingReturnCalculator.calculate) {
             $0.tradingReturnCalculator.tradingReturn = expected
+            let snapshot = $0
+            $0.session.capture(.tradingReturn, from: snapshot)
         }
         let result = try #require(store.state.tradingReturnCalculator.tradingReturn)
         #expect(result.calculationResult.totalFee == 425)
@@ -84,5 +86,120 @@ struct MainTests {
         await store.receive(\.calculate)
         #expect(store.state.priceBookValue == nil)
         await store.finish()
+    }
+}
+
+@MainActor
+struct CalculationPersistenceTests {
+    @Test func restoresAllSubmittedCalculatorsAfterRelaunch() async throws {
+        let suite = "CalculationPersistenceTests.\(UUID().uuidString)"
+        let defaults = try #require(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        var initial = withDependencies {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        } operation: { Main.State() }
+        initial.settings.buyFee = 0.15
+        initial.settings.sellFee = 0.25
+        initial.araArbCalculator.price = 1000
+        initial.araArbCalculator.type = 3
+        initial.araArbCalculator.araPercentage = 12
+        initial.araArbCalculator.arbPercentage = 8
+        initial.tradingReturnCalculator.buyPrice = 1000
+        initial.tradingReturnCalculator.sellPrice = 1100
+        initial.tradingReturnCalculator.lot = 2
+        initial.profitPerTickCalculator.price = 1000
+        initial.profitPerTickCalculator.lot = 2
+        initial.averagePriceCalculator.price = 1000
+        initial.averagePriceCalculator.lot = 2
+        initial.averagePriceCalculator.value = 200000
+        initial.riskRewardRatioCalculator.buyPrice = 1000
+        initial.riskRewardRatioCalculator.targetPrice = 1200
+        initial.riskRewardRatioCalculator.stopLossPrice = 900
+        initial.priceBookValueCalculator.price = 1000
+        initial.priceBookValueCalculator.bookValue = 500
+        initial.dividenYieldCalculator.price = 1000
+        initial.dividenYieldCalculator.dividen = 50
+        initial.stockSplitCalculator.price = 1000
+        initial.stockSplitCalculator.oldRatio = 1
+        initial.stockSplitCalculator.newRatio = 5
+        initial.rightIssueCalculator.ticker = "TEST"
+        initial.rightIssueCalculator.cumDatePrice = 1000
+        initial.rightIssueCalculator.lot = 2
+        initial.rightIssueCalculator.exercisePrice = 500
+        initial.rightIssueCalculator.oldRatio = 2
+        initial.rightIssueCalculator.newRatio = 1
+        initial.lotCalculator.price = 1000
+        initial.lotCalculator.maxBuy = 1000000
+        let store = TestStore(initialState: initial) { Main() } withDependencies: {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        }
+        store.exhaustivity = .off
+        // Use fees different from settings to verify the exact submitted fees are saved.
+        let fee = BrokerFee(buy: 0.35, sell: 0.45)
+        let actions: [Main.Action] = [
+            .araArbCalculator(.calculateButtonTapped),
+            .tradingReturnCalculator(.calculateButtonTapped),
+            .profitPerTickCalculator(.calculateButtonTapped(brokerFee: fee)),
+            .averagePriceCalculator(.buyButtonTapped),
+            .riskRewardRatioCalculator(.calculateButtonTapped),
+            .priceBookValueCalculator(.calculateButtonTapped),
+            .dividenYieldCalculator(.calculateButtonTapped),
+            .stockSplitCalculator(.calculateButtonTapped),
+            .rightIssueCalculator(.calculateButtonTapped),
+            .lotCalculator(.calculateButtonTapped(brokerFee: fee))
+        ]
+        for action in actions {
+            await store.send(action).finish()
+        }
+        await store.send(.rightIssueCalculator(.binding(.set(\.currentPrice, 950)))).finish()
+        await store.send(.binding(.set(\.path, [.rightIssue])))
+        let data = try #require(defaults.data(forKey: CalculationSession.storageKey))
+        let saved = try JSONDecoder().decode(CalculationSession.self, from: data)
+        #expect(saved.forms.count == 10)
+        let restored = withDependencies {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        } operation: { Main.State.restored() }
+        #expect(restored.path == [.rightIssue])
+        #expect(restored.araArbCalculator == store.state.araArbCalculator)
+        #expect(restored.tradingReturnCalculator.tradingReturn == store.state.tradingReturnCalculator.tradingReturn)
+        #expect(restored.tradingReturnCalculator.buyPrice == 1000)
+        #expect(restored.profitPerTickCalculator == store.state.profitPerTickCalculator)
+        #expect(restored.averagePriceCalculator == store.state.averagePriceCalculator)
+        #expect(restored.riskRewardRatioCalculator == store.state.riskRewardRatioCalculator)
+        #expect(restored.priceBookValueCalculator == store.state.priceBookValueCalculator)
+        #expect(restored.dividenYieldCalculator == store.state.dividenYieldCalculator)
+        #expect(restored.stockSplitCalculator == store.state.stockSplitCalculator)
+        #expect(restored.rightIssueCalculator == store.state.rightIssueCalculator)
+        #expect(restored.lotCalculator == store.state.lotCalculator)
+
+        // Drafts and failed submissions must leave the previous successful form intact.
+        await store.send(.priceBookValueCalculator(.binding(.set(\.price, 0)))).finish()
+        await store.send(.priceBookValueCalculator(.calculateButtonTapped)).finish()
+        let afterFailure = try #require(defaults.data(forKey: CalculationSession.storageKey))
+        #expect(afterFailure == data)
+        await store.send(.averagePriceCalculator(.deleteButtonTapped(index: 0)))
+        let afterDeletion = withDependencies {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        } operation: { Main.State.restored() }
+        #expect(afterDeletion.averagePriceCalculator == store.state.averagePriceCalculator)
+        await store.finish()
+    }
+
+    @Test func missingCorruptAndUnsupportedSessionsUseFreshState() throws {
+        let suite = "CalculationPersistenceTests.\(UUID().uuidString)"
+        let defaults = try #require(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        try withDependencies {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        } operation: {
+            #expect(Main.State.restored().path.isEmpty)
+            defaults.set(Data("invalid json".utf8), forKey: CalculationSession.storageKey)
+            #expect(Main.State.restored().session.forms.isEmpty)
+            var unsupported = CalculationSession()
+            unsupported.version = 999
+            unsupported.path = [.lot]
+            defaults.set(try JSONEncoder().encode(unsupported), forKey: CalculationSession.storageKey)
+            #expect(Main.State.restored().path.isEmpty)
+        }
     }
 }

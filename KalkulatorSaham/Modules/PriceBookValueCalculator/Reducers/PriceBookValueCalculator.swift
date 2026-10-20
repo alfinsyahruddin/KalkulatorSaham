@@ -62,17 +62,22 @@ struct PriceBookValueCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.priceBookValue = self.stockCalculator.calculatePriceBookValue(
-                    price: state.price,
-                    bookValue: state.bookValue
-                )
-
+                calculateResult(state: &state)
                 return .none
             default:
                 return .none
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.priceBookValue = self.stockCalculator.calculatePriceBookValue(
+            price: state.price,
+            bookValue: state.bookValue
+        )
+    }
+
 }
 
 

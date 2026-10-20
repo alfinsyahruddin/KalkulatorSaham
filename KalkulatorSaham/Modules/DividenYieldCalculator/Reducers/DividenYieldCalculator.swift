@@ -61,10 +61,7 @@ struct DividenYieldCalculator {
             case .calculate:
                 guard state.errors.isEmpty else { return .none }
 
-                state.dividenYield = self.stockCalculator.calculateDividenYield(
-                    price: state.price,
-                    dividen: state.dividen
-                )
+                calculateResult(state: &state)
                 return .none
 
             default:
@@ -72,6 +69,15 @@ struct DividenYieldCalculator {
             }
         }
     }
+
+    /// Shared by live submissions and session restoration.
+    func calculateResult(state: inout State) {
+        state.dividenYield = self.stockCalculator.calculateDividenYield(
+            price: state.price,
+            dividen: state.dividen
+        )
+    }
+
 }
 
 
