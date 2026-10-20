@@ -203,3 +203,45 @@ struct CalculationPersistenceTests {
         }
     }
 }
+
+struct NumericInputFormattingTests {
+    @Test(arguments: [
+        ("2000000", "2.000.000"),
+        ("1234,50", "1.234,50"),
+        ("0,", "0,"),
+        (",5", "0,5"),
+        ("0001234", "1.234"),
+        ("-2000000,25", "-2.000.000,25"),
+        ("2.000.000,50", "2.000.000,50"),
+        ("0.15", "0,15"),
+        ("", ""),
+        ("-", "-")
+    ])
+    func formatsEditableNumbers(example: (String, String)) {
+        #expect(NumericInputFormatter.format(example.0) == example.1)
+    }
+
+    @Test func groupsEveryKeystrokeAndPreservesTheNumericValue() {
+        var text = ""
+        for digit in "2000000" {
+            text = NumericInputFormatter.format(text + String(digit), previous: text)
+        }
+        #expect(text == "2.000.000")
+        #expect(NumericInputFormatter.value(of: text) == 2000000)
+        text = NumericInputFormatter.format(text + ",", previous: text)
+        #expect(text == "2.000.000,")
+        text = NumericInputFormatter.format(text + "5", previous: text)
+        #expect(text == "2.000.000,5")
+        #expect(NumericInputFormatter.value(of: text) == 2000000.5)
+    }
+
+    @Test func acceptsDecimalKeyboardPeriodAndBackspace() {
+        #expect(NumericInputFormatter.format("1.000.", previous: "1.000") == "1.000,")
+        #expect(NumericInputFormatter.format("1.00", previous: "1.000") == "100")
+        #expect(NumericInputFormatter.format("1234", previous: "1.234") == "234")
+        #expect(NumericInputFormatter.display(2000000.125) == "2.000.000,125")
+        #expect(NumericInputFormatter.value(of: "") == 0)
+        #expect(NumericInputFormatter.value(of: "1.234,50") == 1234.5)
+        #expect(NumericInputFormatter.value(of: String(repeating: "9", count: 400)) == nil)
+    }
+}

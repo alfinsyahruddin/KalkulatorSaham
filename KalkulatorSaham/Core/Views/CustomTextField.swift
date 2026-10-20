@@ -43,7 +43,7 @@ struct CustomTextField: View {
                 }
                 
                 if let value = value {
-                    TextField(placeholder ?? label, value: value, formatter: numberFormatter)
+                    NumericTextField(placeholder: placeholder ?? label, value: value)
                         .textFieldStyle(.plain)
                         .modify {
                             #if os(iOS)

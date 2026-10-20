@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF100000000000000000000B /* NumericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100000000000000000000C; };
+		BF1000000000000000000009 /* NumericInputFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100000000000000000000A; };
 		BF1000000000000000000007 /* CalculatorDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000008; };
 		BF1000000000000000000005 /* SubmittedTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000006; };
 		BF1000000000000000000003 /* SubmittedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000004; };
@@ -111,6 +113,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF100000000000000000000C /* NumericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericTextField.swift; sourceTree = "<group>"; };
+		BF100000000000000000000A /* NumericInputFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputFormatter.swift; sourceTree = "<group>"; };
 		BF1000000000000000000008 /* CalculatorDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDestinationView.swift; sourceTree = "<group>"; };
 		BF1000000000000000000006 /* SubmittedTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedTransaction.swift; sourceTree = "<group>"; };
 		BF1000000000000000000004 /* SubmittedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedForm.swift; sourceTree = "<group>"; };
@@ -747,6 +751,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B8B9DF29BB663600056960 /* NumberFormatter.swift */,
+				BF100000000000000000000A /* NumericInputFormatter.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				A17FEFCB29B5DA39001B7502 /* RadioSelect.swift */,
 				A173FD4729B9A98F00F17675 /* InformationCard.swift */,
 				A173FD4929B9A9A300F17675 /* CustomTextField.swift */,
+				BF100000000000000000000C /* NumericTextField.swift */,
 				A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */,
 				A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */,
 				A12C077A29BCCD4300B4F0EE /* ActivityView.swift */,
@@ -930,7 +936,9 @@
 				A1648AAE29BA1A2100705200 /* Int+Format.swift in Sources */,
 				A15B002829BB1588002A1F5E /* Storage.swift in Sources */,
 				A173FD4A29B9A9A300F17675 /* CustomTextField.swift in Sources */,
+				BF100000000000000000000B /* NumericTextField.swift in Sources */,
 				A1B8B9E029BB663600056960 /* NumberFormatter.swift in Sources */,
+				BF1000000000000000000009 /* NumericInputFormatter.swift in Sources */,
 				A17FEFCE29B5E625001B7502 /* NavView.swift in Sources */,
 				A106CF4029D93D1000DFB7A6 /* RequiredRule.swift in Sources */,
 				A10E693829B1B3D500DA5DCA /* CalculatorScreen.swift in Sources */,
