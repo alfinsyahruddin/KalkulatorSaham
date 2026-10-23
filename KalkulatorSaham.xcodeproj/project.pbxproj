@@ -1335,7 +1335,7 @@
 			repositoryURL = "https://github.com/alfinsyahruddin/stock-calculator/";
 			requirement = {
 				kind = exactVersion;
-				version = 0.3.0;
+				version = 0.4.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

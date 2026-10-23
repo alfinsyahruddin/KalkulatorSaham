@@ -44,6 +44,7 @@
 "total_received" = "Total Received";
 "coming_soon" = "Coming Soon!";
 "this_feature_is_not_available_at_this_time" = "This feature is not available at this time, We will notify you once this feature is ready.";
+"idx" = "IDX";
 "symmetric" = "Symmetric";
 "asymmetric" = "Asymmetric";
 "acceleration" = "Acceleration";

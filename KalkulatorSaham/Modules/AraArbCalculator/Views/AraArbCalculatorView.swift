@@ -26,10 +26,11 @@ struct AraArbCalculatorView: View {
                         )
 
                         Picker("Type", selection: $store.type) {
-                            Text("symmetric".tr()).tag(0)
-                            Text("asymmetric".tr()).tag(1)
-                            Text("acceleration".tr()).tag(2)
-                            Text("custom".tr()).tag(3)
+                            Text("idx".tr()).tag(0)
+                            Text("symmetric".tr()).tag(1)
+                            Text("asymmetric".tr()).tag(2)
+                            Text("acceleration".tr()).tag(3)
+                            Text("custom".tr()).tag(4)
                         }
                         .pickerStyle(.segmented)
 

@@ -66,7 +66,7 @@ struct CalculationSession: Codable, Equatable {
             case .araArb:
                 var value = AraArbCalculator.State()
                 value.price = form.numbers["price"] ?? 0
-                value.type = (0...3).first { Double($0) == form.numbers["type"] } ?? 0
+                value.type = (0...4).first { Double($0) == form.numbers["type"] } ?? 0
                 value.araPercentage = form.numbers["araPercentage"] ?? 0
                 value.arbPercentage = form.numbers["arbPercentage"] ?? 0
                 AraArbCalculator().calculateResult(state: &value)

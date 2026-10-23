@@ -21,7 +21,7 @@ struct AraArbCalculator {
         var araPercentage: Double = 25
         var arbPercentage: Double = 15
 
-        var usesCustomPercentages: Bool { type == 3 }
+        var usesCustomPercentages: Bool { type == 4 }
         var errors: Validator.Errors = [:]
 
         var autoRejectPrice: Double = 0
@@ -107,13 +107,15 @@ struct AraArbCalculator {
         var type: AutoRejectType
         switch state.type {
         case 0:
-            type = .symmetric
+            type = .idx
         case 1:
-            type = .asymmetric
+            type = .symmetric
         case 2:
+            type = .asymmetric
+        case 3:
             type = .acceleration
         default:
-            type = .symmetric
+            type = .idx
         }
 
         state.autoRejectPrice = state.price

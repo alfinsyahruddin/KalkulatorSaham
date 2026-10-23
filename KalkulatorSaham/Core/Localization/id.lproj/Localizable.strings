@@ -44,6 +44,7 @@
 "total_received" = "Total Diterima";
 "coming_soon" = "Segera Datang!";
 "this_feature_is_not_available_at_this_time" = "Fitur ini belum tersedia saat ini, Kami akan memberi tahu anda jika fitur ini suadah siap.";
+"idx" = "IDX";
 "symmetric" = "Simetris";
 "asymmetric" = "Asimetris";
 "acceleration" = "Akselerasi";

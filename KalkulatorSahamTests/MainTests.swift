@@ -101,7 +101,7 @@ struct CalculationPersistenceTests {
         initial.settings.buyFee = 0.15
         initial.settings.sellFee = 0.25
         initial.araArbCalculator.price = 1000
-        initial.araArbCalculator.type = 3
+        initial.araArbCalculator.type = 4
         initial.araArbCalculator.araPercentage = 12
         initial.araArbCalculator.arbPercentage = 8
         initial.tradingReturnCalculator.buyPrice = 1000
