@@ -102,3 +102,11 @@
 "arb_percentage" = "ARB (%)";
 "custom_auto_reject_percentage_hint" = "Masukkan persentase 0–100. ARB diisi sebagai persentase penurunan bernilai positif.";
 "percentage_must_be_between_0_and_100" = "Masukkan persentase antara 0 dan 100.";
+
+"stamp_duty" = "Bea Meterai";
+"calculate_stamp_duty" = "Hitung Bea Meterai";
+"stamp_duty_fee" = "Biaya Meterai";
+"threshold" = "Batas Transaksi";
+"stamp_duty_rule" = "%@ (> %@)";
+"fee_breakdown" = "Rincian Biaya";
+"please_enter_stamp_duty" = "Silakan masukkan biaya meterai dan batas nilai transaksi.";

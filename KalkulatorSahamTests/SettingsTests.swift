@@ -45,6 +45,33 @@ struct SettingsTests {
         #expect(reloaded.sellFee == 0.25)
     }
 
+    @Test func persistsStampDutyBindingsAndDefaults() async throws {
+        let suite = "SettingsTests.\(UUID().uuidString)"
+        let defaults = try #require(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = TestStore(initialState: Settings.State()) {
+            Settings()
+        } withDependencies: {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        }
+
+        #expect(store.state.stampDutyFee == 10000)
+        #expect(store.state.stampDutyThreshold == 10000000)
+
+        await store.send(.binding(.set(\.stampDutyFee, 15000))) { $0.stampDutyFee = 15000 }
+        await store.send(.binding(.set(\.stampDutyThreshold, 20000000))) { $0.stampDutyThreshold = 20000000 }
+        #expect(defaults.double(forKey: UserDefaultsKey.stampDutyFee) == 15000)
+        #expect(defaults.double(forKey: UserDefaultsKey.stampDutyThreshold) == 20000000)
+
+        let reloaded = withDependencies {
+            $0.userDefaults = UserDefaultsClient(suiteName: suite)
+        } operation: {
+            Settings.State()
+        }
+        #expect(reloaded.stampDutyFee == 15000)
+        #expect(reloaded.stampDutyThreshold == 20000000)
+    }
+
     @Test func invalidSavedPreferencesFallBackToSystem() async throws {
         let suite = "SettingsTests.\(UUID().uuidString)"
         let defaults = try #require(UserDefaults(suiteName: suite))

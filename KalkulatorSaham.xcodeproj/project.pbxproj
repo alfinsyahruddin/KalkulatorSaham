@@ -37,6 +37,7 @@
 		A12C077F29BCCD9E00B4F0EE /* Collection+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C077E29BCCD9E00B4F0EE /* Collection+Subscript.swift */; };
 		A12C078129BCCDB500B4F0EE /* Double+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C078029BCCDB500B4F0EE /* Double+Color.swift */; };
 		A12E694929C2EE5C00F6A3F7 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E694829C2EE5C00F6A3F7 /* SettingsTests.swift */; };
+		BF1000000000000000000012 /* LotCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1000000000000000000011 /* LotCalculatorTests.swift */; };
 		A12E695029C2F3BE00F6A3F7 /* MainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E694F29C2F3BE00F6A3F7 /* MainTests.swift */; };
 		A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002229BB1148002A1F5E /* StorageProtocol.swift */; };
 		A15B002529BB1154002A1F5E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */; };
@@ -69,6 +70,8 @@
 		A1648ABD29BA226B00705200 /* ProfitPerTickCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648ABC29BA226B00705200 /* ProfitPerTickCalculator.swift */; };
 		A1648ABF29BA22AA00705200 /* ProfitPerTickCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648ABE29BA22AA00705200 /* ProfitPerTickCalculatorView.swift */; };
 		A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1648AC029BA240900705200 /* BrokerFeeView.swift */; };
+		BF100000000000000000000E /* StampDutyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100000000000000000000D /* StampDutyView.swift */; };
+		BF1000000000000000000010 /* StampDutyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF100000000000000000000F /* StampDutyInformation.swift */; };
 		A173FD4229B99C5900F17675 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4129B99C5900F17675 /* card.swift */; };
 		A173FD4429B9A91900F17675 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4329B9A91900F17675 /* Array+Chunk.swift */; };
 		A173FD4629B9A94000F17675 /* cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173FD4529B9A94000F17675 /* cornerRadius.swift */; };
@@ -146,6 +149,7 @@
 		A12C078029BCCDB500B4F0EE /* Double+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Color.swift"; sourceTree = "<group>"; };
 		A12E694629C2EE5B00F6A3F7 /* KalkulatorSahamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KalkulatorSahamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12E694829C2EE5C00F6A3F7 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		BF1000000000000000000011 /* LotCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotCalculatorTests.swift; sourceTree = "<group>"; };
 		A12E694F29C2F3BE00F6A3F7 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 		A15B002229BB1148002A1F5E /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		A15B002429BB1154002A1F5E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		A1648ABC29BA226B00705200 /* ProfitPerTickCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPerTickCalculator.swift; sourceTree = "<group>"; };
 		A1648ABE29BA22AA00705200 /* ProfitPerTickCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPerTickCalculatorView.swift; sourceTree = "<group>"; };
 		A1648AC029BA240900705200 /* BrokerFeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerFeeView.swift; sourceTree = "<group>"; };
+		BF100000000000000000000D /* StampDutyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDutyView.swift; sourceTree = "<group>"; };
+		BF100000000000000000000F /* StampDutyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDutyInformation.swift; sourceTree = "<group>"; };
 		A173FD4129B99C5900F17675 /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
 		A173FD4329B9A91900F17675 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
 		A173FD4529B9A94000F17675 /* cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cornerRadius.swift; sourceTree = "<group>"; };
@@ -434,6 +440,7 @@
 				A12E694F29C2F3BE00F6A3F7 /* MainTests.swift */,
 				B14585D02AE1000000000002 /* AraArbCalculatorTests.swift */,
 				A12E694829C2EE5C00F6A3F7 /* SettingsTests.swift */,
+				BF1000000000000000000011 /* LotCalculatorTests.swift */,
 			);
 			path = KalkulatorSahamTests;
 			sourceTree = "<group>";
@@ -716,6 +723,7 @@
 				A17FEFC929B5CDED001B7502 /* ThemeView.swift */,
 				A17FEFC729B5CCF2001B7502 /* LanguageView.swift */,
 				A1648AC029BA240900705200 /* BrokerFeeView.swift */,
+				BF100000000000000000000D /* StampDutyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -786,6 +794,7 @@
 				A173FD4929B9A9A300F17675 /* CustomTextField.swift */,
 				BF100000000000000000000C /* NumericTextField.swift */,
 				A173FD4B29B9A9DE00F17675 /* BrokerFeeInformation.swift */,
+				BF100000000000000000000F /* StampDutyInformation.swift */,
 				A15B002E29BB29BA002A1F5E /* CustomButtonStyle.swift */,
 				A12C077A29BCCD4300B4F0EE /* ActivityView.swift */,
 				A12C077C29BCCD7000B4F0EE /* TableView.swift */,
@@ -1010,6 +1019,8 @@
 				A15B002329BB1148002A1F5E /* StorageProtocol.swift in Sources */,
 				A161131229D8675300087F17 /* DividenYieldCalculator.swift in Sources */,
 				A1648AC129BA240900705200 /* BrokerFeeView.swift in Sources */,
+				BF100000000000000000000E /* StampDutyView.swift in Sources */,
+				BF1000000000000000000010 /* StampDutyInformation.swift in Sources */,
 				A1648AB029BA1A5C00705200 /* NumberFormatType.swift in Sources */,
 				A17FEFCC29B5DA39001B7502 /* RadioSelect.swift in Sources */,
 				A122534B29B6239D00C87F8A /* Language.swift in Sources */,
@@ -1025,6 +1036,7 @@
 				A12E695029C2F3BE00F6A3F7 /* MainTests.swift in Sources */,
 				B14585D02AE1000000000001 /* AraArbCalculatorTests.swift in Sources */,
 				A12E694929C2EE5C00F6A3F7 /* SettingsTests.swift in Sources */,
+				BF1000000000000000000012 /* LotCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

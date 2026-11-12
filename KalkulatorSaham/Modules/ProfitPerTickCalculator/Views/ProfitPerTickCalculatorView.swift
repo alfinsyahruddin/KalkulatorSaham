@@ -65,10 +65,10 @@ struct ProfitPerTickCalculatorView: View {
                         rows: store.rows,
                         colors: store.colors
                     )
-
-                    Spacer()
                 }
+                .frame(maxWidth: .infinity, alignment: .topLeading)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .modify {
             #if os(iOS)

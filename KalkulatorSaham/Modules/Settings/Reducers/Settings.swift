@@ -47,6 +47,18 @@ struct Settings {
             return sellFee
         }()
 
+        var stampDutyFee: Double = {
+            @Dependency(\.userDefaults) var userDefaults
+
+            return userDefaults.doubleOrNil(forKey: UserDefaultsKey.stampDutyFee) ?? 10_000
+        }()
+
+        var stampDutyThreshold: Double = {
+            @Dependency(\.userDefaults) var userDefaults
+
+            return userDefaults.doubleOrNil(forKey: UserDefaultsKey.stampDutyThreshold) ?? 10_000_000
+        }()
+
     }
 
     enum Action: Equatable, BindableAction {
@@ -66,6 +78,12 @@ struct Settings {
                 return .none
             case .binding(\.sellFee):
                 userDefaults.set(state.sellFee, forKey: UserDefaultsKey.sellFee)
+                return .none
+            case .binding(\.stampDutyFee):
+                userDefaults.set(state.stampDutyFee, forKey: UserDefaultsKey.stampDutyFee)
+                return .none
+            case .binding(\.stampDutyThreshold):
+                userDefaults.set(state.stampDutyThreshold, forKey: UserDefaultsKey.stampDutyThreshold)
                 return .none
             case let .setTheme(theme):
                 state.theme = theme

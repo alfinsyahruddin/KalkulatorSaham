@@ -12,4 +12,6 @@ struct UserDefaultsKey {
     static let language = "language"
     static let buyFee = "buyFee"
     static let sellFee = "sellFee"
+    static let stampDutyFee = "stampDutyFee"
+    static let stampDutyThreshold = "stampDutyThreshold"
 }

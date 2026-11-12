@@ -146,7 +146,7 @@ struct CalculationPersistenceTests {
             .dividenYieldCalculator(.calculateButtonTapped),
             .stockSplitCalculator(.calculateButtonTapped),
             .rightIssueCalculator(.calculateButtonTapped),
-            .lotCalculator(.calculateButtonTapped(brokerFee: fee))
+            .lotCalculator(.calculateButtonTapped(brokerFee: fee, stampDutyFee: 10000, stampDutyThreshold: 10000000))
         ]
         for action in actions {
             await store.send(action).finish()

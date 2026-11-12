@@ -40,6 +40,14 @@ struct SettingsView: View {
                         MenuRow(icon: "icon.percent", label: "broker_fee".tr())
                     }
 
+                    NavigationLink(
+                        destination: StampDutyView(
+                            store: store
+                        )
+                    ) {
+                        MenuRow(icon: "icon.percent", label: "stamp_duty".tr())
+                    }
+
                     Button {
                         let url = URL(string: "https://apps.apple.com/us/app/kalkulator-saham/id6445988371?action=write-review")!
                         openURL(url)

@@ -13,6 +13,10 @@ struct TableView: View {
     var rows: [[String]]
     var colors: [[Color]] = []
 
+    var tableHeight: CGFloat {
+        columns.isEmpty ? 0 : CGFloat(30 + rows.count * 30 + 1)
+    }
+
     var body: some View {
         let totalWidth: Double = columns.reduce(0, { $0 + $1.width })
         return GeometryReader { geometry in
@@ -51,6 +55,7 @@ struct TableView: View {
                 Separator()
             }
         }
+        .frame(height: tableHeight)
     }
 }
 

@@ -15,9 +15,9 @@ struct LotCalculatorView: View {
 
     var body: some View {
         ScreenView {
-            ScrollView {
+            ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 20) {
-                    HStack(spacing: 10) {
+                    HStack(alignment: .top, spacing: 10) {
                         CustomTextField(
                             label: "price".tr(),
                             value: $store.price,
@@ -38,12 +38,19 @@ struct LotCalculatorView: View {
                         calculateBrokerFee: $store.calculateBrokerFee
                     )
 
+                    StampDutyInformation(
+                        store: settingsStore,
+                        calculateStampDuty: $store.calculateStampDuty
+                    )
+
                     Button("calculate".tr()) {
                         store.send(.calculateButtonTapped(
                             brokerFee: BrokerFee(
                                 buy: settingsStore.buyFee,
                                 sell: settingsStore.sellFee
-                            )
+                            ),
+                            stampDutyFee: settingsStore.stampDutyFee,
+                            stampDutyThreshold: settingsStore.stampDutyThreshold
                         ))
                     }
                     .buttonStyle(CustomButtonStyle())
@@ -63,11 +70,35 @@ struct LotCalculatorView: View {
 
                             ResultCard(
                                 title: "total".tr(),
-                                content: lotResult.value.f(.currency),
+                                content: lotResult.totalPaid.f(.currency),
                                 alignment: .leading,
                                 contentFont: .body
                             )
                         }
+
+                        InformationCard(
+                            title: "fee_breakdown".tr(),
+                            items: [
+                                InformationCardItem(
+                                    key: "buy_value".tr(),
+                                    value: lotResult.buyValue.f(.currency)
+                                ),
+                                InformationCardItem(
+                                    key: store.calculateBrokerFee
+                                        ? "\("buy_fee".tr()) (\(settingsStore.buyFee.f().percentage()))"
+                                        : "buy_fee".tr(),
+                                    value: lotResult.buyFee.f(.currency)
+                                ),
+                                InformationCardItem(
+                                    key: "stamp_duty".tr(),
+                                    value: lotResult.stampDuty.f(.currency)
+                                ),
+                                InformationCardItem(
+                                    key: "total_paid".tr(),
+                                    value: lotResult.totalPaid.f(.currency)
+                                )
+                            ]
+                        )
                     }
 
                     TableView(
@@ -82,11 +113,11 @@ struct LotCalculatorView: View {
                         rows: store.rows,
                         colors: store.colors
                     )
-
-                    Spacer()
                 }
                 .padding()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .modify {
             #if os(iOS)

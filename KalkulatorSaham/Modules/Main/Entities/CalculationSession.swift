@@ -49,8 +49,16 @@ struct CalculationSession: Codable, Equatable {
             form.ticker = value.ticker
         case .lot:
             let value = state.lotCalculator
-            form.numbers = ["price": value.price, "maxBuy": value.maxBuy]
-            form.flags = ["calculateBrokerFee": value.calculateBrokerFee]
+            form.numbers = [
+                "price": value.price,
+                "maxBuy": value.maxBuy,
+                "stampDutyFee": state.settings.stampDutyFee,
+                "stampDutyThreshold": state.settings.stampDutyThreshold
+            ]
+            form.flags = [
+                "calculateBrokerFee": value.calculateBrokerFee,
+                "calculateStampDuty": value.calculateStampDuty
+            ]
         case .settings: return
         }
         forms[screen.rawValue] = form
@@ -140,7 +148,15 @@ struct CalculationSession: Codable, Equatable {
                 value.price = form.numbers["price"] ?? 0
                 value.maxBuy = form.numbers["maxBuy"] ?? 0
                 value.calculateBrokerFee = form.flags["calculateBrokerFee"] ?? true
-                LotCalculator().calculateResult(state: &value)
+                value.calculateStampDuty = form.flags["calculateStampDuty"] ?? true
+                let stampDutyFee = form.numbers["stampDutyFee"] ?? state.settings.stampDutyFee
+                let stampDutyThreshold = form.numbers["stampDutyThreshold"] ?? state.settings.stampDutyThreshold
+                LotCalculator().calculateResult(
+                    state: &value,
+                    brokerFee: brokerFee,
+                    stampDutyFee: stampDutyFee,
+                    stampDutyThreshold: stampDutyThreshold
+                )
                 LotCalculator().calculateProfitPerTickResult(state: &value, brokerFee: brokerFee)
                 state.lotCalculator = value
             case .settings: break

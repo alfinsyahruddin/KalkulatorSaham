@@ -25,6 +25,10 @@ struct UserDefaultsClient: Sendable {
         defaults.double(forKey: key)
     }
 
+    func doubleOrNil(forKey key: String) -> Double? {
+        defaults.object(forKey: key) != nil ? defaults.double(forKey: key) : nil
+    }
+
     func set(_ value: String, forKey key: String) {
         defaults.set(value, forKey: key)
     }
